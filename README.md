@@ -1,6 +1,7 @@
 # Prometheus
 
 Monster project including: 
+
 0. Chart module. Project name - TBA.
    Progress ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
 
