@@ -23,7 +23,6 @@
 		0184CB8026F8D5CF00A53BF5 /* TextFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6826F8D5CF00A53BF5 /* TextFont.swift */; };
 		0184CB8126F8D5CF00A53BF5 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6926F8D5CF00A53BF5 /* ImageSource.swift */; };
 		0184CB8226F8D5CF00A53BF5 /* NumericValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6A26F8D5CF00A53BF5 /* NumericValues.swift */; };
-		0184CB8326F8D5CF00A53BF5 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6D26F8D5CF00A53BF5 /* FlowManager.swift */; };
 		0184CB8426F8D5CF00A53BF5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */; };
 		0184CB8526F8D5CF00A53BF5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB7026F8D5CF00A53BF5 /* AppCoordinator.swift */; };
 		0184CB8626F8D5CF00A53BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB7126F8D5CF00A53BF5 /* AppDelegate.swift */; };
@@ -60,7 +59,6 @@
 		0184CB6826F8D5CF00A53BF5 /* TextFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFont.swift; sourceTree = "<group>"; };
 		0184CB6926F8D5CF00A53BF5 /* ImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		0184CB6A26F8D5CF00A53BF5 /* NumericValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericValues.swift; sourceTree = "<group>"; };
-		0184CB6D26F8D5CF00A53BF5 /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
 		0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0184CB7026F8D5CF00A53BF5 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0184CB7126F8D5CF00A53BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 		0184CB6C26F8D5CF00A53BF5 /* Supportings */ = {
 			isa = PBXGroup;
 			children = (
-				0184CB6D26F8D5CF00A53BF5 /* FlowManager.swift */,
 				0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */,
 			);
 			path = Supportings;
@@ -422,7 +419,6 @@
 			files = (
 				0184CB8626F8D5CF00A53BF5 /* AppDelegate.swift in Sources */,
 				0184CB7C26F8D5CF00A53BF5 /* CoordinatorTabBarController.swift in Sources */,
-				0184CB8326F8D5CF00A53BF5 /* FlowManager.swift in Sources */,
 				0184CB7326F8D5CF00A53BF5 /* AuthCoordinator.swift in Sources */,
 				0184CB7226F8D5CF00A53BF5 /* AuthViewModel.swift in Sources */,
 				0184CB7826F8D5CF00A53BF5 /* PinBoardView.swift in Sources */,
