@@ -9,22 +9,26 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AuthViewController: UIViewController {
+class AuthViewController: UIViewController, PinBoardDelegate {
 	
 	private enum Values {
-		static let pinBoardHeight: CGFloat = 400
 		static let pinBoardHeaderHeight: CGFloat = 56
 	}
-	
-	// MARK: - Private properties
 
+	@PasswordCredential(lenght: 4)
+	private var currentPasswordProgress: String
+	
+	private let viewModel: AuthViewModel
 	private let disposeBag = DisposeBag()
+	
+	// MARK: - Subjects
+	
+	private let password = PublishSubject<String>()
 
 	// MARK: - Views
 	
 	private let progressView: DotProgressView = {
 		let view = DotProgressView(dotsCount: 4)
-		view.setStatusText(text: "Введите пароль")
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
 		return view
@@ -39,7 +43,7 @@ class AuthViewController: UIViewController {
 	}()
 
 	private lazy var pinBoardView: PinBoardView = {
-		let view = PinBoardView(isBiometricEnabled: true, delegate: self)
+		let view = PinBoardView(delegate: self)
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
 		return view
@@ -47,7 +51,8 @@ class AuthViewController: UIViewController {
 	
 	// MARK: - Lifecycle
 	
-	init() {
+	init(viewModel: AuthViewModel) {
+		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -60,11 +65,48 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
 	
 		setupUI()
+		bind()
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		timerLabel.startAnimating()
+	}
+	
+	// MARK: - Setup Data
+	
+	private func bind() {
+		let input = AuthViewModel.Input(passwordDidEntered: password.asObservable())
+		let output = viewModel.transform(input: input)
+		output.state
+			.drive { [weak self] state in
+				guard let self = self else { return }
+				self.pinBoardView.isUserInteractionEnabled = true
+				
+				var title: String
+				switch state {
+				case .enter(let text):
+					title = text
+				case .create(let text):
+					title = text
+				case .confirm(let text):
+					title = text
+				case .success(let text):
+					title = text
+					self.pinBoardView.isUserInteractionEnabled = false
+				case .failure(let text):
+					title = text
+				}
+				self.resetCurrentInput()
+				self.progressView.setStatusText(text: title, animated: true)
+			}
+		.disposed(by: disposeBag)
+	}
+	
+	private func resetCurrentInput() {
+		progressView.resetProgress()
+		_currentPasswordProgress.emptify()
+		pinBoardView.setRemovingAvailable(false)
 	}
 	
 	// MARK: - Setup UI
@@ -85,7 +127,7 @@ class AuthViewController: UIViewController {
 			progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			progressView.heightAnchor.constraint(equalToConstant: Values.pinBoardHeaderHeight),
 			
-			pinBoardView.heightAnchor.constraint(equalToConstant: Values.pinBoardHeight),
+			pinBoardView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
 			pinBoardView.widthAnchor.constraint(equalTo: view.widthAnchor),
 			pinBoardView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			pinBoardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -94,15 +136,28 @@ class AuthViewController: UIViewController {
 			timerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor)
 		])
 	}
-}
-
-extension AuthViewController: PinBoardDelegate {
+	
+	// MARK: - PinBoardDelegate
+	
 	func onNumEntered(num: Int) {
-		pinBoardView.setRemoveOperationAvailability(true)
 		progressView.increment()
+		currentPasswordProgress = String(num)
+		// Эммитим каждый введенный символ
+		password.onNext($currentPasswordProgress)
+		
+		if $currentPasswordProgress.count > 0 {
+			pinBoardView.setRemovingAvailable(true)
+		}
 	}
 	
 	func onRemove() {
 		progressView.decrement()
+		_currentPasswordProgress.deleteLastChar()
+		// Эмиттим каждый удаленный символ
+		password.onNext($currentPasswordProgress)
+		
+		if $currentPasswordProgress.isEmpty {
+			pinBoardView.setRemovingAvailable(false)
+		}
 	}
 }

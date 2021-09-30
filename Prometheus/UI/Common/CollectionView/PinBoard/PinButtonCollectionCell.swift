@@ -13,11 +13,23 @@ final class PinButtonCollectionCell: UICollectionViewCell, CollectionCellType {
 	
 	private let numberLabel: UILabel = {
 		let view = UILabel(frame: .zero)
-		view.textColor = .black
+		view.textColor = Pallete.Black.black1
 		view.textAlignment = .center
 		view.numberOfLines = 0
-		
+		view.font = TextFont.base.withSize(24)
 		view.translatesAutoresizingMaskIntoConstraints = false
+		
+		return view
+	}()
+	
+	private let icon: UIImageView = {
+		let view = UIImageView(frame: .zero)
+		view.tintColor = Pallete.Black.black1
+		view.alpha = 0.8
+		view.contentMode = .scaleAspectFit
+		view.isHidden = true
+		view.translatesAutoresizingMaskIntoConstraints = false
+		
 		return view
 	}()
 	
@@ -26,9 +38,9 @@ final class PinButtonCollectionCell: UICollectionViewCell, CollectionCellType {
 	override var isHighlighted: Bool {
 		didSet {
 			if isHighlighted {
-				animateSelection(with: Pallete.Gray.gray1)
+				animateSelection(with: Pallete.Gray.gray1, tintColor: Pallete.Lilac.lilac2)
 			} else {
-				animateSelection(with: .clear)
+				animateSelection(with: .clear, tintColor: Pallete.Black.black1)
 			}
 		}
 	}
@@ -54,44 +66,52 @@ final class PinButtonCollectionCell: UICollectionViewCell, CollectionCellType {
 	
 	func setup(model: CollectionCellModelAnyType) {
 		guard let model = model as? PinBoardView.PinInfo else { return }
-		let isEnabled = model.isEnabled
-		if let image = model.icon {
+		if model.isEnabled, let image = model.icon {
+			icon.image = image
+			icon.isHidden = false
 			return
 		}
 		if let number = model.number {
 			numberLabel.text = String(number)
-			return
 		}
 	}
 	
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		numberLabel.text = nil
+		icon.isHidden = true
 	}
 	
 	// MARK: - Setup UI
 	
 	private func setupUI() {
 		contentView.backgroundColor = .clear
-		
-		contentView.addSubview(numberLabel)
+		let views = [numberLabel, icon]
+		views.forEach { contentView.addSubview($0) }
 		
 		setupConstraints()
 	}
 	
 	private func setupConstraints() {
-		NSLayoutConstraint.activate([
-			numberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-			numberLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-			numberLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-			numberLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
-		])
+			NSLayoutConstraint.activate([
+				numberLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+				numberLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+				numberLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+				numberLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+				
+				icon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+				icon.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+				icon.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
+				icon.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5)
+			])
 	}
 	
 	// MARK: - Animations
 	
-	private func animateSelection(with color: UIColor) {
+	private func animateSelection(with color: UIColor, tintColor: UIColor) {
 		UIView.animate(withDuration: 0.1) { [weak self] in
+			self?.icon.tintColor = tintColor
+			self?.numberLabel.textColor = tintColor
 			self?.contentView.backgroundColor = color
 		}
 	}

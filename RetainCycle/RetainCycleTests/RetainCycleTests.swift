@@ -1,13 +1,14 @@
 //
-//  PrometheusTests.swift
-//  PrometheusTests
+//  RetainCycleTests.swift
+//  RetainCycleTests
 //
-//  Created by Pyretttt on 20.09.2021.
+//  Created by Pyretttt on 27.09.2021.
 //
 
 import XCTest
+@testable import RetainCycle
 
-class PrometheusTests: XCTestCase {
+class RetainCycleTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,7 +25,7 @@ class PrometheusTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

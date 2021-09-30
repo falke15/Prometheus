@@ -16,7 +16,7 @@ final class DotProgressView: UIView {
 	private var counter: Int = 0
 	private(set) var dotsCount: Int
 	
-	private let successColor: UIColor = Pallete.Green.green1
+	private let successColor: UIColor = Pallete.Green.green3
 	private let secondaryColor: UIColor = Pallete.Gray.gray2
 	
 	// MARK: - Views
@@ -69,11 +69,18 @@ final class DotProgressView: UIView {
 			let animation = CATransition()
 			animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
 			animation.type = CATransitionType.fade
-			animation.duration = 0.1
+			animation.duration = 0.3
 			statusLabel.layer.add(animation, forKey: CATransitionType.fade.rawValue)
 		}
 		
 		statusLabel.text = text
+	}
+	
+	func fillProgrees() {
+		counter = 4
+		dots.forEach {
+			changeViewColor(view: $0, color: successColor)
+		}
 	}
 	
 	func resetProgress() {

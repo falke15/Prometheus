@@ -7,7 +7,17 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+protocol FlowEventListener: AnyObject {
+	func eventOccured(event: AppCoordinator.Event)
+}
+
+final class AppCoordinator: Coordinator, FlowEventListener {
+	
+	enum Event {
+		case loginSucceed
+		case logout
+		case passwordChangeRequest
+	}
 	
 	weak var navigationController: UINavigationController?
 	var childCoordinators: [Coordinator] = []
@@ -30,25 +40,32 @@ final class AppCoordinator: Coordinator {
 	
 	private func startAuthFlow() {
 		let navigationController = UINavigationController()
-
 		appDelegate?.window?.rootViewController = navigationController
+		self.navigationController = navigationController
 		
-		let coordinator = AuthCoordinator(navigationController: navigationController)
+		let coordinator = AuthCoordinator(navigationController: navigationController,
+										  eventListener: self)
 		coordinator.start()
 	}
 	
 	private func startMainFlow() {
 		let navigationController = UINavigationController()
 		appDelegate?.window?.rootViewController = navigationController
+		self.navigationController = navigationController
 	}
 	
 	func finish() {}
-}
-
-extension AppCoordinator {
-	enum AppFlow {
-		case main
-		case auth
-		case undefined
+	
+	// MARK: - FlowEventListener
+	
+	func eventOccured(event: Event) {
+		switch event {
+		case .loginSucceed:
+			break
+		case .logout:
+			break
+		case .passwordChangeRequest:
+			break
+		}
 	}
 }

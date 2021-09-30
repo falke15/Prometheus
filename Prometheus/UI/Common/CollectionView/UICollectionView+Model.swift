@@ -24,7 +24,6 @@ protocol CollectionCellModelType: CollectionCellModelAnyType {
 	associatedtype Cell: CollectionCellType
 }
 
-
 /// Дефолтная реализация протокола для выведения типа ячейки
 extension CollectionCellModelType {
 	var cellType: CollectionCellType.Type {

@@ -21,25 +21,30 @@ final class PinBoardView: UIView {
 		static let defaultSpacing: CGFloat = NumericValues.default
 	}
 	
-	var isEnterEnabled: Bool = true
 	weak var delegate: PinBoardDelegate?
 	
-	// MARK: - Private properties
+	// MARK: - Pins
 	
-	private var isBiometricEnabled: Bool
 	private var pins: [PinInfo] = []
 	private lazy var numericPins: [PinInfo] = {
 		var result: [PinInfo] = []
-		for index in 1...9 {
-			result.append(PinInfo(number: index))
+		for index in 1...10 {
+			var number = index == 10 ? 0 : index
+			let action: () -> Void = { [weak self] in
+				self?.delegate?.onNumEntered(num: number)
+			}
+			result.append(PinInfo(number: number, action: action))
 		}
 		return result
 	}()
-	private lazy var biometricPin: PinInfo = {
-		PinInfo(number: nil, icon: ImageSource.biometry.image, isEnabled: isBiometricEnabled)
+	private lazy var customPin: PinInfo = {
+		PinInfo(number: nil, action: nil, icon: nil, isEnabled: false)
 	}()
 	private lazy var removePin: PinInfo = {
-		PinInfo(number: nil, icon: ImageSource.remove.image, isEnabled: false, isRemovePin: true)
+		let deleteAction: () -> Void = { [weak self] in
+			self?.delegate?.onRemove()
+		}
+		return PinInfo(number: nil, action: deleteAction, icon: ImageSource.remove.image, isEnabled: false)
 	}()
 	
 	// MARK: - Views
@@ -70,9 +75,7 @@ final class PinBoardView: UIView {
 	
 	// MARK: - Lifecycle
 	
-	init(isBiometricEnabled: Bool,
-		 delegate: PinBoardDelegate?){
-		self.isBiometricEnabled = isBiometricEnabled
+	init(delegate: PinBoardDelegate?){
 		self.delegate = delegate
 		super.init(frame: .zero)
 		
@@ -87,18 +90,24 @@ final class PinBoardView: UIView {
 	
 	// MARK: - Data
 	
-	func setBiometricsAvailability(_ enabled: Bool) {
-		biometricPin.isEnabled = enabled
+	func setCustomPin(isEnabled: Bool,
+					  icon: UIImage,
+					  action: @escaping () -> Void) {
+		customPin.isEnabled = isEnabled
+		customPin.icon = icon
+		customPin.action = action
 		setupPins()
 	}
 	
-	func setRemoveOperationAvailability(_ enabled: Bool) {
+	func setRemovingAvailable(_ enabled: Bool) {
 		removePin.isEnabled = enabled
 		setupPins()
 	}
 	
 	private func setupPins() {
-		let result: [PinInfo] = numericPins + [biometricPin, PinInfo(number: 0), removePin]
+		var result = numericPins
+		result.insert(customPin, at: numericPins.count - 1)
+		result.append(removePin)
 		self.pins = result
 		collectionView.reloadData()
 	}
@@ -119,7 +128,6 @@ final class PinBoardView: UIView {
 			collectionView.centerXAnchor.constraint(equalTo: centerXAnchor)
 		])
 	}
-	
 }
 
 extension PinBoardView: UICollectionViewDataSource {
@@ -151,12 +159,7 @@ extension PinBoardView: UICollectionViewDelegate, UICollectionViewDelegateFlowLa
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let model = pins[indexPath.item]
-		if model.isEnabled {
-			if model.isRemovePin { delegate?.onRemove() }
-			
-			guard let number = model.number else { return }
-			delegate?.onNumEntered(num: number)
-		}
+		model.action?()
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -173,16 +176,16 @@ extension PinBoardView {
 		let number: Int?
 		var isEnabled: Bool
 		var icon: UIImage?
-		var isRemovePin: Bool
+		var action: (() -> Void)?
 		
 		init(number: Int?,
+			 action: (() -> Void)?,
 			 icon: UIImage? = nil,
-			 isEnabled: Bool = true,
-			 isRemovePin: Bool = false) {
+			 isEnabled: Bool = true) {
 			self.number = number
 			self.icon = icon
 			self.isEnabled = isEnabled
-			self.isRemovePin = isRemovePin
+			self.action = action
 		}
 	}
 }

@@ -32,7 +32,9 @@ enum Pallete {
 	}
 	
 	enum Green {
-		static let green1: UIColor = #colorLiteral(red: 0.251479708, green: 0.6330825972, blue: 0.1808879712, alpha: 1)
+		static let green1: UIColor = #colorLiteral(red: 0.2, green: 1, blue: 0.2, alpha: 1)
+		static let green2: UIColor = #colorLiteral(red: 0.2, green: 1, blue: 0, alpha: 1)
+		static let green3: UIColor = #colorLiteral(red: 0.251479708, green: 0.6330825972, blue: 0.1808879712, alpha: 1)
 	}
 	
 	enum Lilac {

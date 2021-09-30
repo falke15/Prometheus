@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Coordinator: AnyObject {
+public protocol Coordinator: AnyObject {
 	var childCoordinators: [Coordinator] { get set }
 	var navigationController: UINavigationController? { get }
 	
@@ -15,7 +15,7 @@ protocol Coordinator: AnyObject {
 	func finish()
 }
 
-extension Coordinator {
+public extension Coordinator {
 	func addFlow(coordinator: Coordinator) {
 		childCoordinators.append(coordinator)
 	}
@@ -25,3 +25,4 @@ extension Coordinator {
 		coordinator.finish()
 	}
 }
+

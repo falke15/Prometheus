@@ -7,39 +7,48 @@
 
 import UIKit
 
-final class AuthCoordinator: Coordinator {
+/// Управляющий флоу авторизации
+protocol AuthCoordinating: AnyObject {
+	
+	/// Завершить авторизацию
+	func completeAuthorization()
+}
+
+final class AuthCoordinator: Coordinator, AuthCoordinating {
+	
+	enum Scenario {
+		case creation
+		case change
+		case signIn
+	}
 	
 	var childCoordinators: [Coordinator] = []
 	weak var navigationController: UINavigationController?
+	private weak var eventListener: FlowEventListener?
 	
 	// MARK: - Lifecycle
 	
-	init(navigationController: UINavigationController?) {
+	init(navigationController: UINavigationController?,
+		 eventListener: FlowEventListener) {
 		self.navigationController = navigationController
+		self.eventListener = eventListener
 	}
 	
 	// MARK: - Coordinator
 	
 	func start() {
-		let vc = AuthViewController()
+		let viewModel = AuthViewModel(authorizationService: AuthorizationService())
+		let vc = AuthViewController(viewModel: viewModel)
 		navigationController?.pushViewController(vc, animated: true)
-	}
-	
-	private func startPassCreation() {
-		
 	}
 	
 	func finish() {
 		
 	}
 	
-	// MARK: - Private methods
-}
-
-extension AuthCoordinator {
-	enum Scenario {
-		case creation
-		case change
-		case signIn
+	// MARK: - AuthCoordinating
+	
+	func completeAuthorization() {
+		eventListener?.eventOccured(event: .loginSucceed)
 	}
 }
