@@ -19,9 +19,13 @@ Monster project including:
 
 4. AVFoundation. Project name - TBA.
    Progress ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
+   Notes: 
+   Use Realm
 
 5. Photo editor with Metal. Project name - TBA.
    Progress ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
+   Notes: 
+   Use Realm
 
 6. Widget. Project name - TBA.
    Progress ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
