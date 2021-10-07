@@ -8,31 +8,31 @@
 import UIKit
 
 /// Общий протокол всех ячеек в коллекции
-protocol TableCellType: UITableViewCell {
+public protocol TableCellType: UITableViewCell {
 	static var reuseID: String { get }
 	
 	func setup(model: TableCellModelAnyType)
 }
 
 /// Протокол со стертым типом ячейки
-protocol TableCellModelAnyType {
+public protocol TableCellModelAnyType {
 	var cellType: TableCellType.Type { get }
 }
 
 /// Протокол с выводимым типом ячейки
-protocol TableCellModelType: TableCellModelAnyType {
+public protocol TableCellModelType: TableCellModelAnyType {
 	associatedtype Cell: TableCellType
 }
 
 
 /// Дефолтная реализация протокола для выведения типа ячейки
-extension TableCellModelType {
+public extension TableCellModelType {
 	var cellType: TableCellType.Type {
 		return Cell.self
 	}
 }
 
-extension UITableViewDataSource {
+public extension UITableViewDataSource {
 	func dequeCell(_ tableView: UITableView,
 				   cellModel: TableCellModelAnyType,
 				   indexPath: IndexPath) -> UITableViewCell {

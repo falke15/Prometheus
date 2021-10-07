@@ -7,11 +7,9 @@
 
 import UIKit
 
-protocol FlowEventListener: AnyObject {
-	func eventOccured(event: AppCoordinator.Event)
-}
-
-final class AppCoordinator: Coordinator, FlowEventListener {
+final class AppCoordinator: Coordinator {
+	
+	typealias EventHandler = (Event, Coordinator) -> Void
 	
 	enum Event {
 		case loginSucceed
@@ -25,6 +23,12 @@ final class AppCoordinator: Coordinator, FlowEventListener {
 	// MARK: - Private properties
 	
 	private weak var appDelegate: AppDelegate?
+	private lazy var handleEvent: EventHandler = { [weak self] event, sender in
+		guard let self = self else { return }
+		sender.finish()
+		self.removeFlow(coordinator: sender)
+		self.eventOccured(event: event)
+	}
 	
 	// MARK: - Lifecycle
 	
@@ -39,19 +43,25 @@ final class AppCoordinator: Coordinator, FlowEventListener {
 	}
 	
 	private func startAuthFlow() {
-		let navigationController = UINavigationController()
+		let navigationController = UINavigationControllerSpy()
 		appDelegate?.window?.rootViewController = navigationController
 		self.navigationController = navigationController
 		
 		let coordinator = AuthCoordinator(navigationController: navigationController,
-										  eventListener: self)
+										  handleEvent: handleEvent)
+		addFlow(coordinator: coordinator)
 		coordinator.start()
 	}
 	
-	private func startMainFlow() {
-		let navigationController = UINavigationController()
+	private func startAggregatorFlow() {
+		let navigationController = UINavigationControllerSpy()
 		appDelegate?.window?.rootViewController = navigationController
 		self.navigationController = navigationController
+		
+		let coordinator = AggregatorFlowCoordinator(navigation: navigationController,
+													handleEvent: handleEvent)
+		addFlow(coordinator: coordinator)
+		coordinator.start()
 	}
 	
 	func finish() {}
@@ -61,7 +71,7 @@ final class AppCoordinator: Coordinator, FlowEventListener {
 	func eventOccured(event: Event) {
 		switch event {
 		case .loginSucceed:
-			break
+			startAggregatorFlow()
 		case .logout:
 			break
 		case .passwordChangeRequest:

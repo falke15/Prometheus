@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DotProgressView: UIView {
+public final class DotProgressView: UIView {
 	
 	private enum Values {
 		static let dotSize: CGFloat = 16
@@ -24,8 +24,8 @@ final class DotProgressView: UIView {
 	private let statusLabel: UILabel = {
 		let view = UILabel()
 		view.textColor = Pallete.Black.black2
-		view.font = view.font.withSize(NumericValues.xxLarge)
-		view.numberOfLines = 1
+		view.font = view.font.withSize(NumericValues.large)
+		view.numberOfLines = 2
 		view.textAlignment = .center
 		view.setContentHuggingPriority(.defaultLow, for: .vertical)
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ final class DotProgressView: UIView {
 		view.axis = .horizontal
 		view.distribution = .fill
 		view.alignment = .center
-		view.setContentHuggingPriority(.defaultHigh, for: .vertical)
+		view.setContentHuggingPriority(.required, for: .vertical)
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
 		return view

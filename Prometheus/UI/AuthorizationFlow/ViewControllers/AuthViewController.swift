@@ -12,7 +12,7 @@ import RxCocoa
 class AuthViewController: UIViewController, PinBoardDelegate {
 	
 	private enum Values {
-		static let pinBoardHeaderHeight: CGFloat = 56
+		static let pinBoardHeaderHeight: CGFloat = 64
 	}
 
 	@PasswordCredential(lenght: 4)
@@ -24,6 +24,8 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 	// MARK: - Subjects
 	
 	private let password = PublishSubject<String>()
+	private let attemptBiometryAuth = PublishSubject<Void>()
+	private let onViewDidload = Observable<Void>.of(())
 
 	// MARK: - Views
 	
@@ -63,8 +65,8 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-	
 		setupUI()
+		setupBiometry()
 		bind()
     }
 	
@@ -76,7 +78,9 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 	// MARK: - Setup Data
 	
 	private func bind() {
-		let input = AuthViewModel.Input(passwordDidEntered: password.asObservable())
+		let input = AuthViewModel.Input(passwordDidEntered: password.asObservable(),
+										viewDidLoad: onViewDidload.asSingle(),
+										attemptBiometryAuth: attemptBiometryAuth.asObservable())
 		let output = viewModel.transform(input: input)
 		output.state
 			.drive { [weak self] state in
@@ -94,19 +98,31 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 				case .success(let text):
 					title = text
 					self.pinBoardView.isUserInteractionEnabled = false
-				case .failure(let text):
+				case .unknownError(let text):
 					title = text
 				}
 				self.resetCurrentInput()
 				self.progressView.setStatusText(text: title, animated: true)
 			}
 		.disposed(by: disposeBag)
+		
+		output.biometryEnabled
+			.drive { [weak self] isEnabled in
+				self?.pinBoardView.setCustomPinEnabled(isEnabled)
+			}
+			.disposed(by: disposeBag)
 	}
 	
 	private func resetCurrentInput() {
 		progressView.resetProgress()
 		_currentPasswordProgress.emptify()
 		pinBoardView.setRemovingAvailable(false)
+	}
+	
+	private func setupBiometry() {
+		pinBoardView.setCustomPin(icon: ImageSource.biometry.image) { [weak self] in
+			self?.attemptBiometryAuth.onNext(())
+		}
 	}
 	
 	// MARK: - Setup UI

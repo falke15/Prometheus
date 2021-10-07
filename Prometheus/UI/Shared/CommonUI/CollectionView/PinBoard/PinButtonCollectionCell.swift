@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class PinButtonCollectionCell: UICollectionViewCell, CollectionCellType {
+public final class PinButtonCollectionCell: UICollectionViewCell, CollectionCellType {
 	
-	static var reuseID: String = "PinButtonCollectionCellReuseID"
+	public static var reuseID: String = "PinButtonCollectionCellReuseID"
 	
 	private let numberLabel: UILabel = {
 		let view = UILabel(frame: .zero)
@@ -35,7 +35,7 @@ final class PinButtonCollectionCell: UICollectionViewCell, CollectionCellType {
 	
 	// MARK: - Appearance
 	
-	override var isHighlighted: Bool {
+	public override var isHighlighted: Bool {
 		didSet {
 			if isHighlighted {
 				animateSelection(with: Pallete.Gray.gray1, tintColor: Pallete.Lilac.lilac2)
@@ -57,14 +57,14 @@ final class PinButtonCollectionCell: UICollectionViewCell, CollectionCellType {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	override func layoutSubviews() {
+	public override func layoutSubviews() {
 		super.layoutSubviews()
 		contentView.layer.cornerRadius = contentView.frame.width / 2
 	}
 	
 	// MARK: - Setup data
 	
-	func setup(model: CollectionCellModelAnyType) {
+	public func setup(model: CollectionCellModelAnyType) {
 		guard let model = model as? PinBoardView.PinInfo else { return }
 		if model.isEnabled, let image = model.icon {
 			icon.image = image
@@ -76,7 +76,7 @@ final class PinButtonCollectionCell: UICollectionViewCell, CollectionCellType {
 		}
 	}
 	
-	override func prepareForReuse() {
+	public override func prepareForReuse() {
 		super.prepareForReuse()
 		numberLabel.text = nil
 		icon.isHidden = true

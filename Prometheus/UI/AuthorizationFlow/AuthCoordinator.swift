@@ -24,31 +24,36 @@ final class AuthCoordinator: Coordinator, AuthCoordinating {
 	
 	var childCoordinators: [Coordinator] = []
 	weak var navigationController: UINavigationController?
-	private weak var eventListener: FlowEventListener?
+	private let handleEvent: AppCoordinator.EventHandler
 	
 	// MARK: - Lifecycle
 	
 	init(navigationController: UINavigationController?,
-		 eventListener: FlowEventListener) {
+		 handleEvent: @escaping AppCoordinator.EventHandler) {
 		self.navigationController = navigationController
-		self.eventListener = eventListener
+		self.handleEvent = handleEvent
 	}
 	
 	// MARK: - Coordinator
 	
 	func start() {
-		let viewModel = AuthViewModel(authorizationService: AuthorizationService())
+		let viewModel = AuthViewModel(authorizationService: AuthorizationService(),
+									  localAuthorizationHelper: LocalAuthorizationHelper(),
+									  flowCoordinating: self)
 		let vc = AuthViewController(viewModel: viewModel)
 		navigationController?.pushViewController(vc, animated: true)
 	}
 	
 	func finish() {
-		
+		childCoordinators.forEach {
+			$0.finish()
+			removeFlow(coordinator: $0)
+		}
 	}
 	
 	// MARK: - AuthCoordinating
 	
 	func completeAuthorization() {
-		eventListener?.eventOccured(event: .loginSucceed)
+		handleEvent(.loginSucceed, self)
 	}
 }

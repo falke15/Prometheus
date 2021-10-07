@@ -8,30 +8,30 @@
 import UIKit
 
 /// Общий протокол всех ячеек в коллекции
-protocol CollectionCellType: UICollectionViewCell {
+public protocol CollectionCellType: UICollectionViewCell {
 	static var reuseID: String { get }
 	
 	func setup(model: CollectionCellModelAnyType)
 }
 
 /// Протокол со стертым типом ячейки
-protocol CollectionCellModelAnyType {
+public protocol CollectionCellModelAnyType {
 	var cellType: CollectionCellType.Type { get }
 }
 
 /// Протокол с выводимым типом ячейки
-protocol CollectionCellModelType: CollectionCellModelAnyType {
+public protocol CollectionCellModelType: CollectionCellModelAnyType {
 	associatedtype Cell: CollectionCellType
 }
 
 /// Дефолтная реализация протокола для выведения типа ячейки
-extension CollectionCellModelType {
+public extension CollectionCellModelType {
 	var cellType: CollectionCellType.Type {
 		return Cell.self
 	}
 }
 
-extension UICollectionViewDataSource {
+public extension UICollectionViewDataSource {
 	func dequeCell(_ collectionView: UICollectionView,
 				   cellModel: CollectionCellModelAnyType,
 				   indexPath: IndexPath) -> UICollectionViewCell {

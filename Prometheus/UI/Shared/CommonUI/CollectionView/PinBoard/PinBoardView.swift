@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PinBoardDelegate: AnyObject {
+public protocol PinBoardDelegate: AnyObject {
 	/// Обработка введения цифры
 	func onNumEntered(num: Int)
 	
@@ -15,7 +15,7 @@ protocol PinBoardDelegate: AnyObject {
 	func onRemove()
 }
 
-final class PinBoardView: UIView {
+public final class PinBoardView: UIView {
 	
 	private enum Values {
 		static let defaultSpacing: CGFloat = NumericValues.default
@@ -90,12 +90,15 @@ final class PinBoardView: UIView {
 	
 	// MARK: - Data
 	
-	func setCustomPin(isEnabled: Bool,
-					  icon: UIImage,
+	func setCustomPin(icon: UIImage,
 					  action: @escaping () -> Void) {
-		customPin.isEnabled = isEnabled
 		customPin.icon = icon
 		customPin.action = action
+		setupPins()
+	}
+	
+	func setCustomPinEnabled(_ isEnabled: Bool) {
+		customPin.isEnabled = isEnabled
 		setupPins()
 	}
 	
@@ -132,11 +135,11 @@ final class PinBoardView: UIView {
 
 extension PinBoardView: UICollectionViewDataSource {
 	
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+	public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return pins.count
 	}
 	
-	func collectionView(_ collectionView: UICollectionView,
+	public func collectionView(_ collectionView: UICollectionView,
 						cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let model = pins[indexPath.item]
 		return dequeCell(collectionView, cellModel: model, indexPath: indexPath)
@@ -145,7 +148,7 @@ extension PinBoardView: UICollectionViewDataSource {
 
 extension PinBoardView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 	
-	func collectionView(_ collectionView: UICollectionView,
+	public func collectionView(_ collectionView: UICollectionView,
 						layout collectionViewLayout: UICollectionViewLayout,
 						sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let collectionSize = collectionView.frame.size
@@ -157,12 +160,12 @@ extension PinBoardView: UICollectionViewDelegate, UICollectionViewDelegateFlowLa
 		return CGSize(width: itemWidth, height: itemHeight)
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let model = pins[indexPath.item]
 		model.action?()
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+	public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
 		let model = pins[indexPath.item]
 		return model.isEnabled
 	}

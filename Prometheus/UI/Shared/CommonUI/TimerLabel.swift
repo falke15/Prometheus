@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimerLabel: UILabel {
+public class TimerLabel: UILabel {
 		
 	private var dotsCounter: Int = 0
 	private var displayLink: CADisplayLink?

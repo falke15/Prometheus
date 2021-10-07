@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CoordinatorTabBarController: UITabBarController {
+public final class CoordinatorTabBarController: UITabBarController {
 	
 	private var coordinators: [Coordinator]
 	
