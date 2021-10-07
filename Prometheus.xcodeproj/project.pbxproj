@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0124E9C4270623A000C4F98D /* AggregatorFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C3270623A000C4F98D /* AggregatorFlowCoordinator.swift */; };
+		0124E9C72706244B00C4F98D /* AggregatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C62706244B00C4F98D /* AggregatorViewController.swift */; };
+		0124E9CA2706269800C4F98D /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C92706269800C4F98D /* UINavigationControllerSpy.swift */; };
+		013B9B0D270060DE00F7340C /* ModuleEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B9B0C270060DE00F7340C /* ModuleEntryPoint.swift */; };
+		013B9B122700773900F7340C /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B9B112700773900F7340C /* AuthorizationService.swift */; };
+		0160C071270DF36B00D15AEE /* LocalAuthorizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160C070270DF36B00D15AEE /* LocalAuthorizationHelper.swift */; };
 		0184CB7226F8D5CF00A53BF5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB5026F8D5CE00A53BF5 /* AuthViewModel.swift */; };
 		0184CB7326F8D5CF00A53BF5 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB5226F8D5CE00A53BF5 /* AuthCoordinator.swift */; };
 		0184CB7526F8D5CF00A53BF5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB5626F8D5CE00A53BF5 /* AuthViewController.swift */; };
@@ -23,11 +29,17 @@
 		0184CB8026F8D5CF00A53BF5 /* TextFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6826F8D5CF00A53BF5 /* TextFont.swift */; };
 		0184CB8126F8D5CF00A53BF5 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6926F8D5CF00A53BF5 /* ImageSource.swift */; };
 		0184CB8226F8D5CF00A53BF5 /* NumericValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6A26F8D5CF00A53BF5 /* NumericValues.swift */; };
-		0184CB8326F8D5CF00A53BF5 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6D26F8D5CF00A53BF5 /* FlowManager.swift */; };
 		0184CB8426F8D5CF00A53BF5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */; };
 		0184CB8526F8D5CF00A53BF5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB7026F8D5CF00A53BF5 /* AppCoordinator.swift */; };
 		0184CB8626F8D5CF00A53BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB7126F8D5CF00A53BF5 /* AppDelegate.swift */; };
-		0184CB8E26F8D66300A53BF5 /* PrometheusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB8D26F8D66300A53BF5 /* PrometheusTests.swift */; };
+		0184CB8E26F8D66300A53BF5 /* AuthorizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB8D26F8D66300A53BF5 /* AuthorizationServiceTests.swift */; };
+		0192821A2702006300422007 /* RetainCycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019282192702006300422007 /* RetainCycle.framework */; };
+		0192821B2702006300422007 /* RetainCycle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 019282192702006300422007 /* RetainCycle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0196AE4B27034A070049DF0B /* PasswordCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE4A27034A070049DF0B /* PasswordCredential.swift */; };
+		0196AE4F27034B870049DF0B /* PasswordCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE4E27034B870049DF0B /* PasswordCredentialsTests.swift */; };
+		0196AE51270353170049DF0B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE50270353170049DF0B /* ViewModel.swift */; };
+		019914F62709DDCB00C58386 /* AggregatorPlainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019914F52709DDCB00C58386 /* AggregatorPlainCell.swift */; };
+		019914FA2709E1A600C58386 /* AggregatorPlainCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019914F92709E1A600C58386 /* AggregatorPlainCellViewModel.swift */; };
 		5AA146D785398F8B0BDB789C /* Pods_Prometheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +53,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0192821C2702006300422007 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0192821B2702006300422007 /* RetainCycle.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0124E9C3270623A000C4F98D /* AggregatorFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorFlowCoordinator.swift; sourceTree = "<group>"; };
+		0124E9C62706244B00C4F98D /* AggregatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorViewController.swift; sourceTree = "<group>"; };
+		0124E9C92706269800C4F98D /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
+		013B9B0C270060DE00F7340C /* ModuleEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleEntryPoint.swift; sourceTree = "<group>"; };
+		013B9B112700773900F7340C /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		0160C070270DF36B00D15AEE /* LocalAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthorizationHelper.swift; sourceTree = "<group>"; };
 		0184CB3626F8D59700A53BF5 /* Prometheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prometheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0184CB4726F8D59900A53BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0184CB5026F8D5CE00A53BF5 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -60,13 +92,18 @@
 		0184CB6826F8D5CF00A53BF5 /* TextFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFont.swift; sourceTree = "<group>"; };
 		0184CB6926F8D5CF00A53BF5 /* ImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		0184CB6A26F8D5CF00A53BF5 /* NumericValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericValues.swift; sourceTree = "<group>"; };
-		0184CB6D26F8D5CF00A53BF5 /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
 		0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0184CB7026F8D5CF00A53BF5 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0184CB7126F8D5CF00A53BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0184CB8B26F8D66300A53BF5 /* PrometheusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrometheusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0184CB8D26F8D66300A53BF5 /* PrometheusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrometheusTests.swift; sourceTree = "<group>"; };
+		0184CB8D26F8D66300A53BF5 /* AuthorizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceTests.swift; sourceTree = "<group>"; };
 		0184CB8F26F8D66300A53BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		019282192702006300422007 /* RetainCycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RetainCycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0196AE4A27034A070049DF0B /* PasswordCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredential.swift; sourceTree = "<group>"; };
+		0196AE4E27034B870049DF0B /* PasswordCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredentialsTests.swift; sourceTree = "<group>"; };
+		0196AE50270353170049DF0B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		019914F52709DDCB00C58386 /* AggregatorPlainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorPlainCell.swift; sourceTree = "<group>"; };
+		019914F92709E1A600C58386 /* AggregatorPlainCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorPlainCellViewModel.swift; sourceTree = "<group>"; };
 		D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prometheus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CBFFDAB9DAB75D9B55ACA2 /* Pods-Prometheus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus.release.xcconfig"; path = "Target Support Files/Pods-Prometheus/Pods-Prometheus.release.xcconfig"; sourceTree = "<group>"; };
 		E049A9958D225C25917BD74C /* Pods-Prometheus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus.debug.xcconfig"; path = "Target Support Files/Pods-Prometheus/Pods-Prometheus.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0192821A2702006300422007 /* RetainCycle.framework in Frameworks */,
 				5AA146D785398F8B0BDB789C /* Pods_Prometheus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +129,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0124E9C227061F4C00C4F98D /* AggregatorFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0124E9C3270623A000C4F98D /* AggregatorFlowCoordinator.swift */,
+				0124E9C82706245200C4F98D /* ViewModels */,
+				0124E9C52706243D00C4F98D /* ViewControllers */,
+				019914F82709E18300C58386 /* Cells */,
+			);
+			path = AggregatorFlow;
+			sourceTree = "<group>";
+		};
+		0124E9C52706243D00C4F98D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0124E9C62706244B00C4F98D /* AggregatorViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0124E9C82706245200C4F98D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		013B9B0E2700700D00F7340C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				013B9B112700773900F7340C /* AuthorizationService.swift */,
+				0160C070270DF36B00D15AEE /* LocalAuthorizationHelper.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		0184CB2D26F8D59700A53BF5 = {
 			isa = PBXGroup;
 			children = (
@@ -127,21 +200,22 @@
 		0184CB4D26F8D5CE00A53BF5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				0184CB4E26F8D5CE00A53BF5 /* Auth */,
-				0184CB5726F8D5CE00A53BF5 /* Common */,
+				0124E9C227061F4C00C4F98D /* AggregatorFlow */,
+				0184CB4E26F8D5CE00A53BF5 /* AuthorizationFlow */,
+				019914F42709DBFD00C58386 /* Shared */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		0184CB4E26F8D5CE00A53BF5 /* Auth */ = {
+		0184CB4E26F8D5CE00A53BF5 /* AuthorizationFlow */ = {
 			isa = PBXGroup;
 			children = (
 				0184CB5226F8D5CE00A53BF5 /* AuthCoordinator.swift */,
 				0184CB4F26F8D5CE00A53BF5 /* ViewModels */,
-				0184CB5126F8D5CE00A53BF5 /* Cells */,
 				0184CB5526F8D5CE00A53BF5 /* ViewControllers */,
+				0196AE4A27034A070049DF0B /* PasswordCredential.swift */,
 			);
-			path = Auth;
+			path = AuthorizationFlow;
 			sourceTree = "<group>";
 		};
 		0184CB4F26F8D5CE00A53BF5 /* ViewModels */ = {
@@ -152,13 +226,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		0184CB5126F8D5CE00A53BF5 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		0184CB5526F8D5CE00A53BF5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +234,7 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		0184CB5726F8D5CE00A53BF5 /* Common */ = {
+		0184CB5726F8D5CE00A53BF5 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
 				0184CB5826F8D5CE00A53BF5 /* TableView */,
@@ -176,7 +243,7 @@
 				0184CB6026F8D5CE00A53BF5 /* DotProgressView.swift */,
 				0184CB6126F8D5CE00A53BF5 /* CoordinatorTabBarController.swift */,
 			);
-			path = Common;
+			path = CommonUI;
 			sourceTree = "<group>";
 		};
 		0184CB5826F8D5CE00A53BF5 /* TableView */ = {
@@ -228,6 +295,7 @@
 		0184CB6B26F8D5CF00A53BF5 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				013B9B0E2700700D00F7340C /* Core */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -235,8 +303,9 @@
 		0184CB6C26F8D5CF00A53BF5 /* Supportings */ = {
 			isa = PBXGroup;
 			children = (
-				0184CB6D26F8D5CF00A53BF5 /* FlowManager.swift */,
 				0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */,
+				013B9B0C270060DE00F7340C /* ModuleEntryPoint.swift */,
+				0196AE50270353170049DF0B /* ViewModel.swift */,
 			);
 			path = Supportings;
 			sourceTree = "<group>";
@@ -245,8 +314,9 @@
 			isa = PBXGroup;
 			children = (
 				0184CB4726F8D59900A53BF5 /* Info.plist */,
-				0184CB7026F8D5CF00A53BF5 /* AppCoordinator.swift */,
 				0184CB7126F8D5CF00A53BF5 /* AppDelegate.swift */,
+				0184CB7026F8D5CF00A53BF5 /* AppCoordinator.swift */,
+				0124E9C92706269800C4F98D /* UINavigationControllerSpy.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -254,10 +324,28 @@
 		0184CB8C26F8D66300A53BF5 /* PrometheusTests */ = {
 			isa = PBXGroup;
 			children = (
-				0184CB8D26F8D66300A53BF5 /* PrometheusTests.swift */,
+				0184CB8D26F8D66300A53BF5 /* AuthorizationServiceTests.swift */,
+				0196AE4E27034B870049DF0B /* PasswordCredentialsTests.swift */,
 				0184CB8F26F8D66300A53BF5 /* Info.plist */,
 			);
 			path = PrometheusTests;
+			sourceTree = "<group>";
+		};
+		019914F42709DBFD00C58386 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0184CB5726F8D5CE00A53BF5 /* CommonUI */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		019914F82709E18300C58386 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				019914F52709DDCB00C58386 /* AggregatorPlainCell.swift */,
+				019914F92709E1A600C58386 /* AggregatorPlainCellViewModel.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		6A96FDE60FF40D393B7FFAE1 /* Pods */ = {
@@ -272,6 +360,7 @@
 		84528AE75AF39217585580C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				019282192702006300422007 /* RetainCycle.framework */,
 				D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */,
 			);
 			name = Frameworks;
@@ -289,6 +378,7 @@
 				0184CB3326F8D59700A53BF5 /* Frameworks */,
 				0184CB3426F8D59700A53BF5 /* Resources */,
 				2B552D706FA36079414264B3 /* [CP] Embed Pods Frameworks */,
+				0192821C2702006300422007 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,6 +418,7 @@
 				TargetAttributes = {
 					0184CB3526F8D59700A53BF5 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1300;
 					};
 					0184CB8A26F8D66300A53BF5 = {
 						CreatedOnToolsVersion = 12.5;
@@ -421,17 +512,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				0184CB8626F8D5CF00A53BF5 /* AppDelegate.swift in Sources */,
+				0196AE4B27034A070049DF0B /* PasswordCredential.swift in Sources */,
+				019914F62709DDCB00C58386 /* AggregatorPlainCell.swift in Sources */,
 				0184CB7C26F8D5CF00A53BF5 /* CoordinatorTabBarController.swift in Sources */,
-				0184CB8326F8D5CF00A53BF5 /* FlowManager.swift in Sources */,
+				0124E9C72706244B00C4F98D /* AggregatorViewController.swift in Sources */,
 				0184CB7326F8D5CF00A53BF5 /* AuthCoordinator.swift in Sources */,
 				0184CB7226F8D5CF00A53BF5 /* AuthViewModel.swift in Sources */,
 				0184CB7826F8D5CF00A53BF5 /* PinBoardView.swift in Sources */,
 				0184CB8526F8D5CF00A53BF5 /* AppCoordinator.swift in Sources */,
+				0124E9C4270623A000C4F98D /* AggregatorFlowCoordinator.swift in Sources */,
 				0184CB8026F8D5CF00A53BF5 /* TextFont.swift in Sources */,
+				013B9B0D270060DE00F7340C /* ModuleEntryPoint.swift in Sources */,
 				0184CB7A26F8D5CF00A53BF5 /* TimerLabel.swift in Sources */,
+				0160C071270DF36B00D15AEE /* LocalAuthorizationHelper.swift in Sources */,
 				0184CB7526F8D5CF00A53BF5 /* AuthViewController.swift in Sources */,
 				0184CB8126F8D5CF00A53BF5 /* ImageSource.swift in Sources */,
+				013B9B122700773900F7340C /* AuthorizationService.swift in Sources */,
+				0196AE51270353170049DF0B /* ViewModel.swift in Sources */,
+				0124E9CA2706269800C4F98D /* UINavigationControllerSpy.swift in Sources */,
 				0184CB7B26F8D5CF00A53BF5 /* DotProgressView.swift in Sources */,
+				019914FA2709E1A600C58386 /* AggregatorPlainCellViewModel.swift in Sources */,
 				0184CB8426F8D5CF00A53BF5 /* Coordinator.swift in Sources */,
 				0184CB7926F8D5CF00A53BF5 /* UICollectionView+Model.swift in Sources */,
 				0184CB7F26F8D5CF00A53BF5 /* Palette.swift in Sources */,
@@ -445,7 +545,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0184CB8E26F8D66300A53BF5 /* PrometheusTests.swift in Sources */,
+				0184CB8E26F8D66300A53BF5 /* AuthorizationServiceTests.swift in Sources */,
+				0196AE4F27034B870049DF0B /* PasswordCredentialsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,17 +694,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6KS79CKQD;
 				INFOPLIST_FILE = Prometheus/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = self.Prometheus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -613,17 +718,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6KS79CKQD;
 				INFOPLIST_FILE = Prometheus/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = self.Prometheus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

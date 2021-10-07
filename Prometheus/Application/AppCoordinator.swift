@@ -9,12 +9,26 @@ import UIKit
 
 final class AppCoordinator: Coordinator {
 	
+	typealias EventHandler = (Event, Coordinator) -> Void
+	
+	enum Event {
+		case loginSucceed
+		case logout
+		case passwordChangeRequest
+	}
+	
 	weak var navigationController: UINavigationController?
 	var childCoordinators: [Coordinator] = []
 	
 	// MARK: - Private properties
 	
 	private weak var appDelegate: AppDelegate?
+	private lazy var handleEvent: EventHandler = { [weak self] event, sender in
+		guard let self = self else { return }
+		sender.finish()
+		self.removeFlow(coordinator: sender)
+		self.eventOccured(event: event)
+	}
 	
 	// MARK: - Lifecycle
 	
@@ -29,26 +43,39 @@ final class AppCoordinator: Coordinator {
 	}
 	
 	private func startAuthFlow() {
-		let navigationController = UINavigationController()
-
+		let navigationController = UINavigationControllerSpy()
 		appDelegate?.window?.rootViewController = navigationController
+		self.navigationController = navigationController
 		
-		let coordinator = AuthCoordinator(navigationController: navigationController)
+		let coordinator = AuthCoordinator(navigationController: navigationController,
+										  handleEvent: handleEvent)
+		addFlow(coordinator: coordinator)
 		coordinator.start()
 	}
 	
-	private func startMainFlow() {
-		let navigationController = UINavigationController()
+	private func startAggregatorFlow() {
+		let navigationController = UINavigationControllerSpy()
 		appDelegate?.window?.rootViewController = navigationController
+		self.navigationController = navigationController
+		
+		let coordinator = AggregatorFlowCoordinator(navigation: navigationController,
+													handleEvent: handleEvent)
+		addFlow(coordinator: coordinator)
+		coordinator.start()
 	}
 	
 	func finish() {}
-}
-
-extension AppCoordinator {
-	enum AppFlow {
-		case main
-		case auth
-		case undefined
+	
+	// MARK: - FlowEventListener
+	
+	func eventOccured(event: Event) {
+		switch event {
+		case .loginSucceed:
+			startAggregatorFlow()
+		case .logout:
+			break
+		case .passwordChangeRequest:
+			break
+		}
 	}
 }
