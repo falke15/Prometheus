@@ -72,7 +72,7 @@ class AuthViewModel: ViewModelType {
 				case .create:
 					self.writeBufferPassword(password: pass)
 				case .confirm:
-					// Попытка авторизоваться, под только что установленным паролем
+					// Попытка сохранить пароль, если пароли не совпадают - переводим на повторное создание
 					pass == self.passwordBuffer ?
 						self.setPassword(pass) :
 						self.loadInfo(createText: Constants.passwordNotMatching)
@@ -119,7 +119,7 @@ class AuthViewModel: ViewModelType {
 	
 	private func writeBufferPassword(password: String) {
 		passwordBuffer = password
-		state.onNext(.confirm("Подвердите пароль"))
+		state.onNext(.confirm("Повторите пароль"))
 	}
 	
 	private func setPassword(_ password: String) {
@@ -138,7 +138,7 @@ class AuthViewModel: ViewModelType {
 			.map { [weak self] state in
 				guard let self = self else { return false }
 				switch state {
-				case .enter, .unknownError:
+				case .enter:
 					return self.localAuthorizationHelper.isBiometryAvailable && self.authorizationService.isRegistered
 				default:
 					return false
@@ -169,7 +169,10 @@ extension AuthViewModel {
 	private enum Constants {
 		static let defaultError: String = "Произошла ошибка"
 		static let wrongPass: String = "Неверный пароль"
-		static let passwordNotMatching: String = "Пароли не совпадают, попробуйте еще раз"
+		static let passwordNotMatching: String = """
+												Пароли не совпадают
+												попробуйте еще раз
+												"""
 	}
 	
 	/// Состояние процесса авторизации
