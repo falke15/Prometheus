@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FeatureIntermediate
 
 final class AppCoordinator: Coordinator {
 	
@@ -20,6 +21,8 @@ final class AppCoordinator: Coordinator {
 	weak var navigationController: UINavigationController?
 	var childCoordinators: [Coordinator] = []
 	
+	private let featureLoader: FeatureLoader
+	
 	// MARK: - Private properties
 	
 	private weak var appDelegate: AppDelegate?
@@ -32,8 +35,10 @@ final class AppCoordinator: Coordinator {
 	
 	// MARK: - Lifecycle
 	
-	init(appDelegate: AppDelegate) {
+	init(appDelegate: AppDelegate,
+		 featureLoader: FeatureLoader) {
 		self.appDelegate = appDelegate
+		self.featureLoader = featureLoader
 	}
 	
 	// MARK: - Methods

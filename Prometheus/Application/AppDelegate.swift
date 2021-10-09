@@ -7,12 +7,15 @@
 
 import UIKit
 import RxSwift
+import FeatureIntermediate
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-	public private(set) lazy var appCoordinator: AppCoordinator = AppCoordinator(appDelegate: self)
+	private let featureLoader = FeatureLoader()
+	public private(set) lazy var appCoordinator: AppCoordinator = AppCoordinator(appDelegate: self,
+																				 featureLoader: featureLoader)
 	
     func application(_ application: UIApplication,
 					 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
