@@ -21,8 +21,6 @@ final class AppCoordinator: Coordinator {
 	weak var navigationController: UINavigationController?
 	var childCoordinators: [Coordinator] = []
 	
-	private let featureLoader: FeatureLoader
-	
 	// MARK: - Private properties
 	
 	private weak var appDelegate: AppDelegate?
@@ -35,10 +33,8 @@ final class AppCoordinator: Coordinator {
 	
 	// MARK: - Lifecycle
 	
-	init(appDelegate: AppDelegate,
-		 featureLoader: FeatureLoader) {
+	init(appDelegate: AppDelegate) {
 		self.appDelegate = appDelegate
-		self.featureLoader = featureLoader
 	}
 	
 	// MARK: - Methods
@@ -63,7 +59,9 @@ final class AppCoordinator: Coordinator {
 		appDelegate?.window?.rootViewController = navigationController
 		self.navigationController = navigationController
 		
+		let serviceLocator = AggregationServicesLocator()
 		let coordinator = AggregatorFlowCoordinator(navigation: navigationController,
+													serviceLocator: serviceLocator,
 													handleEvent: handleEvent)
 		addFlow(coordinator: coordinator)
 		coordinator.start()

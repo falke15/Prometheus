@@ -7,9 +7,9 @@
 
 import UIKit
 
-public final class AggregatorPlainCell: UICollectionViewCell, CollectionCellType {
+public final class AggregatorFeatureCell: UICollectionViewCell, CollectionCellType {
 	
-	public static var reuseID: String = "AggregatorEntryPointCellID"
+	public static var reuseID: String = "AggregatorPlainCellID"
 	
 	// MARK: - Lifecycle
 	

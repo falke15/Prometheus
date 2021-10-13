@@ -5,6 +5,7 @@
 	<key>Features</key>
 	<array>
 		<string>RetainCycle</string>
+		<string>Sensor</string>
 	</array>
 </dict>
 </plist>

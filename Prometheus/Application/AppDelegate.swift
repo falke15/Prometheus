@@ -13,9 +13,7 @@ import FeatureIntermediate
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-	private let featureLoader = FeatureLoader()
-	public private(set) lazy var appCoordinator: AppCoordinator = AppCoordinator(appDelegate: self,
-																				 featureLoader: featureLoader)
+	public private(set) lazy var appCoordinator: AppCoordinator = AppCoordinator(appDelegate: self)
 	
     func application(_ application: UIApplication,
 					 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -26,4 +24,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
     }
 }
-

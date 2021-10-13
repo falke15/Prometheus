@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 
-public protocol FeatureProtocol {
+public protocol FeatureProtocol: AnyObject {
 	static var shared: FeatureProtocol { get }
 	
 	var isAvailable: Bool { get }
+	var identifier: String { get }
 	var name: String { get }
 	var image: UIImage? { get }
 	
@@ -34,7 +35,7 @@ public final class FeatureLoader {
 		
 	}
 	
-	public func loadDylibs() -> [FeatureProtocol] {
+	public func getFeatures() -> [FeatureProtocol] {
 		var result: [FeatureProtocol] = []
 		
 		let frameworkPath = Bundle.main.privateFrameworksPath

@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010B6216271317C700815777 /* AggregationServicesLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010B6215271317C700815777 /* AggregationServicesLocator.swift */; };
+		010B62182713220900815777 /* AggregationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010B62172713220900815777 /* AggregationViewModel.swift */; };
+		010B621A27132DEC00815777 /* AggregationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010B621927132DEC00815777 /* AggregationDataSource.swift */; };
+		010B621C2713312700815777 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010B621B2713312700815777 /* Section.swift */; };
+		010B621F27134BC500815777 /* FeatureAdapterCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010B621E27134BC500815777 /* FeatureAdapterCellModel.swift */; };
 		0124E9C4270623A000C4F98D /* AggregatorFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C3270623A000C4F98D /* AggregatorFlowCoordinator.swift */; };
 		0124E9C72706244B00C4F98D /* AggregatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C62706244B00C4F98D /* AggregatorViewController.swift */; };
 		0124E9CA2706269800C4F98D /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C92706269800C4F98D /* UINavigationControllerSpy.swift */; };
-		013B9B0D270060DE00F7340C /* ModuleEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B9B0C270060DE00F7340C /* ModuleEntryPoint.swift */; };
+		013512CC27172AE6006CC796 /* Sensor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD423327130A65009FCBE7 /* Sensor.framework */; };
+		013512CD27172AE6006CC796 /* Sensor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD423327130A65009FCBE7 /* Sensor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		013B9B122700773900F7340C /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B9B112700773900F7340C /* AuthorizationService.swift */; };
 		014DA99B2711FB1E00D9B452 /* Features.plist in Resources */ = {isa = PBXBuildFile; fileRef = 014DA99A2711FB1E00D9B452 /* Features.plist */; };
 		014DA99C2711FF9400D9B452 /* Features.plist in Resources */ = {isa = PBXBuildFile; fileRef = 014DA99A2711FB1E00D9B452 /* Features.plist */; };
@@ -38,8 +44,7 @@
 		0196AE4B27034A070049DF0B /* PasswordCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE4A27034A070049DF0B /* PasswordCredential.swift */; };
 		0196AE4F27034B870049DF0B /* PasswordCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE4E27034B870049DF0B /* PasswordCredentialsTests.swift */; };
 		0196AE51270353170049DF0B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE50270353170049DF0B /* ViewModel.swift */; };
-		019914F62709DDCB00C58386 /* AggregatorPlainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019914F52709DDCB00C58386 /* AggregatorPlainCell.swift */; };
-		019914FA2709E1A600C58386 /* AggregatorPlainCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019914F92709E1A600C58386 /* AggregatorPlainCellViewModel.swift */; };
+		019914F62709DDCB00C58386 /* AggregatorFeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019914F52709DDCB00C58386 /* AggregatorFeatureCell.swift */; };
 		019D41B82711D56E004BFD35 /* RetainCycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0132EC3627119085008E786D /* RetainCycle.framework */; };
 		019D41B92711D56E004BFD35 /* RetainCycle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0132EC3627119085008E786D /* RetainCycle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		019D41BA2711E81B004BFD35 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */; };
@@ -76,6 +81,7 @@
 			files = (
 				019D41BB2711E81B004BFD35 /* FeatureIntermediate.framework in Embed Frameworks */,
 				019D41B92711D56E004BFD35 /* RetainCycle.framework in Embed Frameworks */,
+				013512CD27172AE6006CC796 /* Sensor.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,12 +89,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010B6215271317C700815777 /* AggregationServicesLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationServicesLocator.swift; sourceTree = "<group>"; };
+		010B62172713220900815777 /* AggregationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationViewModel.swift; sourceTree = "<group>"; };
+		010B621927132DEC00815777 /* AggregationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationDataSource.swift; sourceTree = "<group>"; };
+		010B621B2713312700815777 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		010B621E27134BC500815777 /* FeatureAdapterCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureAdapterCellModel.swift; sourceTree = "<group>"; };
 		011EA79C270F576E003D92C6 /* FeatureLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLoader.swift; sourceTree = "<group>"; };
 		0124E9C3270623A000C4F98D /* AggregatorFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorFlowCoordinator.swift; sourceTree = "<group>"; };
 		0124E9C62706244B00C4F98D /* AggregatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorViewController.swift; sourceTree = "<group>"; };
 		0124E9C92706269800C4F98D /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
 		0132EC3627119085008E786D /* RetainCycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RetainCycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		013B9B0C270060DE00F7340C /* ModuleEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleEntryPoint.swift; sourceTree = "<group>"; };
 		013B9B112700773900F7340C /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		014DA99A2711FB1E00D9B452 /* Features.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Features.plist; sourceTree = "<group>"; };
 		0160C070270DF36B00D15AEE /* LocalAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthorizationHelper.swift; sourceTree = "<group>"; };
@@ -119,8 +129,8 @@
 		0196AE4A27034A070049DF0B /* PasswordCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredential.swift; sourceTree = "<group>"; };
 		0196AE4E27034B870049DF0B /* PasswordCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredentialsTests.swift; sourceTree = "<group>"; };
 		0196AE50270353170049DF0B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		019914F52709DDCB00C58386 /* AggregatorPlainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorPlainCell.swift; sourceTree = "<group>"; };
-		019914F92709E1A600C58386 /* AggregatorPlainCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorPlainCellViewModel.swift; sourceTree = "<group>"; };
+		019914F52709DDCB00C58386 /* AggregatorFeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorFeatureCell.swift; sourceTree = "<group>"; };
+		01BD423327130A65009FCBE7 /* Sensor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Sensor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F24FF727117E3B00D5B074 /* FeatureIntermediate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureIntermediate.h; sourceTree = "<group>"; };
 		5851536ED6785C7F6BF63E7F /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-FeatureIntermediate.release.xcconfig"; path = "Target Support Files/Pods-Prometheus-FeatureIntermediate/Pods-Prometheus-FeatureIntermediate.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +148,7 @@
 			files = (
 				019D41B82711D56E004BFD35 /* RetainCycle.framework in Frameworks */,
 				019D41BA2711E81B004BFD35 /* FeatureIntermediate.framework in Frameworks */,
+				013512CC27172AE6006CC796 /* Sensor.framework in Frameworks */,
 				5AA146D785398F8B0BDB789C /* Pods_Prometheus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,13 +171,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010B621D27134BB900815777 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				010B621E27134BC500815777 /* FeatureAdapterCellModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		010B622027134C1800815777 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0184CB4F26F8D5CE00A53BF5 /* ViewModels */,
+				0184CB5526F8D5CE00A53BF5 /* ViewControllers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		010B622127134C2600815777 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0196AE4A27034A070049DF0B /* PasswordCredential.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		010B622227134C7700815777 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0124E9C82706245200C4F98D /* ViewModels */,
+				0124E9C52706243D00C4F98D /* ViewControllers */,
+				019914F82709E18300C58386 /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		010B622327134C8700815777 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				010B6215271317C700815777 /* AggregationServicesLocator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0124E9C227061F4C00C4F98D /* AggregatorFlow */ = {
 			isa = PBXGroup;
 			children = (
 				0124E9C3270623A000C4F98D /* AggregatorFlowCoordinator.swift */,
-				0124E9C82706245200C4F98D /* ViewModels */,
-				0124E9C52706243D00C4F98D /* ViewControllers */,
-				019914F82709E18300C58386 /* Cells */,
+				010B622227134C7700815777 /* UI */,
+				010B621D27134BB900815777 /* Models */,
+				010B622327134C8700815777 /* Services */,
 			);
 			path = AggregatorFlow;
 			sourceTree = "<group>";
@@ -175,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				0124E9C62706244B00C4F98D /* AggregatorViewController.swift */,
+				010B621927132DEC00815777 /* AggregationDataSource.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,17 +237,18 @@
 		0124E9C82706245200C4F98D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				010B62172713220900815777 /* AggregationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		013B9B0E2700700D00F7340C /* Core */ = {
+		013B9B0E2700700D00F7340C /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				013B9B112700773900F7340C /* AuthorizationService.swift */,
 				0160C070270DF36B00D15AEE /* LocalAuthorizationHelper.swift */,
 			);
-			path = Core;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		0184CB2D26F8D59700A53BF5 = {
@@ -221,8 +277,9 @@
 			isa = PBXGroup;
 			children = (
 				0184CB6F26F8D5CF00A53BF5 /* Application */,
-				0184CB4D26F8D5CE00A53BF5 /* UI */,
-				0184CB6B26F8D5CF00A53BF5 /* Layers */,
+				0184CB5726F8D5CE00A53BF5 /* CommonUI */,
+				0184CB4D26F8D5CE00A53BF5 /* Flows */,
+				010B622127134C2600815777 /* Components */,
 				0184CB6C26F8D5CF00A53BF5 /* Supportings */,
 				0184CB6626F8D5CF00A53BF5 /* Helpers */,
 				0184CB6226F8D5CE00A53BF5 /* Resources */,
@@ -230,23 +287,21 @@
 			path = Prometheus;
 			sourceTree = "<group>";
 		};
-		0184CB4D26F8D5CE00A53BF5 /* UI */ = {
+		0184CB4D26F8D5CE00A53BF5 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
 				0124E9C227061F4C00C4F98D /* AggregatorFlow */,
 				0184CB4E26F8D5CE00A53BF5 /* AuthorizationFlow */,
-				019914F42709DBFD00C58386 /* Shared */,
 			);
-			path = UI;
+			path = Flows;
 			sourceTree = "<group>";
 		};
 		0184CB4E26F8D5CE00A53BF5 /* AuthorizationFlow */ = {
 			isa = PBXGroup;
 			children = (
+				010B622027134C1800815777 /* UI */,
 				0184CB5226F8D5CE00A53BF5 /* AuthCoordinator.swift */,
-				0184CB4F26F8D5CE00A53BF5 /* ViewModels */,
-				0184CB5526F8D5CE00A53BF5 /* ViewControllers */,
-				0196AE4A27034A070049DF0B /* PasswordCredential.swift */,
+				013B9B0E2700700D00F7340C /* Services */,
 			);
 			path = AuthorizationFlow;
 			sourceTree = "<group>";
@@ -325,20 +380,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		0184CB6B26F8D5CF00A53BF5 /* Layers */ = {
-			isa = PBXGroup;
-			children = (
-				013B9B0E2700700D00F7340C /* Core */,
-			);
-			path = Layers;
-			sourceTree = "<group>";
-		};
 		0184CB6C26F8D5CF00A53BF5 /* Supportings */ = {
 			isa = PBXGroup;
 			children = (
 				0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */,
-				013B9B0C270060DE00F7340C /* ModuleEntryPoint.swift */,
 				0196AE50270353170049DF0B /* ViewModel.swift */,
+				010B621B2713312700815777 /* Section.swift */,
 			);
 			path = Supportings;
 			sourceTree = "<group>";
@@ -364,19 +411,10 @@
 			path = PrometheusTests;
 			sourceTree = "<group>";
 		};
-		019914F42709DBFD00C58386 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				0184CB5726F8D5CE00A53BF5 /* CommonUI */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		019914F82709E18300C58386 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				019914F52709DDCB00C58386 /* AggregatorPlainCell.swift */,
-				019914F92709E1A600C58386 /* AggregatorPlainCellViewModel.swift */,
+				019914F52709DDCB00C58386 /* AggregatorFeatureCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -405,6 +443,7 @@
 		84528AE75AF39217585580C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01BD423327130A65009FCBE7 /* Sensor.framework */,
 				0132EC3627119085008E786D /* RetainCycle.framework */,
 				D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */,
 				F6098F9F1569569963C17C47 /* Pods_Prometheus_FeatureIntermediate.framework */,
@@ -625,27 +664,30 @@
 			files = (
 				0184CB8626F8D5CF00A53BF5 /* AppDelegate.swift in Sources */,
 				0196AE4B27034A070049DF0B /* PasswordCredential.swift in Sources */,
-				019914F62709DDCB00C58386 /* AggregatorPlainCell.swift in Sources */,
+				019914F62709DDCB00C58386 /* AggregatorFeatureCell.swift in Sources */,
 				0184CB7C26F8D5CF00A53BF5 /* CoordinatorTabBarController.swift in Sources */,
+				010B6216271317C700815777 /* AggregationServicesLocator.swift in Sources */,
 				0124E9C72706244B00C4F98D /* AggregatorViewController.swift in Sources */,
 				0184CB7326F8D5CF00A53BF5 /* AuthCoordinator.swift in Sources */,
 				0184CB7226F8D5CF00A53BF5 /* AuthViewModel.swift in Sources */,
 				0184CB7826F8D5CF00A53BF5 /* PinBoardView.swift in Sources */,
+				010B621C2713312700815777 /* Section.swift in Sources */,
 				0184CB8526F8D5CF00A53BF5 /* AppCoordinator.swift in Sources */,
 				0124E9C4270623A000C4F98D /* AggregatorFlowCoordinator.swift in Sources */,
 				0184CB8026F8D5CF00A53BF5 /* TextFont.swift in Sources */,
-				013B9B0D270060DE00F7340C /* ModuleEntryPoint.swift in Sources */,
 				0184CB7A26F8D5CF00A53BF5 /* TimerLabel.swift in Sources */,
 				0160C071270DF36B00D15AEE /* LocalAuthorizationHelper.swift in Sources */,
 				0184CB7526F8D5CF00A53BF5 /* AuthViewController.swift in Sources */,
 				0184CB8126F8D5CF00A53BF5 /* ImageSource.swift in Sources */,
 				013B9B122700773900F7340C /* AuthorizationService.swift in Sources */,
 				0196AE51270353170049DF0B /* ViewModel.swift in Sources */,
+				010B62182713220900815777 /* AggregationViewModel.swift in Sources */,
 				0124E9CA2706269800C4F98D /* UINavigationControllerSpy.swift in Sources */,
+				010B621A27132DEC00815777 /* AggregationDataSource.swift in Sources */,
 				0184CB7B26F8D5CF00A53BF5 /* DotProgressView.swift in Sources */,
-				019914FA2709E1A600C58386 /* AggregatorPlainCellViewModel.swift in Sources */,
 				0184CB8426F8D5CF00A53BF5 /* Coordinator.swift in Sources */,
 				0184CB7926F8D5CF00A53BF5 /* UICollectionView+Model.swift in Sources */,
+				010B621F27134BC500815777 /* FeatureAdapterCellModel.swift in Sources */,
 				0184CB7F26F8D5CF00A53BF5 /* Palette.swift in Sources */,
 				0184CB7726F8D5CF00A53BF5 /* PinButtonCollectionCell.swift in Sources */,
 				0184CB7626F8D5CF00A53BF5 /* UITableView+Model.swift in Sources */,
@@ -748,7 +790,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -803,7 +845,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -921,7 +963,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = self.FeatureIntermediate;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -956,7 +998,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = self.FeatureIntermediate;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
