@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FeatureIntermediate
 
 final class AppCoordinator: Coordinator {
 	
@@ -58,7 +59,9 @@ final class AppCoordinator: Coordinator {
 		appDelegate?.window?.rootViewController = navigationController
 		self.navigationController = navigationController
 		
+		let serviceLocator = AggregationServicesLocator()
 		let coordinator = AggregatorFlowCoordinator(navigation: navigationController,
+													serviceLocator: serviceLocator,
 													handleEvent: handleEvent)
 		addFlow(coordinator: coordinator)
 		coordinator.start()

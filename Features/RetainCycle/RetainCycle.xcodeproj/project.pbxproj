@@ -10,6 +10,8 @@
 		019281E52701FF4100422007 /* RetainCycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019281DB2701FF4100422007 /* RetainCycle.framework */; };
 		019281EA2701FF4100422007 /* RetainCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019281E92701FF4100422007 /* RetainCycleTests.swift */; };
 		019281EC2701FF4100422007 /* RetainCycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 019281DE2701FF4100422007 /* RetainCycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01BD423827131118009FCBE7 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD423727131118009FCBE7 /* FeatureIntermediate.framework */; };
+		01C0582C270F623B00674873 /* RetainCycleFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0582B270F623B00674873 /* RetainCycleFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,19 +24,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		019282182702003600422007 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		019281DB2701FF4100422007 /* RetainCycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RetainCycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		019281DE2701FF4100422007 /* RetainCycle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RetainCycle.h; sourceTree = "<group>"; };
@@ -42,6 +31,9 @@
 		019281E42701FF4100422007 /* RetainCycleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetainCycleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		019281E92701FF4100422007 /* RetainCycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetainCycleTests.swift; sourceTree = "<group>"; };
 		019281EB2701FF4100422007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		019D41BC2711E833004BFD35 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01BD423727131118009FCBE7 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01C0582B270F623B00674873 /* RetainCycleFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetainCycleFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01BD423827131118009FCBE7 /* FeatureIntermediate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014DA99E271201CC00D9B452 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				01C0582B270F623B00674873 /* RetainCycleFeature.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
 		019281D12701FF4100422007 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +86,7 @@
 		019281DD2701FF4100422007 /* RetainCycle */ = {
 			isa = PBXGroup;
 			children = (
+				014DA99E271201CC00D9B452 /* Feature */,
 				019281DE2701FF4100422007 /* RetainCycle.h */,
 				019281DF2701FF4100422007 /* Info.plist */,
 			);
@@ -103,6 +105,8 @@
 		019282132702003600422007 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01BD423727131118009FCBE7 /* FeatureIntermediate.framework */,
+				019D41BC2711E833004BFD35 /* FeatureIntermediate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,7 +133,6 @@
 				019281D72701FF4100422007 /* Sources */,
 				019281D82701FF4100422007 /* Frameworks */,
 				019281D92701FF4100422007 /* Resources */,
-				019282182702003600422007 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,7 +172,7 @@
 				TargetAttributes = {
 					019281DA2701FF4100422007 = {
 						CreatedOnToolsVersion = 12.5;
-						LastSwiftMigration = 1250;
+						LastSwiftMigration = 1300;
 					};
 					019281E32701FF4100422007 = {
 						CreatedOnToolsVersion = 12.5;
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01C0582C270F623B00674873 /* RetainCycleFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,19 +375,24 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = RetainCycle/Info.plist;
+				INFOPLIST_FILE = "$(PROJECT_NAME)/Info.plist";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = self.RetainCycle;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -397,24 +406,30 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = RetainCycle/Info.plist;
+				INFOPLIST_FILE = "$(PROJECT_NAME)/Info.plist";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = self.RetainCycle;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		019281F32701FF4100422007 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6KS79CKQD;
 				INFOPLIST_FILE = RetainCycleTests/Info.plist;
@@ -433,6 +448,7 @@
 		019281F42701FF4100422007 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6KS79CKQD;
 				INFOPLIST_FILE = RetainCycleTests/Info.plist;

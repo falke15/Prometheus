@@ -1,5 +1,7 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '14.5'
+
+workspace 'Prometheus'
 
 target 'Prometheus' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -10,4 +12,13 @@ target 'Prometheus' do
 
   # Pods for Prometheus
 
+  project './Prometheus'
+  
+  	target 'FeatureIntermediate' do
+  		project './Prometheus'
+	end
+end
+
+target 'RetainCycle' do
+  project './RetainCycle/RetainCycle'
 end

@@ -21,23 +21,6 @@ class AuthorizationServiceTests: XCTestCase {
         sut = nil
 		super.tearDown()
     }
-
-    func testSetUserRegistred() {
-		// arrange & act
-		sut.isRegistered = true
-		
-		// assert
-		XCTAssertTrue(sut.isRegistered)
-    }
-
-	func testSetUserUnregistred() {
-		// arrange & act
-		sut.isRegistered = true
-		sut.isRegistered = false
-		
-		// assert
-		XCTAssertFalse(sut.isRegistered)
-	}
 	
 	func testSetupPassword() throws {
 		// arrange
@@ -45,6 +28,7 @@ class AuthorizationServiceTests: XCTestCase {
 		
 		// act && assert
 		XCTAssertNoThrow(try sut.setPassword(password: pass))
+		XCTAssertTrue(sut.isRegistered)
 		XCTAssertNoThrow(try sut.signIn(with: pass))
 		XCTAssertEqual(try sut.signIn(with: pass), true)
 	}
@@ -56,6 +40,7 @@ class AuthorizationServiceTests: XCTestCase {
 		
 		// act && assert
 		XCTAssertNoThrow(try sut.setPassword(password: pass))
+		XCTAssertTrue(sut.isRegistered)
 		XCTAssertFalse(try sut.signIn(with: newPass))
 		XCTAssertNoThrow(try sut.setPassword(password: newPass))
 		XCTAssertFalse(try sut.signIn(with: pass))
