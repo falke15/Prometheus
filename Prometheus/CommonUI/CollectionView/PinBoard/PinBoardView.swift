@@ -140,17 +140,17 @@ extension PinBoardView: UICollectionViewDataSource {
 	}
 	
 	public func collectionView(_ collectionView: UICollectionView,
-						cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+							   cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let model = pins[indexPath.item]
-		return dequeCell(collectionView, cellModel: model, indexPath: indexPath)
+		return collectionView.dequeCell(cellModel: model, indexPath: indexPath)
 	}
 }
 
 extension PinBoardView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 	
 	public func collectionView(_ collectionView: UICollectionView,
-						layout collectionViewLayout: UICollectionViewLayout,
-						sizeForItemAt indexPath: IndexPath) -> CGSize {
+							   layout collectionViewLayout: UICollectionViewLayout,
+							   sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let collectionSize = collectionView.frame.size
 		let itemsHeight = collectionSize.height - Values.defaultSpacing * 3
 		let itemHeight = itemsHeight / 4

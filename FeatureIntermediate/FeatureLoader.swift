@@ -15,6 +15,7 @@ public protocol FeatureProtocol: AnyObject {
 	var identifier: String { get }
 	var name: String { get }
 	var image: UIImage? { get }
+	var featureType: FeatureType { get }
 	
 	func start(params: [String: String]?)
 }
@@ -39,18 +40,19 @@ public final class FeatureLoader {
 		var result: [FeatureProtocol] = []
 		
 		let frameworkPath = Bundle.main.privateFrameworksPath
-		DispatchQueue.concurrentPerform(iterations: features.count) { idx in
+		DispatchQueue.concurrentPerform(iterations: features.count) { [weak self] idx in
 			if let path = frameworkPath?.appending("/\(features[idx]).framework"),
 			   let bundle = Bundle(path: path) {
 				if let metaType = bundle.principalClass as? FeatureProtocol.Type {
-					
-					self.lock.unlock()
+					guard let self = self else { return }
+					self.lock.lock()
 					result.append(metaType.shared)
 					self.lock.unlock()
 				}
 			}
 		}
 		
+		print("Dylibs loaded: ", result)
 		return result
 	}
 }

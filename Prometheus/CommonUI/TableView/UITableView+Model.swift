@@ -32,12 +32,11 @@ public extension TableCellModelType {
 	}
 }
 
-public extension UITableViewDataSource {
-	func dequeCell(_ tableView: UITableView,
-				   cellModel: TableCellModelAnyType,
+public extension UITableView {
+	func dequeCell(cellModel: TableCellModelAnyType,
 				   indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellType.reuseID,
-													   for: indexPath) as? TableCellType else {
+		guard let cell = dequeueReusableCell(withIdentifier: cellModel.cellType.reuseID,
+											 for: indexPath) as? TableCellType else {
 			return UITableViewCell()
 		}
 		cell.setup(model: cellModel)

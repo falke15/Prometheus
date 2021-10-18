@@ -8,7 +8,7 @@
 import UIKit
 
 struct FeatureAdapterCellModel: CollectionCellModelType, Hashable {
-	typealias Cell = AggregatorFeatureCell
+	typealias Cell = PromoFeatureCell
 	
 	let name: String
 	let image: UIImage

@@ -38,7 +38,7 @@ public final class PinButtonCollectionCell: UICollectionViewCell, CollectionCell
 	public override var isHighlighted: Bool {
 		didSet {
 			if isHighlighted {
-				animateSelection(with: Pallete.Gray.gray1, tintColor: Pallete.Lilac.lilac2)
+				animateSelection(with: Pallete.Gray.gray3, tintColor: Pallete.Lilac.lilac2)
 			} else {
 				animateSelection(with: .clear, tintColor: Pallete.Black.black1)
 			}
