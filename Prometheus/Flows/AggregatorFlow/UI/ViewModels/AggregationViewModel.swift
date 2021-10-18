@@ -26,7 +26,7 @@ final class AggregationViewModel: AggregationViewModelType {
 	}
 	
 	struct Output {
-	 	var items: Observable<[FeatureProtocol]>
+	 	var items: Observable<[Section<AnyHashable>]>
  	}
 	
 	private(set) lazy var input: Input = {
@@ -45,7 +45,7 @@ final class AggregationViewModel: AggregationViewModelType {
 		Output(items: features.asObservable())
 	}()
 	
-	private let features = PublishSubject<[FeatureProtocol]>()
+	private let features = PublishSubject<[Section<AnyHashable>]>()
 	
 	// MARK: - Lifecycle
 	
@@ -56,7 +56,60 @@ final class AggregationViewModel: AggregationViewModelType {
 	// MARK: - Setup Data
 	
 	private func loadFeatures() {
-		let feature = featureLoader.getFeatures()
-		features.onNext(feature)
+		let features = featureLoader.getFeatures()
+		let promoFeatures = features
+			.filter { $0.featureType == .promo }
+			.compactMap { mapFeatureToAdapter($0).asAnyHashable() }
+		let atomsFeatures = features
+			.filter { $0.featureType == .atom }
+			.compactMap { mapFeatureToAdapter($0).asAnyHashable() }
+		let moleculesFeatures = features
+			.filter { $0.featureType == .molecule }
+			.compactMap { mapFeatureToAdapter($0).asAnyHashable() }
+		
+//		let result: [Section<AnyHashable>] = [
+//			Section(name: "New", items: promoFeatures, isClosed: promoFeatures.isEmpty),
+//			Section(name: "Short", items: atomsFeatures, isClosed: atomsFeatures.isEmpty),
+//			Section(name: "New", items: moleculesFeatures, isClosed: moleculesFeatures.isEmpty)
+//		]
+		
+		let result = [
+			Section(name: "New", items: [
+				FeatureAdapterCellModel(name: "Sensor", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				FeatureAdapterCellModel(name: "Tensor", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				FeatureAdapterCellModel(name: "Photo", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				FeatureAdapterCellModel(name: "Credit", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+			], isClosed: false),
+			
+			Section(name: "New", items: [
+				SquareFeatureAdapterCellModel(name: "Eraser", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				SquareFeatureAdapterCellModel(name: "Dummy", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				SquareFeatureAdapterCellModel(name: "JSON", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				SquareFeatureAdapterCellModel(name: "AR", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				SquareFeatureAdapterCellModel(name: "Checker", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				SquareFeatureAdapterCellModel(name: "Checker", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				SquareFeatureAdapterCellModel(name: "Checker", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!
+			], isClosed: false),
+			
+			Section(name: "New", items: [
+				FeatureAdapterCellModel(name: "Glitch", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				FeatureAdapterCellModel(name: "Justify", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				FeatureAdapterCellModel(name: "Algo", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
+				FeatureAdapterCellModel(name: "Redunant", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!
+			], isClosed: false)
+		]
+		
+		self.features.onNext(result)
+	}
+	
+	private func mapFeatureToAdapter(_ feature: FeatureProtocol) -> FeatureAdapterCellModel {
+		let action: () -> Void = { [weak feature] in
+			feature?.start(params: nil)
+		}
+		return FeatureAdapterCellModel(name: feature.name,
+									   image: feature.image ?? UIImage(),
+									   id: feature.identifier,
+									   action: action)
 	}
 }
+

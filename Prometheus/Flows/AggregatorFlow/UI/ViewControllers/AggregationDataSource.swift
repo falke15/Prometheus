@@ -7,17 +7,18 @@
 
 import UIKit
 
-final class AggregationDataSource<Item: Hashable & CollectionCellModelType>:
-	UICollectionViewDiffableDataSource<Section<Item>, Item> {
+
+final class AggregationDataSource: UICollectionViewDiffableDataSource<Section<AnyHashable>, AnyHashable> {
 	
-	private var items: [Item] = []
+	private var items: [AnyHashable] = []
 	
-	func update(with items: [Item], animated: Bool = true) {
-		var snapshot = NSDiffableDataSourceSnapshot<Section<Item>, Item>()
+	func update(with items: [Section<AnyHashable>], animated: Bool = true) {
+		var snapshot = snapshot()
 		
-		let section = Section(name: "Модули", items: items , isClosed: false)
-		snapshot.appendSections([section])
-		snapshot.appendItems(items, toSection: section)
+		snapshot.appendSections(items)
+		items.forEach {
+			snapshot.appendItems($0.items, toSection: $0)
+		}
 		apply(snapshot, animatingDifferences: animated)
 	}
 	

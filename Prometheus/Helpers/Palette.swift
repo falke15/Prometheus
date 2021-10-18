@@ -9,6 +9,10 @@ import UIKit
 
 enum Pallete {
 	
+	enum Utility {
+		static let transparent: UIColor = .clear
+	}
+	
 	enum Black {
 		static let black1: UIColor = #colorLiteral(red: 0.2639833005, green: 0.2623814031, blue: 0.270692118, alpha: 1)
 		static let black2: UIColor = #colorLiteral(red: 0.2455680959, green: 0.242009138, blue: 0.2491270539, alpha: 1)
@@ -17,9 +21,11 @@ enum Pallete {
 	}
 	
 	enum Gray {
-		static let gray1: UIColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-		static let gray2: UIColor = #colorLiteral(red: 0.768627451, green: 0.768627451, blue: 0.768627451, alpha: 1)
-		static let gray3: UIColor = #colorLiteral(red: 0.6214502109, green: 0.6214502109, blue: 0.6214502109, alpha: 1)
+		static let gray1: UIColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+		static let gray2: UIColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+		static let gray3: UIColor = #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+		static let gray4: UIColor = #colorLiteral(red: 0.768627451, green: 0.768627451, blue: 0.768627451, alpha: 1)
+		static let gray5: UIColor = #colorLiteral(red: 0.6214502109, green: 0.6214502109, blue: 0.6214502109, alpha: 1)
 	}
 	
 	enum Light {

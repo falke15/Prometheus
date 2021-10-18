@@ -15,10 +15,11 @@ final class RetainCycleFeature: FeatureProtocol {
 	private(set) var identifier: String = Bundle(for: RetainCycleFeature.self).bundleIdentifier ?? ""
 	private(set) var name: String = "Graphs"
 	private(set) var image: UIImage?
+	private(set) var featureType: FeatureType = .promo
 	
 	private init() {
 		self.isAvailable = true
-		self.image = nil
+		self.image = UIImage(named: "retainCycle")
 	}
 	
 	func start(params: [String : String]?) {

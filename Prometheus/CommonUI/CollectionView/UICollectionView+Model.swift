@@ -29,14 +29,17 @@ public extension CollectionCellModelType {
 	var cellType: CollectionCellType.Type {
 		return Cell.self
 	}
+	
+	func asAnyHashable() -> AnyHashable? {
+		return self as? AnyHashable
+	}
 }
 
-public extension UICollectionViewDataSource {
-	func dequeCell(_ collectionView: UICollectionView,
-				   cellModel: CollectionCellModelAnyType,
+public extension UICollectionView {
+	func dequeCell(cellModel: CollectionCellModelAnyType,
 				   indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellModel.cellType.reuseID,
-															for: indexPath) as? CollectionCellType else {
+		guard let cell = dequeueReusableCell(withReuseIdentifier: cellModel.cellType.reuseID,
+											 for: indexPath) as? CollectionCellType else {
 			return UICollectionViewCell()
 		}
 		cell.setup(model: cellModel)

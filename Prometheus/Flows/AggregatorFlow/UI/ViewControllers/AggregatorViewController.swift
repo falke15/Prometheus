@@ -22,7 +22,9 @@ final class AggregatorViewController: UIViewController {
 	
 	private lazy var featureCollectionView: UICollectionView = {
 		let view = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
-		view.register(AggregatorFeatureCell.self, forCellWithReuseIdentifier: AggregatorFeatureCell.reuseID)
+		view.backgroundColor = Pallete.Gray.gray1
+		view.register(PromoFeatureCell.self, forCellWithReuseIdentifier: PromoFeatureCell.reuseID)
+		view.register(SquareInfoFeatureCell.self, forCellWithReuseIdentifier: SquareInfoFeatureCell.reuseID)
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
 		return view
@@ -30,18 +32,19 @@ final class AggregatorViewController: UIViewController {
 	
 	// MARK: - Delegates
 	
-	private lazy var dataSource: AggregationDataSource<FeatureAdapterCellModel> = {
+	private lazy var dataSource: AggregationDataSource = {
 		let dataSource = AggregationDataSource(collectionView: featureCollectionView) {
 			[weak self] (collectionView: UICollectionView,
 						 indexPath: IndexPath,
-						 itemIdentifier: FeatureAdapterCellModel) -> UICollectionViewCell in
-			guard let self = self else { return UICollectionViewCell() }
-			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureAdapterCellModel.Cell.reuseID,
-																for: indexPath) as? CollectionCellType else {
+						 itemIdentifier: AnyHashable) -> UICollectionViewCell in
+			
+			guard let model = itemIdentifier as? CollectionCellModelAnyType,
+				  let cell = collectionView.dequeCell(cellModel: model,
+													  indexPath: indexPath) as? CollectionCellType else {
 				return UICollectionViewCell()
 			}
 			
-			cell.setup(model: itemIdentifier)
+			cell.setup(model: model)
 			return cell
 		}
 		return dataSource
@@ -54,7 +57,6 @@ final class AggregatorViewController: UIViewController {
 		super.init(nibName: nil, bundle: nil)
 		bindInput()
 		bindOutput()
-		setupUI()
 	}
 	
 	@available(*, unavailable)
@@ -64,8 +66,9 @@ final class AggregatorViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = Pallete.Black.black1
+		setupUI()
 		
+		// В конце всех настроек, иначе layout будет кидать ворнинги
 		loaded.onCompleted()
 	}
 	
@@ -86,16 +89,7 @@ final class AggregatorViewController: UIViewController {
 		viewModel.output.items
 			.subscribe(onNext: { [weak self] items in
 				guard let self = self else { return }
-				let features: [FeatureAdapterCellModel] = items.map { item in
-					let action: () -> Void = { [weak item] in
-						item?.start(params: nil)
-					}
-					return FeatureAdapterCellModel(name: item.name,
-													 image: item.image ?? UIImage(),
-													 id: item.identifier,
-													 action: action)
-				}
-				self.dataSource.update(with: features)
+				self.dataSource.update(with: items)
 			})
 			.disposed(by: disposeBag)
 	}
@@ -123,10 +117,94 @@ final class AggregatorViewController: UIViewController {
 	}
 }
 
+// MARK: - Layout
+
 extension AggregatorViewController {
 	func createCompositionalLayout() -> UICollectionViewLayout {
-		let layout = UICollectionViewFlowLayout()
+		let layout = UICollectionViewCompositionalLayout { idx, environment in
+			switch idx {
+			case 0:
+				return self.createPromoSection(environment: environment)
+			case 1:
+				return self.createBunchSection(environment: environment)
+			default:
+				return self.createListSection(environment: environment)
+			}
+		}
 		
+		layout.configuration.scrollDirection = .vertical
 		return layout
+	}
+	
+	func createPromoSection(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+		let defaultInset = NumericValues.default
+		// Items
+		let promoItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+												   heightDimension: .fractionalHeight(1))
+		let promoItem = NSCollectionLayoutItem(layoutSize: promoItemSize)
+		promoItem.contentInsets = NSDirectionalEdgeInsets(top: defaultInset,
+														  leading: defaultInset,
+														  bottom: defaultInset,
+														  trailing: defaultInset)
+		
+		// Groups
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+											   heightDimension: .fractionalWidth(0.65))
+		let group =	NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [promoItem])
+		
+		// Sections
+		let section = NSCollectionLayoutSection(group: group)
+		section.orthogonalScrollingBehavior = .paging
+		
+		return section
+	}
+	
+	func createBunchSection(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+		let defaultInset = NumericValues.extraSmall
+		let insetBig = NumericValues.medium
+		// Items
+		let baseItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33),
+												  heightDimension: .fractionalHeight(1))
+		let item = NSCollectionLayoutItem(layoutSize: baseItemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: defaultInset,
+													 leading: defaultInset,
+													 bottom: defaultInset,
+													 trailing: defaultInset)
+
+		// Groups
+		let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.33))
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitems: [item])
+		
+		// Sections
+		let section = NSCollectionLayoutSection(group: group)
+		section.orthogonalScrollingBehavior = .continuous
+		section.contentInsets = NSDirectionalEdgeInsets(top: .zero,
+														leading: insetBig,
+														bottom: .zero,
+														trailing: insetBig)
+		
+		return section
+	}
+	
+	func createListSection(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+		let defaultOffset = NumericValues.large
+		let smallOffset = NumericValues.small
+		// Items
+		let baseItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+												  heightDimension: .fractionalHeight(1))
+		let item = NSCollectionLayoutItem(layoutSize: baseItemSize)
+		item.contentInsets = NSDirectionalEdgeInsets(top: smallOffset,
+													 leading: defaultOffset,
+													 bottom: smallOffset,
+													 trailing: defaultOffset)
+		
+		// Groups
+		let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
+		let group = NSCollectionLayoutGroup.vertical(layoutSize: size, subitems: [item])
+		
+		// Sections
+		let section = NSCollectionLayoutSection(group: group)
+		
+		return section
 	}
 }

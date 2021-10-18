@@ -15,6 +15,8 @@
 		0124E9C4270623A000C4F98D /* AggregatorFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C3270623A000C4F98D /* AggregatorFlowCoordinator.swift */; };
 		0124E9C72706244B00C4F98D /* AggregatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C62706244B00C4F98D /* AggregatorViewController.swift */; };
 		0124E9CA2706269800C4F98D /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124E9C92706269800C4F98D /* UINavigationControllerSpy.swift */; };
+		012DA4DA271C521E00C8BB3B /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DA4D9271C521E00C8BB3B /* FeatureType.swift */; };
+		012DA4DD271C80D000C8BB3B /* SquareFeatureAdapterCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DA4DC271C80D000C8BB3B /* SquareFeatureAdapterCellModel.swift */; };
 		013512CC27172AE6006CC796 /* Sensor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD423327130A65009FCBE7 /* Sensor.framework */; };
 		013512CD27172AE6006CC796 /* Sensor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD423327130A65009FCBE7 /* Sensor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		013B9B122700773900F7340C /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B9B112700773900F7340C /* AuthorizationService.swift */; };
@@ -41,16 +43,18 @@
 		0184CB8526F8D5CF00A53BF5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB7026F8D5CF00A53BF5 /* AppCoordinator.swift */; };
 		0184CB8626F8D5CF00A53BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB7126F8D5CF00A53BF5 /* AppDelegate.swift */; };
 		0184CB8E26F8D66300A53BF5 /* AuthorizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB8D26F8D66300A53BF5 /* AuthorizationServiceTests.swift */; };
+		018CEFD4271DC5820022A9C0 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018CEFD3271DC5820022A9C0 /* CALayer+Shadow.swift */; };
 		0196AE4B27034A070049DF0B /* PasswordCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE4A27034A070049DF0B /* PasswordCredential.swift */; };
 		0196AE4F27034B870049DF0B /* PasswordCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE4E27034B870049DF0B /* PasswordCredentialsTests.swift */; };
 		0196AE51270353170049DF0B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE50270353170049DF0B /* ViewModel.swift */; };
-		019914F62709DDCB00C58386 /* AggregatorFeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019914F52709DDCB00C58386 /* AggregatorFeatureCell.swift */; };
+		019914F62709DDCB00C58386 /* PromoFeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019914F52709DDCB00C58386 /* PromoFeatureCell.swift */; };
 		019D41B82711D56E004BFD35 /* RetainCycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0132EC3627119085008E786D /* RetainCycle.framework */; };
 		019D41B92711D56E004BFD35 /* RetainCycle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0132EC3627119085008E786D /* RetainCycle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		019D41BA2711E81B004BFD35 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */; };
 		019D41BB2711E81B004BFD35 /* FeatureIntermediate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01F24FF827117E3B00D5B074 /* FeatureIntermediate.h in Headers */ = {isa = PBXBuildFile; fileRef = 01F24FF727117E3B00D5B074 /* FeatureIntermediate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01F2500027117E4900D5B074 /* FeatureLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011EA79C270F576E003D92C6 /* FeatureLoader.swift */; };
+		01F314AB271A99600087BD3A /* SquareInfoFeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F314AA271A99600087BD3A /* SquareInfoFeatureCell.swift */; };
 		3D9529155D28CAF607552F6E /* Pods_Prometheus_FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6098F9F1569569963C17C47 /* Pods_Prometheus_FeatureIntermediate.framework */; };
 		5AA146D785398F8B0BDB789C /* Pods_Prometheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +102,8 @@
 		0124E9C3270623A000C4F98D /* AggregatorFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorFlowCoordinator.swift; sourceTree = "<group>"; };
 		0124E9C62706244B00C4F98D /* AggregatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorViewController.swift; sourceTree = "<group>"; };
 		0124E9C92706269800C4F98D /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
+		012DA4D9271C521E00C8BB3B /* FeatureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureType.swift; sourceTree = "<group>"; };
+		012DA4DC271C80D000C8BB3B /* SquareFeatureAdapterCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareFeatureAdapterCellModel.swift; sourceTree = "<group>"; };
 		0132EC3627119085008E786D /* RetainCycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RetainCycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		013B9B112700773900F7340C /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		014DA99A2711FB1E00D9B452 /* Features.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Features.plist; sourceTree = "<group>"; };
@@ -126,13 +132,15 @@
 		0184CB8B26F8D66300A53BF5 /* PrometheusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrometheusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0184CB8D26F8D66300A53BF5 /* AuthorizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceTests.swift; sourceTree = "<group>"; };
 		0184CB8F26F8D66300A53BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		018CEFD3271DC5820022A9C0 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		0196AE4A27034A070049DF0B /* PasswordCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredential.swift; sourceTree = "<group>"; };
 		0196AE4E27034B870049DF0B /* PasswordCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredentialsTests.swift; sourceTree = "<group>"; };
 		0196AE50270353170049DF0B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		019914F52709DDCB00C58386 /* AggregatorFeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregatorFeatureCell.swift; sourceTree = "<group>"; };
+		019914F52709DDCB00C58386 /* PromoFeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoFeatureCell.swift; sourceTree = "<group>"; };
 		01BD423327130A65009FCBE7 /* Sensor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Sensor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F24FF727117E3B00D5B074 /* FeatureIntermediate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureIntermediate.h; sourceTree = "<group>"; };
+		01F314AA271A99600087BD3A /* SquareInfoFeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareInfoFeatureCell.swift; sourceTree = "<group>"; };
 		5851536ED6785C7F6BF63E7F /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-FeatureIntermediate.release.xcconfig"; path = "Target Support Files/Pods-Prometheus-FeatureIntermediate/Pods-Prometheus-FeatureIntermediate.release.xcconfig"; sourceTree = "<group>"; };
 		701AA1D6E66BF505C0FD3E29 /* Pods-Prometheus-FeatureIntermediate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-FeatureIntermediate.debug.xcconfig"; path = "Target Support Files/Pods-Prometheus-FeatureIntermediate/Pods-Prometheus-FeatureIntermediate.debug.xcconfig"; sourceTree = "<group>"; };
 		D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prometheus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				010B621E27134BC500815777 /* FeatureAdapterCellModel.swift */,
+				012DA4DC271C80D000C8BB3B /* SquareFeatureAdapterCellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 		0184CB5726F8D5CE00A53BF5 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				018CEFD2271DC5710022A9C0 /* Extensions */,
 				0184CB5826F8D5CE00A53BF5 /* TableView */,
 				0184CB5A26F8D5CE00A53BF5 /* CollectionView */,
 				0184CB5F26F8D5CE00A53BF5 /* TimerLabel.swift */,
@@ -411,10 +421,19 @@
 			path = PrometheusTests;
 			sourceTree = "<group>";
 		};
+		018CEFD2271DC5710022A9C0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				018CEFD3271DC5820022A9C0 /* CALayer+Shadow.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		019914F82709E18300C58386 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				019914F52709DDCB00C58386 /* AggregatorFeatureCell.swift */,
+				019914F52709DDCB00C58386 /* PromoFeatureCell.swift */,
+				01F314AA271A99600087BD3A /* SquareInfoFeatureCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -423,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				011EA79C270F576E003D92C6 /* FeatureLoader.swift */,
+				012DA4D9271C521E00C8BB3B /* FeatureType.swift */,
 				01F24FF727117E3B00D5B074 /* FeatureIntermediate.h */,
 				014DA99A2711FB1E00D9B452 /* Features.plist */,
 			);
@@ -664,7 +684,7 @@
 			files = (
 				0184CB8626F8D5CF00A53BF5 /* AppDelegate.swift in Sources */,
 				0196AE4B27034A070049DF0B /* PasswordCredential.swift in Sources */,
-				019914F62709DDCB00C58386 /* AggregatorFeatureCell.swift in Sources */,
+				019914F62709DDCB00C58386 /* PromoFeatureCell.swift in Sources */,
 				0184CB7C26F8D5CF00A53BF5 /* CoordinatorTabBarController.swift in Sources */,
 				010B6216271317C700815777 /* AggregationServicesLocator.swift in Sources */,
 				0124E9C72706244B00C4F98D /* AggregatorViewController.swift in Sources */,
@@ -683,14 +703,17 @@
 				0196AE51270353170049DF0B /* ViewModel.swift in Sources */,
 				010B62182713220900815777 /* AggregationViewModel.swift in Sources */,
 				0124E9CA2706269800C4F98D /* UINavigationControllerSpy.swift in Sources */,
+				012DA4DD271C80D000C8BB3B /* SquareFeatureAdapterCellModel.swift in Sources */,
 				010B621A27132DEC00815777 /* AggregationDataSource.swift in Sources */,
 				0184CB7B26F8D5CF00A53BF5 /* DotProgressView.swift in Sources */,
 				0184CB8426F8D5CF00A53BF5 /* Coordinator.swift in Sources */,
 				0184CB7926F8D5CF00A53BF5 /* UICollectionView+Model.swift in Sources */,
+				018CEFD4271DC5820022A9C0 /* CALayer+Shadow.swift in Sources */,
 				010B621F27134BC500815777 /* FeatureAdapterCellModel.swift in Sources */,
 				0184CB7F26F8D5CF00A53BF5 /* Palette.swift in Sources */,
 				0184CB7726F8D5CF00A53BF5 /* PinButtonCollectionCell.swift in Sources */,
 				0184CB7626F8D5CF00A53BF5 /* UITableView+Model.swift in Sources */,
+				01F314AB271A99600087BD3A /* SquareInfoFeatureCell.swift in Sources */,
 				0184CB8226F8D5CF00A53BF5 /* NumericValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,6 +731,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012DA4DA271C521E00C8BB3B /* FeatureType.swift in Sources */,
 				01F2500027117E4900D5B074 /* FeatureLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

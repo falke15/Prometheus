@@ -17,7 +17,7 @@ public final class DotProgressView: UIView {
 	private(set) var dotsCount: Int
 	
 	private let successColor: UIColor = Pallete.Green.green3
-	private let secondaryColor: UIColor = Pallete.Gray.gray2
+	private let secondaryColor: UIColor = Pallete.Gray.gray4
 	
 	// MARK: - Views
 	
@@ -121,7 +121,7 @@ public final class DotProgressView: UIView {
 		for _ in 0..<dotsCount {
 			let view = UIView()
 			view.translatesAutoresizingMaskIntoConstraints = false
-			view.backgroundColor = Pallete.Gray.gray2
+			view.backgroundColor = Pallete.Gray.gray4
 			view.layer.cornerRadius = Values.dotSize / 2
 			NSLayoutConstraint.activate([
 				view.heightAnchor.constraint(equalToConstant: Values.dotSize),
