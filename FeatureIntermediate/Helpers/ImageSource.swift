@@ -7,15 +7,15 @@
 
 import UIKit
 
-enum ImageSource: String {
+public enum ImageSource: String {
 	case biometry
 	case remove
 	
-	var image: UIImage {
+	public var image: UIImage {
 		guard let image = UIImage(named: self.rawValue) else {
 			fatalError("Отсутствует ресурс: \(self.rawValue)")
 		}
 		
-		return image
+		return image.withRenderingMode(.alwaysTemplate)
 	}
 }

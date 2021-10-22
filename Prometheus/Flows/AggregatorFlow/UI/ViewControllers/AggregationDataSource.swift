@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FeatureIntermediate
 
 final class AggregationDataSource: UICollectionViewDiffableDataSource<Section<AnyHashable>, AnyHashable> {
 	

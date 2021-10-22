@@ -8,7 +8,7 @@
 import Foundation
 
 /// Вспомогательная обертка над вьюмоделью, которую биндится единожды
-protocol ViewModelType: AnyObject {
+public protocol ViewModelType: AnyObject {
 	associatedtype Input
 	associatedtype Output
 	

@@ -67,6 +67,7 @@ final class AggregatorViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
+		extendedLayoutIncludesOpaqueBars = true
 		
 		// В конце всех настроек, иначе layout будет кидать ворнинги
 		loaded.onCompleted()
@@ -74,7 +75,9 @@ final class AggregatorViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		navigationItem.title = "Выбирай модуль"
+		navigationItem.title = "Modules"
+		
+		navigationController?.navigationBar.applyStyle(.standard)
 	}
 	
 	// MARK: - Setup Data

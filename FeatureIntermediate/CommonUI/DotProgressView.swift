@@ -49,7 +49,7 @@ public final class DotProgressView: UIView {
 	
 	// MARK: - Lifecycle
 	
-	init(dotsCount: Int) {
+	public init(dotsCount: Int) {
 		self.dotsCount = dotsCount
 		super.init(frame: .zero)
 		
@@ -64,7 +64,7 @@ public final class DotProgressView: UIView {
 	
 	// MARK: - Interface
 	
-	func setStatusText(text: String, animated: Bool = false) {
+	public func setStatusText(text: String, animated: Bool = false) {
 		if animated {
 			let animation = CATransition()
 			animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
@@ -76,21 +76,21 @@ public final class DotProgressView: UIView {
 		statusLabel.text = text
 	}
 	
-	func fillProgrees() {
+	public func fillProgrees() {
 		counter = 4
 		dots.forEach {
 			changeViewColor(view: $0, color: successColor)
 		}
 	}
 	
-	func resetProgress() {
+	public func resetProgress() {
 		counter = 0
 		dots.forEach {
 			changeViewColor(view: $0, color: secondaryColor)
 		}
 	}
 	
-	func increment() {
+	public func increment() {
 		if counter < dotsCount {
 			let currentDot = dots[counter]
 			changeViewColor(view: currentDot, color: successColor)
@@ -98,7 +98,7 @@ public final class DotProgressView: UIView {
 		}
 	}
 	
-	func decrement() {
+	public func decrement() {
 		if counter > 0 {
 			let prevDot = dots[counter - 1]
 			changeViewColor(view: prevDot, color: secondaryColor)

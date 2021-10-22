@@ -26,9 +26,10 @@ public final class FeatureLoader {
 	
 	private let features: [String] = {
 		let bundle = Bundle.main
-		let path = bundle.path(forResource: "Features", ofType: "plist")
+		let featuresKey = "Features"
+		let path = bundle.path(forResource: featuresKey, ofType: "plist")
 		let plist = NSDictionary(contentsOfFile: path ?? "") as? [String: Any]
-		let features = plist?["Features"] as? [String]
+		let features = plist?[featuresKey] as? [String]
 		return features ?? []
 	}()
 	
@@ -52,7 +53,9 @@ public final class FeatureLoader {
 			}
 		}
 		
-		print("Dylibs loaded: ", result)
+		print("\n⚙️⚙️⚙️⚙️⚙️⚙️\n")
+		print("DYLIBS LOADED:", result)
+		print("\n⚙️⚙️⚙️⚙️⚙️⚙️\n")
 		return result
 	}
 }

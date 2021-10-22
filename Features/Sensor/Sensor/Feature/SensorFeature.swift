@@ -23,6 +23,7 @@ final class SensorFeature: FeatureProtocol {
 	}
 	
 	func start(params: [String : String]?) {
-		
+		let bar = UINavigationBar()
+		bar.applyStyle(UINavigationBar.Style.transparent)
 	}
 }
