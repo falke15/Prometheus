@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FeatureIntermediate
 
 struct SquareFeatureAdapterCellModel: CollectionCellModelType, Hashable {
 	typealias Cell = SquareInfoFeatureCell

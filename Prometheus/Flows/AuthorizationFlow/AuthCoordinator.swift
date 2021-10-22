@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FeatureIntermediate
 
 /// Управляющий флоу авторизации
 protocol AuthCoordinating: AnyObject {

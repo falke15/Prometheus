@@ -47,7 +47,7 @@ public final class PinButtonCollectionCell: UICollectionViewCell, CollectionCell
 	
 	// MARK: - Lifecycle
 	
-	override init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupUI()
 	}

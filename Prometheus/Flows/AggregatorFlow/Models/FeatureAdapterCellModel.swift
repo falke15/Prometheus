@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FeatureIntermediate
 
 struct FeatureAdapterCellModel: CollectionCellModelType, Hashable {
 	typealias Cell = PromoFeatureCell

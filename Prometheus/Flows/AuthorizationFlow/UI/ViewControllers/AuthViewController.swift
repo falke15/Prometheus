@@ -5,6 +5,7 @@
 //  Created by Pyretttt on 10.06.2021.
 //
 
+import FeatureIntermediate
 import UIKit
 import RxSwift
 import RxCocoa
@@ -72,6 +73,7 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+		navigationController?.setNavigationBarHidden(true, animated: true)
 		timerLabel.startAnimating()
 	}
 	

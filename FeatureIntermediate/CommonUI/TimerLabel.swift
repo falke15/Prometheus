@@ -12,13 +12,13 @@ public class TimerLabel: UILabel {
 	private var dotsCounter: Int = 0
 	private var displayLink: CADisplayLink?
 	
-	func startAnimating() {
+	public func startAnimating() {
 		displayLink = CADisplayLink(target: self, selector: #selector(animate))
 		displayLink?.preferredFramesPerSecond = 5
 		displayLink?.add(to: .main, forMode: .common)
 	}
 	
-	func stopAnimation() {
+	public func stopAnimation() {
 		displayLink?.isPaused = true
 	}
 	

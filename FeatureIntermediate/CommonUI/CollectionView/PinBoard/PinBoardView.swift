@@ -21,7 +21,7 @@ public final class PinBoardView: UIView {
 		static let defaultSpacing: CGFloat = NumericValues.default
 	}
 	
-	weak var delegate: PinBoardDelegate?
+	public weak var delegate: PinBoardDelegate?
 	
 	// MARK: - Pins
 	
@@ -75,7 +75,7 @@ public final class PinBoardView: UIView {
 	
 	// MARK: - Lifecycle
 	
-	init(delegate: PinBoardDelegate?){
+	public init(delegate: PinBoardDelegate?){
 		self.delegate = delegate
 		super.init(frame: .zero)
 		
@@ -90,19 +90,19 @@ public final class PinBoardView: UIView {
 	
 	// MARK: - Data
 	
-	func setCustomPin(icon: UIImage,
+	public func setCustomPin(icon: UIImage,
 					  action: @escaping () -> Void) {
 		customPin.icon = icon
 		customPin.action = action
 		setupPins()
 	}
 	
-	func setCustomPinEnabled(_ isEnabled: Bool) {
+	public func setCustomPinEnabled(_ isEnabled: Bool) {
 		customPin.isEnabled = isEnabled
 		setupPins()
 	}
 	
-	func setRemovingAvailable(_ enabled: Bool) {
+	public func setRemovingAvailable(_ enabled: Bool) {
 		removePin.isEnabled = enabled
 		setupPins()
 	}
@@ -173,15 +173,15 @@ extension PinBoardView: UICollectionViewDelegate, UICollectionViewDelegateFlowLa
 
 extension PinBoardView {
 	
-	struct PinInfo: CollectionCellModelType {
-		typealias Cell = PinButtonCollectionCell
+	public struct PinInfo: CollectionCellModelType {
+		public typealias Cell = PinButtonCollectionCell
 		
-		let number: Int?
-		var isEnabled: Bool
-		var icon: UIImage?
-		var action: (() -> Void)?
+		public let number: Int?
+		public var isEnabled: Bool
+		public var icon: UIImage?
+		public var action: (() -> Void)?
 		
-		init(number: Int?,
+		public init(number: Int?,
 			 action: (() -> Void)?,
 			 icon: UIImage? = nil,
 			 isEnabled: Bool = true) {

@@ -7,6 +7,6 @@
 
 import UIKit
 
-enum TextFont {
-	static let base: UIFont = UIFont.systemFont(ofSize: 14)
+public enum TextFont {
+	public static let base: UIFont = UIFont.systemFont(ofSize: 14)
 }

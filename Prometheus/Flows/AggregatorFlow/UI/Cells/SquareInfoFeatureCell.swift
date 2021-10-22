@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FeatureIntermediate
 
 final class SquareInfoFeatureCell: UICollectionViewCell, CollectionCellType {
 	
