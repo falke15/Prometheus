@@ -5,7 +5,7 @@
 //  Created by Pyretttt on 09.10.2021.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for FeatureIntermediate.
 FOUNDATION_EXPORT double FeatureIntermediateVersionNumber;

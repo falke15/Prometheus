@@ -18,11 +18,11 @@ extension CALayer {
 		}
 		
 		var offset: CGSize {
-			return CGSize(width: 2, height: 2)
+			return CGSize(width: 1, height: 2)
 		}
 		
 		var visualParameteres: (radius: CGFloat, opacity: Float) {
-			return (radius: 4.5, opacity: 0.12)
+			return (radius: 6, opacity: 0.15)
 		}
 	}
 	

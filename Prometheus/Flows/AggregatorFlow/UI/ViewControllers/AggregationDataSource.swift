@@ -2,24 +2,21 @@
 //  AggregationDataSource.swift
 //  Prometheus
 //
-//  Created by Pyretttt on 10.10.2021.
+//  Created by Pyretttt on 01.11.2021.
 //
 
-import UIKit
 import FeatureIntermediate
 
-final class AggregationDataSource: UICollectionViewDiffableDataSource<Section<AnyHashable>, AnyHashable> {
+final class AggregationDataSource: UICollectionViewDiffableDataSource<Section<AggregationItemModel>, AggregationItemModel> {
 	
-	private var items: [AnyHashable] = []
-	
-	func update(with items: [Section<AnyHashable>], animated: Bool = true) {
+	func update(_ items: [Section<AggregationItemModel>]) {
 		var snapshot = snapshot()
-		
 		snapshot.appendSections(items)
-		items.forEach {
-			snapshot.appendItems($0.items, toSection: $0)
+		for section in items {
+			let items = !section.isClosed ? section.items : []
+			snapshot.appendItems(items, toSection: section)
 		}
-		apply(snapshot, animatingDifferences: animated)
+		apply(snapshot)
 	}
 	
 }

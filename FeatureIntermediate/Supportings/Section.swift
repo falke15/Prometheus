@@ -9,12 +9,14 @@ import Foundation
 
 public struct Section<Item: Hashable>: Hashable {
 	public var name: String
-	public var items: [Item]
 	public var isClosed: Bool
+	public var items: [Item]
 	
-	public init(name: String, items: [Item], isClosed: Bool) {
+	public init(name: String,
+				isClosed: Bool,
+				items: [Item]) {
 		self.name = name
-		self.items = items
 		self.isClosed = isClosed
+		self.items = items
 	}
 }

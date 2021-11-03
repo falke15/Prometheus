@@ -11,7 +11,7 @@
 		019281EA2701FF4100422007 /* RetainCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019281E92701FF4100422007 /* RetainCycleTests.swift */; };
 		019281EC2701FF4100422007 /* RetainCycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 019281DE2701FF4100422007 /* RetainCycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01BD423827131118009FCBE7 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD423727131118009FCBE7 /* FeatureIntermediate.framework */; };
-		01C0582C270F623B00674873 /* RetainCycleFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0582B270F623B00674873 /* RetainCycleFeature.swift */; };
+		01C0582C270F623B00674873 /* RetainCycleEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0582B270F623B00674873 /* RetainCycleEntryPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +33,7 @@
 		019281EB2701FF4100422007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		019D41BC2711E833004BFD35 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01BD423727131118009FCBE7 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01C0582B270F623B00674873 /* RetainCycleFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetainCycleFeature.swift; sourceTree = "<group>"; };
+		01C0582B270F623B00674873 /* RetainCycleEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetainCycleEntryPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,7 @@
 		014DA99E271201CC00D9B452 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				01C0582B270F623B00674873 /* RetainCycleFeature.swift */,
+				01C0582B270F623B00674873 /* RetainCycleEntryPoint.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01C0582C270F623B00674873 /* RetainCycleFeature.swift in Sources */,
+				01C0582C270F623B00674873 /* RetainCycleEntryPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,6 @@
 //  Created by Pyretttt on 10.06.2021.
 //
 
-import UIKit
 import RxSwift
 import FeatureIntermediate
 

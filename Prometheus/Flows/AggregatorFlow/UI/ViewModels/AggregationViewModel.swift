@@ -2,50 +2,65 @@
 //  AggregationViewModel.swift
 //  Prometheus
 //
-//  Created by Pyretttt on 10.10.2021.
+//  Created by Pyretttt on 31.10.2021.
 //
 
-import Foundation
-import FeatureIntermediate
 import RxSwift
+import FeatureIntermediate
 
-protocol AggregationViewModelType {
+protocol AggregationViewModelProtocol {
 	var input: AggregationViewModel.Input { get }
 	var output: AggregationViewModel.Output { get }
 }
 
-final class AggregationViewModel: AggregationViewModelType {
-	
-	private let featureLoader: FeatureLoader
-	private let disposeBag = DisposeBag()
-	
-	// MARK: - AggregationViewModelType
+final class AggregationViewModel: AggregationViewModelProtocol {
 	
 	struct Input {
-		var viewDidLoad: AnyObserver<Void>
+		let didLoad: AnyObserver<Void>
+		let didTapItem: AnyObserver<AggregationItemModel>
 	}
 	
 	struct Output {
-	 	var items: Observable<[Section<AnyHashable>]>
- 	}
+		let items: Observable<[Section<AggregationItemModel>]>
+	}
 	
 	private(set) lazy var input: Input = {
-		let viewDidLoad = PublishSubject<Void>()
-		_ = viewDidLoad
+		let didLoad = PublishSubject<Void>()
+		_ = didLoad
 			.debug()
 			.asSingle()
 			.subscribe { [weak self] _ in
 				guard let self = self else { return }
-				self.loadFeatures()
+				let items = self.getInfo()
+				self.storeInfo(items: items)
+				self.itemsSubject.onNext(self.items)
 			}
-		return Input(viewDidLoad: viewDidLoad.asObserver())
+		
+		let didTapItem = PublishSubject<AggregationItemModel>()
+		didTapItem.subscribe(onNext: { item in
+			switch item {
+			case .plainFeature(let model):
+				model.actionBlock()
+			}
+		})
+		.disposed(by: disposeBag)
+		
+		return Input(didLoad: didLoad.asObserver(),
+					 didTapItem: didTapItem.asObserver())
 	}()
 	
 	private(set) lazy var output: Output = {
-		Output(items: features.asObservable())
+		Output(items: itemsSubject.asObservable())
 	}()
 	
-	private let features = PublishSubject<[Section<AnyHashable>]>()
+	private let disposeBag: DisposeBag = DisposeBag()
+	private let featureLoader: FeatureLoader
+	
+	private var items: [Section<AggregationItemModel>] = []
+	
+	// MARK: - Subjects
+	
+	private let itemsSubject: PublishSubject<[Section<AggregationItemModel>]> = PublishSubject()
 	
 	// MARK: - Lifecycle
 	
@@ -53,63 +68,28 @@ final class AggregationViewModel: AggregationViewModelType {
 		self.featureLoader = featureLoader
 	}
 	
-	// MARK: - Setup Data
-	
-	private func loadFeatures() {
+	// MARK: - Data
+
+	private func getInfo() -> [Section<AggregationItemModel>] {
 		let features = featureLoader.getFeatures()
-		let promoFeatures = features
-			.filter { $0.featureType == .promo }
-			.compactMap { mapFeatureToAdapter($0).asAnyHashable() }
-		let atomsFeatures = features
-			.filter { $0.featureType == .atom }
-			.compactMap { mapFeatureToAdapter($0).asAnyHashable() }
-		let moleculesFeatures = features
-			.filter { $0.featureType == .molecule }
-			.compactMap { mapFeatureToAdapter($0).asAnyHashable() }
-		
-//		let result: [Section<AnyHashable>] = [
-//			Section(name: "New", items: promoFeatures, isClosed: promoFeatures.isEmpty),
-//			Section(name: "Short", items: atomsFeatures, isClosed: atomsFeatures.isEmpty),
-//			Section(name: "New", items: moleculesFeatures, isClosed: moleculesFeatures.isEmpty)
-//		]
-		
-		let result = [
-			Section(name: "New", items: [
-				FeatureAdapterCellModel(name: "Sensor", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				FeatureAdapterCellModel(name: "Tensor", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				FeatureAdapterCellModel(name: "Photo", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				FeatureAdapterCellModel(name: "Credit", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-			], isClosed: false),
-			
-			Section(name: "New", items: [
-				SquareFeatureAdapterCellModel(name: "Eraser", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				SquareFeatureAdapterCellModel(name: "Dummy", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				SquareFeatureAdapterCellModel(name: "JSON", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				SquareFeatureAdapterCellModel(name: "AR", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				SquareFeatureAdapterCellModel(name: "Checker", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				SquareFeatureAdapterCellModel(name: "Checker", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				SquareFeatureAdapterCellModel(name: "Checker", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!
-			], isClosed: false),
-			
-			Section(name: "New", items: [
-				FeatureAdapterCellModel(name: "Glitch", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				FeatureAdapterCellModel(name: "Justify", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				FeatureAdapterCellModel(name: "Algo", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!,
-				FeatureAdapterCellModel(name: "Redunant", image: UIImage(named: "retainCycle")!, id: UUID().uuidString, action: nil).asAnyHashable()!
-			], isClosed: false)
+		let aggregationItems: [AggregationItemModel] = features.map { feature in
+			let actionBlock: () -> Void = { [weak feature] in
+				feature?.enter()
+			}
+			let item = FeatureCellModel(name: feature.processName,
+										description: feature.description,
+										imageName: feature.imageName,
+										actionBlock: actionBlock)
+			return AggregationItemModel.plainFeature(model: item)
+		}
+		let sections: [Section<AggregationItemModel>] = [
+			Section(name: "Features", isClosed: false, items: aggregationItems)
 		]
 		
-		self.features.onNext(result)
+		return sections
 	}
 	
-	private func mapFeatureToAdapter(_ feature: FeatureProtocol) -> FeatureAdapterCellModel {
-		let action: () -> Void = { [weak feature] in
-			feature?.start(params: nil)
-		}
-		return FeatureAdapterCellModel(name: feature.name,
-									   image: feature.image ?? UIImage(),
-									   id: feature.identifier,
-									   action: action)
+	private func storeInfo(items: [Section<AggregationItemModel>]) {
+		self.items = items
 	}
 }
-

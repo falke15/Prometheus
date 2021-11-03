@@ -29,10 +29,6 @@ public extension CollectionCellModelType {
 	var cellType: CollectionCellType.Type {
 		return Cell.self
 	}
-	
-	func asAnyHashable() -> AnyHashable? {
-		return self as? AnyHashable
-	}
 }
 
 public extension UICollectionView {
