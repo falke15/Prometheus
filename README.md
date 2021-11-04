@@ -16,7 +16,7 @@ Stack: Keychain(Security), LocalAuthentification, RxSwift
 2. CoreML. Project name - TBA.
    Progress ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
 
-3. AVFoundation. Project name - TBA.
+3. AVFoundation. Project name - ProMotion.
    Progress ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
    
    Notes: 
