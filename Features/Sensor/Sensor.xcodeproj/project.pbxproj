@@ -11,7 +11,7 @@
 		013512E227172B65006CC796 /* Sensor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013512D827172B65006CC796 /* Sensor.framework */; };
 		013512E727172B65006CC796 /* SensorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013512E627172B65006CC796 /* SensorTests.swift */; };
 		013512E927172B65006CC796 /* Sensor.h in Headers */ = {isa = PBXBuildFile; fileRef = 013512DB27172B65006CC796 /* Sensor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01CEC27B27172D95000C7C66 /* SensorFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC27A27172D95000C7C66 /* SensorFeature.swift */; };
+		01CEC27B27172D95000C7C66 /* SensorEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEC27A27172D95000C7C66 /* SensorEntryPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,7 @@
 		013512E127172B65006CC796 /* SensorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SensorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		013512E627172B65006CC796 /* SensorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorTests.swift; sourceTree = "<group>"; };
 		013512E827172B65006CC796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01CEC27A27172D95000C7C66 /* SensorFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorFeature.swift; sourceTree = "<group>"; };
+		01CEC27A27172D95000C7C66 /* SensorEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorEntryPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 		01CEC27927172D8F000C7C66 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				01CEC27A27172D95000C7C66 /* SensorFeature.swift */,
+				01CEC27A27172D95000C7C66 /* SensorEntryPoint.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -218,7 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01CEC27B27172D95000C7C66 /* SensorFeature.swift in Sources */,
+				01CEC27B27172D95000C7C66 /* SensorEntryPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

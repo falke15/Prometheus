@@ -6,18 +6,16 @@
 //
 
 import Foundation
-import UIKit
 
-public protocol FeatureProtocol: AnyObject {
-	static var shared: FeatureProtocol { get }
+public protocol FeatureEntryPointProtocol: AnyObject {
+	static var shared: FeatureEntryPointProtocol { get }
 	
-	var isAvailable: Bool { get }
 	var identifier: String { get }
-	var name: String { get }
-	var image: UIImage? { get }
-	var featureType: FeatureType { get }
+	var processName: String { get }
+	var description: String { get }
+	var imageName: String { get }
 	
-	func start(params: [String: String]?)
+	func enter()
 }
 
 public final class FeatureLoader {
@@ -37,14 +35,14 @@ public final class FeatureLoader {
 		
 	}
 	
-	public func getFeatures() -> [FeatureProtocol] {
-		var result: [FeatureProtocol] = []
+	public func getFeatures() -> [FeatureEntryPointProtocol] {
+		var result: [FeatureEntryPointProtocol] = []
 		
 		let frameworkPath = Bundle.main.privateFrameworksPath
 		DispatchQueue.concurrentPerform(iterations: features.count) { [weak self] idx in
 			if let path = frameworkPath?.appending("/\(features[idx]).framework"),
 			   let bundle = Bundle(path: path) {
-				if let metaType = bundle.principalClass as? FeatureProtocol.Type {
+				if let metaType = bundle.principalClass as? FeatureEntryPointProtocol.Type {
 					guard let self = self else { return }
 					self.lock.lock()
 					result.append(metaType.shared)

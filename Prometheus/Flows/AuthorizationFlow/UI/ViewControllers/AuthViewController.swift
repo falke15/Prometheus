@@ -6,7 +6,6 @@
 //
 
 import FeatureIntermediate
-import UIKit
 import RxSwift
 import RxCocoa
 
@@ -28,7 +27,7 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 	private let attemptBiometryAuth = PublishSubject<Void>()
 	private let onViewDidload = Observable<Void>.of(())
 
-	// MARK: - Views
+	// MARK: - Visual elements
 	
 	private let progressView: DotProgressView = {
 		let view = DotProgressView(dotsCount: 4)
