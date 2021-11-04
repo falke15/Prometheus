@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import FeatureIntermediate
 
 class AuthViewModel: ViewModelType {
 	

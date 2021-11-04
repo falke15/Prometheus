@@ -5,7 +5,6 @@
 //  Created by Pyretttt on 27.08.2021.
 //
 
-import UIKit
 import FeatureIntermediate
 
 final class AppCoordinator: Coordinator {

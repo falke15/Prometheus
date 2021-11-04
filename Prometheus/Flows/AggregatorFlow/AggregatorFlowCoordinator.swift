@@ -5,7 +5,6 @@
 //  Created by Pyretttt on 30.09.2021.
 //
 
-import UIKit
 import FeatureIntermediate
 
 final class AggregatorFlowCoordinator: Coordinator {
@@ -29,7 +28,7 @@ final class AggregatorFlowCoordinator: Coordinator {
 	
 	func start() {
 		let viewModel = AggregationViewModel(featureLoader: serviceLocator.featureLoader)
-		let view = AggregatorViewController(viewModel: viewModel)
+		let view = AggregationViewController(viewModel: viewModel)
 		navigationController?.pushViewController(view, animated: true)
 	}
 	

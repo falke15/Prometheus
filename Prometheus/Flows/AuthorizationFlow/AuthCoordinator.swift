@@ -5,7 +5,7 @@
 //  Created by Pyretttt on 27.08.2021.
 //
 
-import UIKit
+import FeatureIntermediate
 
 /// Управляющий флоу авторизации
 protocol AuthCoordinating: AnyObject {
@@ -40,8 +40,8 @@ final class AuthCoordinator: Coordinator, AuthCoordinating {
 		let viewModel = AuthViewModel(authorizationService: AuthorizationService(),
 									  localAuthorizationHelper: LocalAuthorizationHelper(),
 									  flowCoordinating: self)
-		let vc = AuthViewController(viewModel: viewModel)
-		navigationController?.pushViewController(vc, animated: true)
+		let view = AuthViewController(viewModel: viewModel)
+		navigationController?.pushViewController(view, animated: true)
 	}
 	
 	func finish() {

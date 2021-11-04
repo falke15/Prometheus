@@ -5,7 +5,7 @@
 //  Created by Pyretttt on 10.06.2021.
 //
 
-import UIKit
+import FeatureIntermediate
 import RxSwift
 import RxCocoa
 
@@ -27,7 +27,7 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 	private let attemptBiometryAuth = PublishSubject<Void>()
 	private let onViewDidload = Observable<Void>.of(())
 
-	// MARK: - Views
+	// MARK: - Visual elements
 	
 	private let progressView: DotProgressView = {
 		let view = DotProgressView(dotsCount: 4)
@@ -72,6 +72,7 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+		navigationController?.setNavigationBarHidden(true, animated: true)
 		timerLabel.startAnimating()
 	}
 	

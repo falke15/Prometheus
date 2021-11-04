@@ -1,15 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "delete.png",
+      "filename" : "LinearGradient_end1.png",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }
