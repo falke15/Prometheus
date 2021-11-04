@@ -95,8 +95,7 @@ final class PlainFeatureCell: AnimatedHighlightCell, CollectionCellType {
 		
 		backgroundIcon.image = model.image.withRenderingMode(.alwaysOriginal)
 		titleLabel.text = model.name
-		descriptionLabel.text = model.description + model.description + model.description + model.description
-//		descriptionLabel.text = model.description
+		descriptionLabel.text = model.description
 	}
 	
 	// MARK: - Setup UI
