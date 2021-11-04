@@ -10,10 +10,10 @@ import FeatureIntermediate
 final class PlainFeatureCell: AnimatedHighlightCell, CollectionCellType {
 	
 	private enum Constants {
-		static let imageWidth: CGFloat = 96
+		static let imageWidth: CGFloat = 72
 	}
 	
-	static var reuseID: String = "PlainFeatureCell"
+	static var reuseID: String = "PlainFeatureCellReuseID"
 	
 	// MARK: - Visual elements
 	
@@ -114,6 +114,8 @@ final class PlainFeatureCell: AnimatedHighlightCell, CollectionCellType {
 	}
 	
 	private func setupConstraints() {
+		let heightImageAnchor = backgroundIcon.heightAnchor.constraint(equalToConstant: Constants.imageWidth)
+		heightImageAnchor.priority = UILayoutPriority(999)
 		NSLayoutConstraint.activate([
 			backgrounderView.topAnchor.constraint(equalTo: contentView.topAnchor,
 												  constant: NumericValues.medium),
@@ -141,12 +143,13 @@ final class PlainFeatureCell: AnimatedHighlightCell, CollectionCellType {
 			imageViewCanvas.heightAnchor.constraint(equalTo: backgroundIcon.heightAnchor, multiplier: 1.2),
 			imageViewCanvas.widthAnchor.constraint(equalTo: backgroundIcon.widthAnchor, multiplier: 1.2),
 			imageViewCanvas.centerYAnchor.constraint(equalTo: backgrounderView.centerYAnchor),
-			imageViewCanvas.trailingAnchor.constraint(equalTo: backgrounderView.trailingAnchor, constant: -NumericValues.large),
+			imageViewCanvas.trailingAnchor.constraint(equalTo: backgrounderView.trailingAnchor,
+													  constant: -NumericValues.large),
 			
-			backgroundIcon.heightAnchor.constraint(equalToConstant: Constants.imageWidth),
+			heightImageAnchor,
 			backgroundIcon.widthAnchor.constraint(equalToConstant: Constants.imageWidth),
 			backgroundIcon.centerYAnchor.constraint(equalTo: imageViewCanvas.centerYAnchor),
-			backgroundIcon.centerXAnchor.constraint(equalTo: imageViewCanvas.centerXAnchor),
+			backgroundIcon.centerXAnchor.constraint(equalTo: imageViewCanvas.centerXAnchor)
 		])
 	}
 }

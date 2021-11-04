@@ -61,6 +61,9 @@ class AggregationViewController: UIViewController {
 		featuresCollectionView.dataSource = dataSource
 		featuresCollectionView.delegate = self
 		featuresCollectionView.register(PlainFeatureCell.self, forCellWithReuseIdentifier: PlainFeatureCell.reuseID)
+		featuresCollectionView.register(SectionHeaderView.self,
+										forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+										withReuseIdentifier: SectionHeaderView.reuseID)
 	}
 	
 	private func setupUI() {
@@ -103,7 +106,7 @@ class AggregationViewController: UIViewController {
 		viewModel.output.items
 			.subscribe(onNext: { [weak self] items in
 				guard let self = self else { return }
-				self.dataSource.update(items)
+				self.dataSource.add(items)
 			})
 			.disposed(by: disposeBag)
 	}
@@ -124,6 +127,17 @@ private extension AggregationViewController {
 	
 	func createListLayout() -> NSCollectionLayoutSection {
 		let estimatedHeightSize = NSCollectionLayoutDimension.estimated(71)
+		
+		// supplementaries
+		let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+																	 elementKind: UICollectionView.elementKindSectionHeader,
+																	 alignment: .top)
+		headerItem.contentInsets = NSDirectionalEdgeInsets(top: .zero,
+														   leading: NumericValues.default,
+														   bottom: .zero,
+														   trailing: NumericValues.default)
+		
 		// items
 		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: estimatedHeightSize)
 		let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -135,6 +149,7 @@ private extension AggregationViewController {
 		// section
 		let section = NSCollectionLayoutSection(group: group)
 		section.interGroupSpacing = NumericValues.default
+		section.boundarySupplementaryItems = [headerItem]
 		
 		return section
 	}

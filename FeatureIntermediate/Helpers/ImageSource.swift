@@ -11,6 +11,7 @@ public enum ImageSource: String {
 	case biometry
 	case remove
 	case gradient
+	case arrowDown
 	
 	public var image: UIImage {
 		guard let image = UIImage(named: self.rawValue) else {
