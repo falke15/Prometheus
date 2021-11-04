@@ -7,10 +7,10 @@ Monster project including:
 
 Stack: Keychain(Security), LocalAuthentification, RxSwift
 
-0. Chart module. Project name - TBA.
+0. Chart module. Project name - RetainCycle.
    Progress ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜0%
 
-1. AR. Project name - TBA.
+1. AR. Project name - Sensor.
    Progress ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
 
 2. CoreML. Project name - TBA.
