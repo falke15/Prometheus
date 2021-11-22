@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013E6459273449E000D38AF7 /* RetainCycleEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E6458273449DF00D38AF7 /* RetainCycleEntryPoint.swift */; };
+		013E645D27344A2800D38AF7 /* SharedConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 013E645C27344A2800D38AF7 /* SharedConfig.xcconfig */; };
 		019281E52701FF4100422007 /* RetainCycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019281DB2701FF4100422007 /* RetainCycle.framework */; };
 		019281EA2701FF4100422007 /* RetainCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019281E92701FF4100422007 /* RetainCycleTests.swift */; };
 		019281EC2701FF4100422007 /* RetainCycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 019281DE2701FF4100422007 /* RetainCycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01BD423827131118009FCBE7 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD423727131118009FCBE7 /* FeatureIntermediate.framework */; };
-		01C0582C270F623B00674873 /* RetainCycleEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0582B270F623B00674873 /* RetainCycleEntryPoint.swift */; };
+		4EC32409CF5F5FB37732537F /* Pods_Prometheus_RetainCycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA1DC9039B928C247885223 /* Pods_Prometheus_RetainCycle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		013E6458273449DF00D38AF7 /* RetainCycleEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetainCycleEntryPoint.swift; sourceTree = "<group>"; };
+		013E645C27344A2800D38AF7 /* SharedConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = SharedConfig.xcconfig; path = RetainCycle/SharedConfig.xcconfig; sourceTree = SOURCE_ROOT; };
 		019281DB2701FF4100422007 /* RetainCycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RetainCycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		019281DE2701FF4100422007 /* RetainCycle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RetainCycle.h; sourceTree = "<group>"; };
 		019281DF2701FF4100422007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,7 +37,9 @@
 		019281EB2701FF4100422007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		019D41BC2711E833004BFD35 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01BD423727131118009FCBE7 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01C0582B270F623B00674873 /* RetainCycleEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetainCycleEntryPoint.swift; sourceTree = "<group>"; };
+		0CD5E41B0DE49BC2E284310D /* Pods-Prometheus-RetainCycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-RetainCycle.release.xcconfig"; path = "Target Support Files/Pods-Prometheus-RetainCycle/Pods-Prometheus-RetainCycle.release.xcconfig"; sourceTree = "<group>"; };
+		5FA1DC9039B928C247885223 /* Pods_Prometheus_RetainCycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prometheus_RetainCycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A91B1517FBD9BAACC6A33D8 /* Pods-Prometheus-RetainCycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-RetainCycle.debug.xcconfig"; path = "Target Support Files/Pods-Prometheus-RetainCycle/Pods-Prometheus-RetainCycle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01BD423827131118009FCBE7 /* FeatureIntermediate.framework in Frameworks */,
+				4EC32409CF5F5FB37732537F /* Pods_Prometheus_RetainCycle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +63,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		014DA99E271201CC00D9B452 /* Feature */ = {
+		013E6457273449D800D38AF7 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				01C0582B270F623B00674873 /* RetainCycleEntryPoint.swift */,
+				013E6458273449DF00D38AF7 /* RetainCycleEntryPoint.swift */,
 			);
-			path = Feature;
+			name = Feature;
+			sourceTree = "<group>";
+		};
+		013E645E27344A3700D38AF7 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				013E645C27344A2800D38AF7 /* SharedConfig.xcconfig */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 		019281D12701FF4100422007 = {
@@ -71,6 +86,7 @@
 				019281E82701FF4100422007 /* RetainCycleTests */,
 				019281DC2701FF4100422007 /* Products */,
 				019282132702003600422007 /* Frameworks */,
+				CEE7F81E5837AFA3A2E1F32F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,7 +102,8 @@
 		019281DD2701FF4100422007 /* RetainCycle */ = {
 			isa = PBXGroup;
 			children = (
-				014DA99E271201CC00D9B452 /* Feature */,
+				013E645E27344A3700D38AF7 /* Config */,
+				013E6457273449D800D38AF7 /* Feature */,
 				019281DE2701FF4100422007 /* RetainCycle.h */,
 				019281DF2701FF4100422007 /* Info.plist */,
 			);
@@ -107,8 +124,19 @@
 			children = (
 				01BD423727131118009FCBE7 /* FeatureIntermediate.framework */,
 				019D41BC2711E833004BFD35 /* FeatureIntermediate.framework */,
+				5FA1DC9039B928C247885223 /* Pods_Prometheus_RetainCycle.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEE7F81E5837AFA3A2E1F32F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A91B1517FBD9BAACC6A33D8 /* Pods-Prometheus-RetainCycle.debug.xcconfig */,
+				0CD5E41B0DE49BC2E284310D /* Pods-Prometheus-RetainCycle.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +157,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 019281EF2701FF4100422007 /* Build configuration list for PBXNativeTarget "RetainCycle" */;
 			buildPhases = (
+				E95C4B4425A290712D288EB1 /* [CP] Check Pods Manifest.lock */,
 				019281D62701FF4100422007 /* Headers */,
 				019281D72701FF4100422007 /* Sources */,
 				019281D82701FF4100422007 /* Frameworks */,
@@ -172,7 +201,7 @@
 				TargetAttributes = {
 					019281DA2701FF4100422007 = {
 						CreatedOnToolsVersion = 12.5;
-						LastSwiftMigration = 1300;
+						LastSwiftMigration = 1250;
 					};
 					019281E32701FF4100422007 = {
 						CreatedOnToolsVersion = 12.5;
@@ -203,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013E645D27344A2800D38AF7 /* SharedConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,12 +245,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E95C4B4425A290712D288EB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Prometheus-RetainCycle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		019281D72701FF4100422007 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01C0582C270F623B00674873 /* RetainCycleEntryPoint.swift in Sources */,
+				013E6459273449E000D38AF7 /* RetainCycleEntryPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +300,7 @@
 /* Begin XCBuildConfiguration section */
 		019281ED2701FF4100422007 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 013E645C27344A2800D38AF7 /* SharedConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -309,6 +365,7 @@
 		};
 		019281EE2701FF4100422007 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 013E645C27344A2800D38AF7 /* SharedConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -367,6 +424,7 @@
 		};
 		019281F02701FF4100422007 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A91B1517FBD9BAACC6A33D8 /* Pods-Prometheus-RetainCycle.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -379,7 +437,7 @@
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = "";
 				INFOPLIST_KEY_NSPrincipalClass = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +456,7 @@
 		};
 		019281F12701FF4100422007 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CD5E41B0DE49BC2E284310D /* Pods-Prometheus-RetainCycle.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -410,7 +469,7 @@
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = "";
 				INFOPLIST_KEY_NSPrincipalClass = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

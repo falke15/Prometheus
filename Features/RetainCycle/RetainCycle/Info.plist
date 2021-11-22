@@ -19,6 +19,6 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSPrincipalClass</key>
-	<string>RetainCycle.RetainCycleEntryPoint</string>
+	<string>$(PRINCIPAL_CLASS)</string>
 </dict>
 </plist>

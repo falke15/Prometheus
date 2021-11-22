@@ -10,6 +10,10 @@ import FeatureIntermediate
 
 class AggregationViewController: UIViewController {
 	
+	private enum Constants {
+		static let primaryColor: UIColor = Pallete.Gray.gray1
+	}
+	
 	private let viewModel: AggregationViewModelProtocol
 	private let disposeBag: DisposeBag = DisposeBag()
 	
@@ -23,8 +27,8 @@ class AggregationViewController: UIViewController {
 	private lazy var featuresCollectionView: UICollectionView = {
 		let view = UICollectionView(frame: .zero, collectionViewLayout: makeCollectionLayout())
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.backgroundColor = Pallete.Gray.gray1
-		view.contentInsetAdjustmentBehavior = .scrollableAxes
+		view.backgroundColor = Constants.primaryColor
+		view.contentInsetAdjustmentBehavior = .always
 		
 		return view
 	}()
@@ -43,6 +47,7 @@ class AggregationViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		view.backgroundColor = Constants.primaryColor
 		
 		setupUI()
 		bindOutput()
@@ -51,6 +56,7 @@ class AggregationViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		navigationController?.setNavigationBarHidden(false, animated: animated)
 		navigationController?.navigationBar.applyStyle(.standard)
 		navigationItem.title = "Modules"
 	}
@@ -76,7 +82,7 @@ class AggregationViewController: UIViewController {
 	
 	private func setupConstraints() {
 		NSLayoutConstraint.activate([
-			featuresCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+			featuresCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 			featuresCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			featuresCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			featuresCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)

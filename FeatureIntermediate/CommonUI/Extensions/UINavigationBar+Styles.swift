@@ -42,19 +42,18 @@ public extension UINavigationBar {
 		var tintColor: UIColor {
 			switch self {
 			case .standard:
-				return Pallete.Light.white1
+				return Pallete.Black.black3
 			case .transparent:
-				return Pallete.Light.white1
+				return Pallete.Black.black3
 			case .customColor:
-				return Pallete.Light.white1
+				return Pallete.Black.black3
 			}
 		}
 	}
 	
 	func applyStyle(_ style: Style) {
-		backgroundColor = style.backgroundColor
 		barTintColor = style.backgroundColor
-		isTranslucent = style.backgroundColor == Pallete.Utility.transparent
+		isTranslucent = true
 		titleTextAttributes = style.titleAttributes
 		largeTitleTextAttributes = style.titleAttributes
 		tintColor = style.tintColor

@@ -19,6 +19,6 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSPrincipalClass</key>
-	<string>Sensor.SensorEntryPoint</string>
+	<string>$(PRINCIPAL_CLASS)</string>
 </dict>
 </plist>
