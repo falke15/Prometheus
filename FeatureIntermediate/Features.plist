@@ -4,6 +4,7 @@
 <dict>
 	<key>Features</key>
 	<array>
+		<string>ProMotion</string>
 		<string>RetainCycle</string>
 		<string>Sensor</string>
 	</array>

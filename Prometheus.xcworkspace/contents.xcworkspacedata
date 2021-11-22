@@ -4,6 +4,16 @@
    <Group
       location = "container:"
       name = "Feature">
+      <Group
+         location = "group:Features/Config"
+         name = "Config">
+         <FileRef
+            location = "group:SharedConfig.xcconfig">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Features/ProMotion/ProMotion.xcodeproj">
+      </FileRef>
       <FileRef
          location = "group:Features/Sensor/Sensor.xcodeproj">
       </FileRef>

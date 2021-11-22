@@ -3,22 +3,32 @@
 
 workspace 'Prometheus'
 
+def commonPods
+	pod 'RxSwift'
+	pod 'RxCocoa'
+end
+
 target 'Prometheus' do
   # Comment the next line if you don't want to use dynamic frameworks
+	project './Prometheus'
   use_frameworks!
-
-  pod 'RxSwift'
-  pod 'RxCocoa'
-
-  # Pods for Prometheus
-
-  project './Prometheus'
-  
-  	target 'FeatureIntermediate' do
-  		project './Prometheus'
+	
+	commonPods
+	
+	target 'FeatureIntermediate' do
+		project './Prometheus'
+	end
+	
+	target 'RetainCycle' do
+		project './Features/RetainCycle/RetainCycle'
+	end
+	
+	target 'Sensor' do
+		project './Features/Sensor/Sensor'
+	end
+	
+	target 'ProMotion' do
+		project './Features/ProMotion/ProMotion'
 	end
 end
 
-target 'RetainCycle' do
-  project './RetainCycle/RetainCycle'
-end
