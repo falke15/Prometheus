@@ -48,6 +48,7 @@
 		0163D06F2723187D008DF12B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */; };
 		0163D0702723187F008DF12B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE50270353170049DF0B /* ViewModel.swift */; };
 		0163D07127231882008DF12B /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010B621B2713312700815777 /* Section.swift */; };
+		01757BE42753BED2009549E7 /* VideoPlayerView+PlaybackAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01757BE32753BED2009549E7 /* VideoPlayerView+PlaybackAssistant.swift */; };
 		0184CB7226F8D5CF00A53BF5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB5026F8D5CE00A53BF5 /* AuthViewModel.swift */; };
 		0184CB7326F8D5CF00A53BF5 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB5226F8D5CE00A53BF5 /* AuthCoordinator.swift */; };
 		0184CB7526F8D5CF00A53BF5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB5626F8D5CE00A53BF5 /* AuthViewController.swift */; };
@@ -61,9 +62,8 @@
 		019D41BA2711E81B004BFD35 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */; };
 		019D41BB2711E81B004BFD35 /* FeatureIntermediate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01A0A444273823410011E4CA /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0A443273823410011E4CA /* VideoPlayerView.swift */; };
+		01B14FB6275E6F40001E0837 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B14FB5275E6F40001E0837 /* PlainButton.swift */; };
 		01D005B8273528040009ED8A /* Pods_Prometheus_FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D005B7273528040009ED8A /* Pods_Prometheus_FeatureIntermediate.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		01DF38F52742BD2100A5DDE5 /* VideoPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF38F42742BD2100A5DDE5 /* VideoPlayer+Extensions.swift */; };
-		01E9ECA4274409F60090879E /* VideoPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9ECA3274409F60090879E /* VideoPlayerDelegate.swift */; };
 		01E9ECA827441D4E0090879E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9ECA727441D4E0090879E /* UIImage+Extensions.swift */; };
 		01E9ECAA27441E9B0090879E /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9ECA927441E9B0090879E /* SpacerView.swift */; };
 		01F24FF827117E3B00D5B074 /* FeatureIntermediate.h in Headers */ = {isa = PBXBuildFile; fileRef = 01F24FF727117E3B00D5B074 /* FeatureIntermediate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -134,6 +134,7 @@
 		014DA99A2711FB1E00D9B452 /* Features.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Features.plist; sourceTree = "<group>"; };
 		0160C070270DF36B00D15AEE /* LocalAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthorizationHelper.swift; sourceTree = "<group>"; };
 		0163D07627232E86008DF12B /* AnimatedHighlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedHighlightCell.swift; sourceTree = "<group>"; };
+		01757BE32753BED2009549E7 /* VideoPlayerView+PlaybackAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoPlayerView+PlaybackAssistant.swift"; sourceTree = "<group>"; };
 		0184CB3626F8D59700A53BF5 /* Prometheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prometheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0184CB4726F8D59900A53BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0184CB5026F8D5CE00A53BF5 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -160,10 +161,9 @@
 		0196AE4E27034B870049DF0B /* PasswordCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCredentialsTests.swift; sourceTree = "<group>"; };
 		0196AE50270353170049DF0B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		01A0A443273823410011E4CA /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		01B14FB5275E6F40001E0837 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		01BD423327130A65009FCBE7 /* Sensor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Sensor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01D005B7273528040009ED8A /* Pods_Prometheus_FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Prometheus_FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01DF38F42742BD2100A5DDE5 /* VideoPlayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoPlayer+Extensions.swift"; sourceTree = "<group>"; };
-		01E9ECA3274409F60090879E /* VideoPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerDelegate.swift; sourceTree = "<group>"; };
 		01E9ECA727441D4E0090879E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		01E9ECA927441E9B0090879E /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,6 +378,7 @@
 		0184CB5726F8D5CE00A53BF5 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				01B14FB4275E693F001E0837 /* Buttons */,
 				018CEFD2271DC5710022A9C0 /* Extensions */,
 				0184CB5826F8D5CE00A53BF5 /* TableView */,
 				0184CB5A26F8D5CE00A53BF5 /* CollectionView */,
@@ -481,12 +482,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		01B14FB4275E693F001E0837 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				01B14FB5275E6F40001E0837 /* PlainButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		01DF38F32742BCA200A5DDE5 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
 				01A0A443273823410011E4CA /* VideoPlayerView.swift */,
-				01E9ECA3274409F60090879E /* VideoPlayerDelegate.swift */,
-				01DF38F42742BD2100A5DDE5 /* VideoPlayer+Extensions.swift */,
+				01757BE32753BED2009549E7 /* VideoPlayerView+PlaybackAssistant.swift */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -780,7 +788,6 @@
 				013734702723129000EA76BC /* UINavigationBar+Styles.swift in Sources */,
 				0163D0692723183A008DF12B /* CoordinatorTabBarController.swift in Sources */,
 				0163D0702723187F008DF12B /* ViewModel.swift in Sources */,
-				01E9ECA4274409F60090879E /* VideoPlayerDelegate.swift in Sources */,
 				0163D06E27231850008DF12B /* UITableView+Model.swift in Sources */,
 				01227F8F272F004E00DA59F7 /* UINavigationController+Extension.swift in Sources */,
 				01F2500027117E4900D5B074 /* FeatureLoader.swift in Sources */,
@@ -790,14 +797,15 @@
 				0143E46B274BE6CF007373D6 /* UIDevice+Orientations.swift in Sources */,
 				01227F8D272EF4D600DA59F7 /* AnimatedHighlightCell.swift in Sources */,
 				010A2FD92723142900E028ED /* ImageSource.swift in Sources */,
+				01B14FB6275E6F40001E0837 /* PlainButton.swift in Sources */,
 				0163D06B27231843008DF12B /* UICollectionView+Model.swift in Sources */,
 				0163D06D2723184B008DF12B /* PinBoardView.swift in Sources */,
 				0163D06A2723183D008DF12B /* TimerLabel.swift in Sources */,
 				012DFBB1273AE6E4005A25C9 /* SpinningView.swift in Sources */,
 				010A2FD72723142700E028ED /* TextFont.swift in Sources */,
 				0105DE4B27415ACC00010440 /* UIRotatable.swift in Sources */,
+				01757BE42753BED2009549E7 /* VideoPlayerView+PlaybackAssistant.swift in Sources */,
 				0163D06C27231847008DF12B /* PinButtonCollectionCell.swift in Sources */,
-				01DF38F52742BD2100A5DDE5 /* VideoPlayer+Extensions.swift in Sources */,
 				01E9ECA827441D4E0090879E /* UIImage+Extensions.swift in Sources */,
 				010A2FDA2723142C00E028ED /* NumericValues.swift in Sources */,
 				01A0A444273823410011E4CA /* VideoPlayerView.swift in Sources */,

@@ -13,7 +13,7 @@
 		013E643127343D0500D38AF7 /* ProMotion.h in Headers */ = {isa = PBXBuildFile; fileRef = 013E642327343D0400D38AF7 /* ProMotion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		013E643F27343D4300D38AF7 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013E643E27343D4300D38AF7 /* FeatureIntermediate.framework */; };
 		01D005AF2735212E0009ED8A /* ProMotionEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D005AE2735212E0009ED8A /* ProMotionEntryPoint.swift */; };
-		01D005B6273525260009ED8A /* MediaPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D005B5273525260009ED8A /* MediaPickerViewController.swift */; };
+		01D005B6273525260009ED8A /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D005B5273525260009ED8A /* MediaPlayerViewController.swift */; };
 		BFEF92DFF3EABED0713B5787 /* Pods_Prometheus_ProMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CDDDFA38D55D19702CAE03 /* Pods_Prometheus_ProMotion.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,7 @@
 		013E643E27343D4300D38AF7 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		013E6450273447CB00D38AF7 /* SharedConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SharedConfig.xcconfig; sourceTree = "<group>"; };
 		01D005AE2735212E0009ED8A /* ProMotionEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProMotionEntryPoint.swift; path = ProMotion/ProMotionEntryPoint.swift; sourceTree = SOURCE_ROOT; };
-		01D005B5273525260009ED8A /* MediaPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerViewController.swift; sourceTree = "<group>"; };
+		01D005B5273525260009ED8A /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
 		032CFBAA844DEF78712521B0 /* Pods-Prometheus-ProMotion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-ProMotion.release.xcconfig"; path = "Target Support Files/Pods-Prometheus-ProMotion/Pods-Prometheus-ProMotion.release.xcconfig"; sourceTree = "<group>"; };
 		32D7DCCFC220001F25A040F4 /* Pods-Prometheus-ProMotion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-ProMotion.debug.xcconfig"; path = "Target Support Files/Pods-Prometheus-ProMotion/Pods-Prometheus-ProMotion.debug.xcconfig"; sourceTree = "<group>"; };
 		D5CDDDFA38D55D19702CAE03 /* Pods_Prometheus_ProMotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prometheus_ProMotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,23 +135,15 @@
 		01D005B22735239F0009ED8A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				01D005B3273523B60009ED8A /* MainScene */,
-			);
-			name = UI;
-			sourceTree = "<group>";
-		};
-		01D005B3273523B60009ED8A /* MainScene */ = {
-			isa = PBXGroup;
-			children = (
 				01D005B4273523C30009ED8A /* Views */,
 			);
-			name = MainScene;
+			name = UI;
 			sourceTree = "<group>";
 		};
 		01D005B4273523C30009ED8A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				01D005B5273525260009ED8A /* MediaPickerViewController.swift */,
+				01D005B5273525260009ED8A /* MediaPlayerViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -303,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01D005AF2735212E0009ED8A /* ProMotionEntryPoint.swift in Sources */,
-				01D005B6273525260009ED8A /* MediaPickerViewController.swift in Sources */,
+				01D005B6273525260009ED8A /* MediaPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

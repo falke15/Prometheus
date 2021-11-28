@@ -19,7 +19,8 @@ final class ProMotionEntryPoint: FeatureEntryPointProtocol {
 	
 	func enter() {
 		let navigationController = UINavigationController.upper()
-		navigationController?.pushViewController(MediaPickerViewController(), animated: true)
+		navigationController?.pushViewController(MediaPlayerViewController(),
+												 animated: true)
 	}
 }
 

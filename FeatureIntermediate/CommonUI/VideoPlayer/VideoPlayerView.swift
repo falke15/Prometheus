@@ -14,73 +14,44 @@ open class VideoPlayerView: UIView {
 		static let iconSize: CGFloat = 56
 		static let actionBarHeight: CGFloat = 24
 		static let iconEdgeSize: CGFloat = NumericValues.xLarge
-		static let seekInterval: Double = 10
+		static let disappearDelay: TimeInterval = 3
 		
 		static let unknownRemainingTime = "N/A"
 		
+		static let primaryColor: UIColor = Pallete.Black.black4
 		static let controlTintColor: UIColor = Pallete.Gray.gray1
 	}
 	
-	private struct Images {
-		let play = ImageSource.play.image
-		let pause = ImageSource.pause.image
-		let dead = ImageSource.dead.image
-		let dotsVertical = ImageSource.ic24_dotsHorizontal.image
-		let fullScreen = ImageSource.ic24_fullScreen.image
+	private enum Images {
+		static let play = ImageSource.play.image
+		static let pause = ImageSource.pause.image
+		static let dead = ImageSource.dead.image
+		static let dotsVertical = ImageSource.ic24_dotsHorizontal.image
+		static let fullScreen = ImageSource.ic24_fullScreen.image
 	}
 	
-	private enum State {
-		case initial
-		case loading
-		case error
-		case playing
-		case paused
-	}
-
-	private let config: Configuration
+	let player: AVPlayer = AVPlayer()
+	private lazy var playbackAssistant: PlaybackAssistant = PlaybackAssistant()
 	
-	private let images = Images()
-	private var state: State = .initial {
-		didSet {
-			transitionToState(state: state)
-		}
-	}
-
-	private var player: AVPlayer? {
-		get { playerLayer.player }
-		set { playerLayer.player = newValue }
-	}
-	
-	private var _observationToken: NSKeyValueObservation?
-	private var observationToken: NSKeyValueObservation? {
-		get { _observationToken }
-		set {
-			if _observationToken != nil {
-				_observationToken?.invalidate()
-			}
-			_observationToken = newValue
-		}
-	}
-	private var progressObserver: Any? {
-		willSet { resetProgressObserver() }
-	}
+	private var state: PlaybackAssistant.PlaybackState = .initial
 	
 	// MARK: - Visual elements
 	
 	private lazy var backgrounderView: UIView = {
 		let view = UIView()
-		view.backgroundColor = config.primaryColor
+		view.backgroundColor = Constants.primaryColor
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
 		return view
 	}()
-
-	private let playerLayer: AVPlayerLayer = {
+	
+	private lazy var playerLayer: AVPlayerLayer = {
 		let layer = AVPlayerLayer()
+		layer.player = player
 		return layer
 	}()
 	
-	private lazy var contentView: UIView = {
+	private(set) lazy var contentView: UIView = {
 		let view = UIView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.backgroundColor = Pallete.Utility.transparent
@@ -91,34 +62,54 @@ open class VideoPlayerView: UIView {
 	private lazy var optionsButton: UIButton = {
 		let view = UIButton()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.setImage(images.dotsVertical, for: .normal)
+		view.setImage(Images.dotsVertical, for: .normal)
 		view.contentMode = .scaleAspectFit
 		view.imageView?.tintColor = Constants.controlTintColor
+		view.menu = optionsMenu
+		view.showsMenuAsPrimaryAction = true
 		
 		return view
 	}()
 	
-	private let remainingTimeLabel: UILabel = {
+	private lazy var optionsMenu: UIMenu = {
+		var speedOptions: [UIAction] = []
+		for i in 1...4 {
+			let speed: Float = Float(i) / 2
+			let action = UIAction(title: "\(speed)X",
+								  image: nil) { [weak self] _ in
+				guard let self = self else { return }
+				self.playbackAssistant.videoPlayView(self, changePlaybackRate: speed)
+			}
+			speedOptions.append(action)
+		}
+		
+		let view = UIMenu(title: "Скорость воспроизведения",
+						  image: nil,
+						  children: speedOptions)
+		
+		return view
+	}()
+	
+	let remainingTimeLabel: UILabel = {
 		let view = UILabel()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.numberOfLines = 0
 		view.font = TextFont.base.withSize(NumericValues.medium)
 		view.textColor = Pallete.Light.white1
 		view.text = Constants.unknownRemainingTime
-		view.setContentHuggingPriority(.defaultLow, for: .horizontal)
+		view.setContentHuggingPriority(.required, for: .horizontal)
 		view.setContentCompressionResistancePriority(.required, for: .horizontal)
 		
 		return view
 	}()
 	
-	private lazy var progressView: UISlider = {
+	private(set) lazy var progressView: UISlider = {
 		let view = UISlider()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.thumbTintColor = Pallete.Lilac.lilac1
 		view.minimumTrackTintColor = Pallete.Lilac.lilac1
 		view.maximumTrackTintColor = Pallete.Gray.gray4
-		view.isContinuous = false
-		view.setContentHuggingPriority(.required, for: .horizontal)
+		view.setContentHuggingPriority(.defaultLow, for: .horizontal)
 		view.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 		
 		view.addTarget(self, action: #selector(didChangeProgressValue), for: .valueChanged)
@@ -132,7 +123,7 @@ open class VideoPlayerView: UIView {
 	private lazy var screenRotationButton: UIButton = {
 		let view = UIButton()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.setImage(images.fullScreen, for: .normal)
+		view.setImage(Images.fullScreen, for: .normal)
 		view.contentMode = .scaleAspectFit
 		view.imageView?.tintColor = Constants.controlTintColor
 		view.addTarget(self, action: #selector(didTapRotateButton), for: .touchUpInside)
@@ -171,12 +162,11 @@ open class VideoPlayerView: UIView {
 	
 	// MARK: - Lifecycle
 	
-	public init(config: Configuration = .base) {
-		self.config = config
+	public init() {
 		super.init(frame: .zero)
 		setupUI()
 		
-		transitionToState(state: self.state)
+		transition(to: .initial)
 	}
 	
 	@available(*, unavailable)
@@ -189,43 +179,12 @@ open class VideoPlayerView: UIView {
 		playerLayer.frame = bounds.inset(by: safeAreaInsets)
 	}
 	
-	private func transitionToState(state: State) {
-		playPauseButton.isHidden = false
-		spinningView.isHidden = true
-		spinningView.stopAnimation()
-		
-		switch state {
-		case .paused:
-			player?.pause()
-			playPauseButton.setImage(images.play, for: .normal)
-		case .loading:
-			spinningView.isHidden = false
-			spinningView.startAnimation()
-		case .playing:
-			player?.play()
-			playPauseButton.setImage(images.pause, for: .normal)
-		case .error:
-			remainingTimeLabel.text = Constants.unknownRemainingTime
-			playPauseButton.setImage(images.dead, for: .normal)
-		case .initial:
-			remainingTimeLabel.text = Constants.unknownRemainingTime
-			playPauseButton.isHidden = true
-			spinningView.isHidden = true
-			player?.pause()
-		}
-	}
-	
-	deinit {
-		_observationToken?.invalidate()
-		resetProgressObserver()
-	}
-	
 	// MARK: - Setup UI
 	
 	private func setupUI() {
-		let views: [UIView] = [backgrounderView, contentView, spinningView]
+		let views: [UIView] = [backgrounderView, contentView]
 		views.forEach { addSubview($0) }
-		let contentViews = [playPauseButton, topItemsStack, bottomItemsStack]
+		let contentViews = [playPauseButton, topItemsStack, bottomItemsStack, spinningView]
 		contentViews.forEach { contentView.addSubview($0) }
 		
 		let topBarViews = [SpacerView(), optionsButton]
@@ -257,20 +216,20 @@ open class VideoPlayerView: UIView {
 													constant: -NumericValues.medium),
 			
 			bottomItemsStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-											   constant: -NumericValues.small),
+													 constant: -NumericValues.small),
 			bottomItemsStack.heightAnchor.constraint(equalToConstant: Constants.actionBarHeight),
 			bottomItemsStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-												   constant: NumericValues.medium),
+													  constant: NumericValues.medium),
 			bottomItemsStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-													constant: -NumericValues.medium),
+													   constant: -NumericValues.medium),
 			
 			playPauseButton.heightAnchor.constraint(equalToConstant: Constants.iconSize),
 			playPauseButton.widthAnchor.constraint(equalTo: playPauseButton.heightAnchor),
 			playPauseButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
 			playPauseButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-
-			spinningView.centerXAnchor.constraint(equalTo: centerXAnchor),
-			spinningView.centerYAnchor.constraint(equalTo: centerYAnchor)
+			
+			spinningView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+			spinningView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
 		])
 		
 		[optionsButton, screenRotationButton].forEach {
@@ -283,108 +242,88 @@ open class VideoPlayerView: UIView {
 	
 	// MARK: - Data
 	
-	public func playVideo(videoURL: URL) {
-		let playerItem = AVPlayerItem(url: videoURL)
-		observePlayerItem(item: playerItem)
-		player = AVPlayer(playerItem: playerItem)
-		state = .loading
+	func transition(to newState: PlaybackAssistant.PlaybackState) {
+		state = newState
 		
-		// TODO: - Delete later
+		spinningView.isHidden = true
+		topItemsStack.isHidden = true
+		playPauseButton.isEnabled = true
+		playPauseButton.isHidden = false
+		spinningView.stopAnimation()
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-			self.contentView.isHidden = true
+		switch state {
+		case .paused:
+			topItemsStack.isHidden = false
+			playPauseButton.setImage(Images.play, for: .normal)
+		case .loading:
+			spinningView.isHidden = false
+			playPauseButton.isHidden = true
+			spinningView.startAnimation()
+		case .playing:
+			topItemsStack.isHidden = false
+			optionsButton.isHidden = false
+			playPauseButton.setImage(Images.pause, for: .normal)
+		case .error:
+			remainingTimeLabel.text = Constants.unknownRemainingTime
+			playPauseButton.setImage(Images.dead, for: .normal)
+			playPauseButton.isEnabled = false
+		case .initial:
+			remainingTimeLabel.text = Constants.unknownRemainingTime
+			contentView.isHidden = false
 		}
 	}
 	
-	private func observePlayerItem(item: AVPlayerItem) {
-		observationToken = item.observe(\.status,
-										 options: .new) { [weak self] item, _ in
-			guard let self = self else { return }
-			
-			switch item.status {
-			case .readyToPlay:
-				self.state = .playing
-				self.observeProgress()
-			case .failed, .unknown:
-				self.state = .error
-			@unknown default:
-				print("@unknown default occured at: ", #function)
-			}
-		}
-	}
-	
-	private func observeProgress() {
-		let time = CMTimeMake(value: 1, timescale: 600)
-		progressObserver = player?.addPeriodicTimeObserver(forInterval: time,
-														   queue: DispatchQueue.main,
-														   using: { [weak self] _ in
-			guard let self = self,
-				  let playedTime = self.player?.currentTime(),
-				  let itemDuration = self.player?.currentItem?.duration,
-				  playedTime.isValid ,
-				  itemDuration.isValid else { return }
-		
-			self.progressView.value = Float(CMTimeGetSeconds(playedTime) / CMTimeGetSeconds(itemDuration))
-			
-			// Update remaining time
-			let remainingTime = CMTimeGetSeconds(itemDuration - playedTime)
-			let mins = Int(remainingTime / 60)
-			let seconds = Int(remainingTime.truncatingRemainder(dividingBy: 60))
-			self.remainingTimeLabel.text = String(format: "%02i:%02i", mins, seconds)
-		})
-	}
-	
-	private func resetProgressObserver() {
-		if let previousObserver = progressObserver {
-			player?.removeTimeObserver(previousObserver)
-		}
+	public func launchVideo(videoURL: URL) {
+		playbackAssistant.videoPlayer(self, launchVideoAt: videoURL)
 	}
 	
 	// MARK: - Actions
 	
 	open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		super.touchesBegan(touches, with: event)
-		contentView.isHidden = false
+		if contentView.isHidden {
+			playbackAssistant.videoPlayerView(self, hideControlsAfter: Constants.disappearDelay)
+		}
+		contentView.isHidden.toggle()
 	}
 	
 	@objc
 	private func didTapPlayButton() {
 		switch state {
 		case .paused:
-			state = .playing
+			resumePlayer()
 		case .playing:
-			state = .paused
+			pausePlayer()
 		default:
-			assertionFailure("Unallowed state for transition: \(state)")
-		}
-	}
-	
-	@objc
-	private func didTapRotateButton() {
-		let currentOrientation = UIDevice.current.orientation
-		let portraitOrientations: [UIDeviceOrientation] = [.portrait, .unknown]
-		if portraitOrientations.contains(currentOrientation) {
-			UIDevice.current.forceRotation(.landscapeRight)
-		} else {
-			UIDevice.current.forceRotation(.portrait)
+			break
 		}
 	}
 	
 	@objc
 	private func didChangeProgressValue() {
-		guard let duration = player?.currentItem?.duration else { return }
-		let currentTime = Float64(progressView.value) * CMTimeGetSeconds(duration)
-		let jumpTimeStamp = CMTimeMake(value: CMTimeValue(currentTime), timescale: 1)
-		player?.seek(to: jumpTimeStamp)
+		playbackAssistant.videoPlayer(player, seekTo: progressView.value)
 	}
 	
 	@objc
 	private func pausePlayer() {
-		state = .paused
+		playbackAssistant.videoPlayerViewPausePlayback(self)
+		playbackAssistant.nullifyDisappearanceCountDown()
 	}
 	
 	@objc
 	private func resumePlayer() {
-		state = .playing
+		playbackAssistant.videoPlayerViewResumePlayback(self)
+		playbackAssistant.videoPlayerView(self, hideControlsAfter: Constants.disappearDelay)
+	}
+	
+	@objc
+	private func didTapRotateButton() {
+		let currentOrientation = UIDevice.current.orientation
+		let portraitOrientations: [UIDeviceOrientation] = [.portrait, .portraitUpsideDown, .unknown]
+		if portraitOrientations.contains(currentOrientation) {
+			UIDevice.current.forceRotation(.landscapeRight)
+		} else {
+			UIDevice.current.forceRotation(.portrait)
+		}
 	}
 }
