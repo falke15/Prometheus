@@ -5,7 +5,6 @@
 //  Created by Pyretttt on 10.06.2021.
 //
 
-import RxSwift
 import FeatureIntermediate
 
 @main
@@ -23,4 +22,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		return true
     }
+	
+	func application(_ application: UIApplication,
+					 supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+		let defaultOrientation: UIInterfaceOrientationMask = .portrait
+		guard let rootViewController = window?.rootViewController else {
+			return defaultOrientation
+		}
+		
+		let upperView = rootViewController.upperViewController(in: window)
+		
+		// TODO:  Add tabbar
+		
+		if let rotatableViewController = upperView as? UIRotatable {
+			return rotatableViewController.supportedInterfaceOrientations
+		} else if let rotatableViewController = (upperView as? UINavigationController)?.topViewController as? UIRotatable {
+			return rotatableViewController.supportedInterfaceOrientations
+		}
+		
+		return defaultOrientation
+	}
 }

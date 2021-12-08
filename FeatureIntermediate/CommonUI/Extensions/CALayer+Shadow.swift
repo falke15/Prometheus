@@ -7,22 +7,36 @@
 
 import UIKit
 
-// MARK: - Shadows
-
 extension CALayer {
 	public enum ShadowStyle {
 		case transparent
+		case dark
 		
 		var color: CGColor {
-			return Pallete.Black.black4.cgColor
+			switch self {
+			case .transparent:
+				return Pallete.Black.black4.cgColor
+			case .dark:
+				return Pallete.Black.black2.cgColor
+			}
 		}
 		
 		var offset: CGSize {
-			return CGSize(width: 1, height: 2)
+			switch self {
+			case .transparent:
+				return CGSize(width: 1, height: 2)
+			case .dark:
+				return CGSize(width: 0, height: 0)
+			}
 		}
 		
 		var visualParameteres: (radius: CGFloat, opacity: Float) {
-			return (radius: 6, opacity: 0.15)
+			switch self {
+			case .transparent:
+				return (radius: 6, opacity: 0.15)
+			case .dark:
+				return (radius: 7.5, opacity: 0.75)
+			}
 		}
 	}
 	

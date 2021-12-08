@@ -1,0 +1,11 @@
+//
+//  SharedConfig.xcconfig
+//  ProMotion
+//
+//  Created by Pyretttt on 04.11.2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "../../Config/SharedConfig.xcconfig"

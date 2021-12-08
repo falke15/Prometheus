@@ -32,8 +32,8 @@ extension FeatureCellModel {
 		 actionBlock: @escaping () -> Void) {
 		self.name = name
 		self.description = description
-		self.image = ImageSource.init(rawValue: imageName)?.image ?? UIImage.grayGradient
-//		self.image = UIImage.makeImage(color: .blue)
+		self.image = ImageSource.init(rawValue: imageName)?.image ??
+			UIImage.gradientImage(colors: UIImage.grayGradientColors)
 		self.actionBlock = actionBlock
 	}
 }
