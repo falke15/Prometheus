@@ -72,7 +72,7 @@ class AuthViewController: UIViewController, PinBoardDelegate {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		navigationController?.setNavigationBarHidden(true, animated: true)
+		navigationController?.setNavigationBarHidden(true, animated: false)
 		timerLabel.startAnimating()
 	}
 	
