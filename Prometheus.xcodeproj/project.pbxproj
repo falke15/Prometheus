@@ -63,13 +63,13 @@
 		019D41BB2711E81B004BFD35 /* FeatureIntermediate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01A0A444273823410011E4CA /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0A443273823410011E4CA /* VideoPlayerView.swift */; };
 		01B14FB6275E6F40001E0837 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B14FB5275E6F40001E0837 /* PlainButton.swift */; };
-		01D005B8273528040009ED8A /* Pods_Prometheus_FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D005B7273528040009ED8A /* Pods_Prometheus_FeatureIntermediate.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		01E9ECA827441D4E0090879E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9ECA727441D4E0090879E /* UIImage+Extensions.swift */; };
 		01E9ECAA27441E9B0090879E /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9ECA927441E9B0090879E /* SpacerView.swift */; };
 		01F24FF827117E3B00D5B074 /* FeatureIntermediate.h in Headers */ = {isa = PBXBuildFile; fileRef = 01F24FF727117E3B00D5B074 /* FeatureIntermediate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01F2500027117E4900D5B074 /* FeatureLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011EA79C270F576E003D92C6 /* FeatureLoader.swift */; };
 		01F82CFD2727210A000034D8 /* PlainFeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01292D6627259E6300D6FAF2 /* PlainFeatureCell.swift */; };
-		5AA146D785398F8B0BDB789C /* Pods_Prometheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */; };
+		4EF124C91A60168C9AB56B8F /* Pods_Prometheus_FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFD90D509527E84D89B70B4 /* Pods_Prometheus_FeatureIntermediate.framework */; };
+		A17FAF7DB0D7F4E469EFE336 /* Pods_Prometheus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8169C8BD9BF39AC4AAE2EA /* Pods_Prometheus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,7 +153,7 @@
 		0184CB6A26F8D5CF00A53BF5 /* NumericValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericValues.swift; sourceTree = "<group>"; };
 		0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0184CB7026F8D5CF00A53BF5 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		0184CB7126F8D5CF00A53BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0184CB7126F8D5CF00A53BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		0184CB8B26F8D66300A53BF5 /* PrometheusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrometheusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0184CB8D26F8D66300A53BF5 /* AuthorizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceTests.swift; sourceTree = "<group>"; };
 		0184CB8F26F8D66300A53BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,17 +163,16 @@
 		01A0A443273823410011E4CA /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		01B14FB5275E6F40001E0837 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		01BD423327130A65009FCBE7 /* Sensor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Sensor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01D005B7273528040009ED8A /* Pods_Prometheus_FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Prometheus_FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E9ECA727441D4E0090879E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		01E9ECA927441E9B0090879E /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F24FF727117E3B00D5B074 /* FeatureIntermediate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureIntermediate.h; sourceTree = "<group>"; };
-		5851536ED6785C7F6BF63E7F /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-FeatureIntermediate.release.xcconfig"; path = "Target Support Files/Pods-Prometheus-FeatureIntermediate/Pods-Prometheus-FeatureIntermediate.release.xcconfig"; sourceTree = "<group>"; };
-		701AA1D6E66BF505C0FD3E29 /* Pods-Prometheus-FeatureIntermediate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-FeatureIntermediate.debug.xcconfig"; path = "Target Support Files/Pods-Prometheus-FeatureIntermediate/Pods-Prometheus-FeatureIntermediate.debug.xcconfig"; sourceTree = "<group>"; };
-		D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prometheus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5CBFFDAB9DAB75D9B55ACA2 /* Pods-Prometheus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus.release.xcconfig"; path = "Target Support Files/Pods-Prometheus/Pods-Prometheus.release.xcconfig"; sourceTree = "<group>"; };
-		E049A9958D225C25917BD74C /* Pods-Prometheus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus.debug.xcconfig"; path = "Target Support Files/Pods-Prometheus/Pods-Prometheus.debug.xcconfig"; sourceTree = "<group>"; };
-		F6098F9F1569569963C17C47 /* Pods_Prometheus_FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prometheus_FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		046ACC4E4F9355CD00047D87 /* Pods-Prometheus-FeatureIntermediate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-FeatureIntermediate.debug.xcconfig"; path = "Target Support Files/Pods-Prometheus-FeatureIntermediate/Pods-Prometheus-FeatureIntermediate.debug.xcconfig"; sourceTree = "<group>"; };
+		26476EC4DF7812CE89272149 /* Pods-Prometheus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus.debug.xcconfig"; path = "Target Support Files/Pods-Prometheus/Pods-Prometheus.debug.xcconfig"; sourceTree = "<group>"; };
+		35AD7E5C7C27230946914EF9 /* Pods-Prometheus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus.release.xcconfig"; path = "Target Support Files/Pods-Prometheus/Pods-Prometheus.release.xcconfig"; sourceTree = "<group>"; };
+		8A8169C8BD9BF39AC4AAE2EA /* Pods_Prometheus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prometheus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEFD90D509527E84D89B70B4 /* Pods_Prometheus_FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prometheus_FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6C28508FC38C76BE61EA0C4 /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prometheus-FeatureIntermediate.release.xcconfig"; path = "Target Support Files/Pods-Prometheus-FeatureIntermediate/Pods-Prometheus-FeatureIntermediate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +184,7 @@
 				019D41BA2711E81B004BFD35 /* FeatureIntermediate.framework in Frameworks */,
 				013512CC27172AE6006CC796 /* Sensor.framework in Frameworks */,
 				013E644327343E7200D38AF7 /* ProMotion.framework in Frameworks */,
-				5AA146D785398F8B0BDB789C /* Pods_Prometheus.framework in Frameworks */,
+				A17FAF7DB0D7F4E469EFE336 /* Pods_Prometheus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01D005B8273528040009ED8A /* Pods_Prometheus_FeatureIntermediate.framework in Frameworks */,
+				4EF124C91A60168C9AB56B8F /* Pods_Prometheus_FeatureIntermediate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,10 +514,10 @@
 		6A96FDE60FF40D393B7FFAE1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E049A9958D225C25917BD74C /* Pods-Prometheus.debug.xcconfig */,
-				D5CBFFDAB9DAB75D9B55ACA2 /* Pods-Prometheus.release.xcconfig */,
-				701AA1D6E66BF505C0FD3E29 /* Pods-Prometheus-FeatureIntermediate.debug.xcconfig */,
-				5851536ED6785C7F6BF63E7F /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */,
+				26476EC4DF7812CE89272149 /* Pods-Prometheus.debug.xcconfig */,
+				35AD7E5C7C27230946914EF9 /* Pods-Prometheus.release.xcconfig */,
+				046ACC4E4F9355CD00047D87 /* Pods-Prometheus-FeatureIntermediate.debug.xcconfig */,
+				F6C28508FC38C76BE61EA0C4 /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -526,12 +525,11 @@
 		84528AE75AF39217585580C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				01D005B7273528040009ED8A /* Pods_Prometheus_FeatureIntermediate.framework */,
 				013E644227343E7200D38AF7 /* ProMotion.framework */,
 				01BD423327130A65009FCBE7 /* Sensor.framework */,
 				0132EC3627119085008E786D /* RetainCycle.framework */,
-				D50AADC20433CE39E180A901 /* Pods_Prometheus.framework */,
-				F6098F9F1569569963C17C47 /* Pods_Prometheus_FeatureIntermediate.framework */,
+				8A8169C8BD9BF39AC4AAE2EA /* Pods_Prometheus.framework */,
+				DEFD90D509527E84D89B70B4 /* Pods_Prometheus_FeatureIntermediate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -554,12 +552,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0184CB4A26F8D59900A53BF5 /* Build configuration list for PBXNativeTarget "Prometheus" */;
 			buildPhases = (
-				6FBD5C3F8FC9BCA85C01EFE6 /* [CP] Check Pods Manifest.lock */,
+				284D6529AD033C15B2198633 /* [CP] Check Pods Manifest.lock */,
 				0184CB3226F8D59700A53BF5 /* Sources */,
 				0184CB3326F8D59700A53BF5 /* Frameworks */,
 				0184CB3426F8D59700A53BF5 /* Resources */,
-				2B552D706FA36079414264B3 /* [CP] Embed Pods Frameworks */,
 				019D41B72711D56D004BFD35 /* Embed Frameworks */,
+				8DDD5B12E4D278E358753CB1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -593,7 +591,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01F24FFF27117E3B00D5B074 /* Build configuration list for PBXNativeTarget "FeatureIntermediate" */;
 			buildPhases = (
-				BD6D3E2FC279F066994B9F33 /* [CP] Check Pods Manifest.lock */,
+				90B9DE43F7522DB03FC7BB56 /* [CP] Check Pods Manifest.lock */,
 				01F24FF027117E3B00D5B074 /* Headers */,
 				01F24FF127117E3B00D5B074 /* Sources */,
 				01F24FF227117E3B00D5B074 /* Frameworks */,
@@ -679,24 +677,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2B552D706FA36079414264B3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Prometheus/Pods-Prometheus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Prometheus/Pods-Prometheus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Prometheus/Pods-Prometheus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6FBD5C3F8FC9BCA85C01EFE6 /* [CP] Check Pods Manifest.lock */ = {
+		284D6529AD033C15B2198633 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -718,7 +699,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BD6D3E2FC279F066994B9F33 /* [CP] Check Pods Manifest.lock */ = {
+		8DDD5B12E4D278E358753CB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Prometheus/Pods-Prometheus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Prometheus/Pods-Prometheus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Prometheus/Pods-Prometheus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90B9DE43F7522DB03FC7BB56 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -946,7 +944,7 @@
 		};
 		0184CB4B26F8D59900A53BF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E049A9958D225C25917BD74C /* Pods-Prometheus.debug.xcconfig */;
+			baseConfigurationReference = 26476EC4DF7812CE89272149 /* Pods-Prometheus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -970,7 +968,7 @@
 		};
 		0184CB4C26F8D59900A53BF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5CBFFDAB9DAB75D9B55ACA2 /* Pods-Prometheus.release.xcconfig */;
+			baseConfigurationReference = 35AD7E5C7C27230946914EF9 /* Pods-Prometheus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1033,7 +1031,7 @@
 		};
 		01F24FFD27117E3B00D5B074 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 701AA1D6E66BF505C0FD3E29 /* Pods-Prometheus-FeatureIntermediate.debug.xcconfig */;
+			baseConfigurationReference = 046ACC4E4F9355CD00047D87 /* Pods-Prometheus-FeatureIntermediate.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
@@ -1068,7 +1066,7 @@
 		};
 		01F24FFE27117E3B00D5B074 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5851536ED6785C7F6BF63E7F /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */;
+			baseConfigurationReference = F6C28508FC38C76BE61EA0C4 /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;

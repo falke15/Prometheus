@@ -19,6 +19,6 @@ final class RetainCycleEntryPoint: FeatureEntryPointProtocol {
 	
 	func enter() {
 		let navigationController = UINavigationController.upper()
-		navigationController?.pushViewController(UIViewController(), animated: true)
+		navigationController?.pushViewController(GraphicsCanvasViewController(), animated: true)
 	}
 }

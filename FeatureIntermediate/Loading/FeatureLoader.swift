@@ -54,6 +54,7 @@ public final class FeatureLoader {
 		print("\n⚙️⚙️⚙️⚙️⚙️⚙️\n")
 		print("DYLIBS LOADED:", result)
 		print("\n⚙️⚙️⚙️⚙️⚙️⚙️\n")
-		return result
+		
+		return result.sorted { $0.identifier.count < $1.identifier.count }
 	}
 }
