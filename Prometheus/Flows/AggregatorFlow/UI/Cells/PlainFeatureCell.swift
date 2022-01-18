@@ -10,7 +10,9 @@ import FeatureIntermediate
 final class PlainFeatureCell: AnimatedHighlightCell, CollectionCellType {
 	
 	private enum Constants {
-		static let imageWidth: CGFloat = 72
+		static let imageHeight: CGFloat = 240
+        static let defaultOffset: CGFloat = NumericValues.default
+        static let largeOffset: CGFloat = NumericValues.large
 	}
 	
 	static var reuseID: String = "PlainFeatureCellReuseID"
@@ -32,6 +34,7 @@ final class PlainFeatureCell: AnimatedHighlightCell, CollectionCellType {
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.backgroundColor = Pallete.Gray.gray3
 		view.layer.cornerRadius = NumericValues.default
+        view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
 		view.setContentHuggingPriority(.required, for: .horizontal)
 		view.setContentCompressionResistancePriority(.required, for: .horizontal)
 		
@@ -40,8 +43,11 @@ final class PlainFeatureCell: AnimatedHighlightCell, CollectionCellType {
 	
 	private let backgroundIcon: UIImageView = {
 		let view = UIImageView(frame: .zero)
+        view.layer.cornerRadius = NumericValues.default
+        view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        view.clipsToBounds = true
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.contentMode = .scaleAspectFit
+		view.contentMode = .scaleToFill
 		
 		return view
 	}()
@@ -112,43 +118,30 @@ final class PlainFeatureCell: AnimatedHighlightCell, CollectionCellType {
 		setupConstraints()
 	}
 	
-	private func setupConstraints() {
-		let heightImageAnchor = backgroundIcon.heightAnchor.constraint(equalToConstant: Constants.imageWidth)
-		heightImageAnchor.priority = UILayoutPriority(999)
-		NSLayoutConstraint.activate([
-			backgrounderView.topAnchor.constraint(equalTo: contentView.topAnchor,
-												  constant: NumericValues.medium),
-			backgrounderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-													  constant: NumericValues.large),
-			backgrounderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-													   constant: -NumericValues.large),
-			backgrounderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-													 constant: -NumericValues.medium),
-			
-			titleLabel.topAnchor.constraint(equalTo: backgrounderView.topAnchor, constant: NumericValues.default),
-			titleLabel.leadingAnchor.constraint(equalTo: backgrounderView.leadingAnchor, constant: NumericValues.default),
-			titleLabel.trailingAnchor.constraint(equalTo: imageViewCanvas.leadingAnchor, constant: -NumericValues.default),
-			
-			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: NumericValues.default),
-			descriptionLabel.leadingAnchor.constraint(equalTo: backgrounderView.leadingAnchor, constant: NumericValues.default),
-			descriptionLabel.trailingAnchor.constraint(equalTo: imageViewCanvas.leadingAnchor, constant: -NumericValues.default),
-			descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: backgrounderView.bottomAnchor,
-													 constant: -NumericValues.default),
-			
-			imageViewCanvas.topAnchor.constraint(greaterThanOrEqualTo: backgrounderView.topAnchor,
-												 constant: NumericValues.default),
-			imageViewCanvas.bottomAnchor.constraint(lessThanOrEqualTo: backgrounderView.bottomAnchor,
-													constant: -NumericValues.default),
-			imageViewCanvas.heightAnchor.constraint(equalTo: backgroundIcon.heightAnchor, multiplier: 1.2),
-			imageViewCanvas.widthAnchor.constraint(equalTo: backgroundIcon.widthAnchor, multiplier: 1.2),
-			imageViewCanvas.centerYAnchor.constraint(equalTo: backgrounderView.centerYAnchor),
-			imageViewCanvas.trailingAnchor.constraint(equalTo: backgrounderView.trailingAnchor,
-													  constant: -NumericValues.large),
-			
-			heightImageAnchor,
-			backgroundIcon.widthAnchor.constraint(equalToConstant: Constants.imageWidth),
-			backgroundIcon.centerYAnchor.constraint(equalTo: imageViewCanvas.centerYAnchor),
-			backgroundIcon.centerXAnchor.constraint(equalTo: imageViewCanvas.centerXAnchor)
-		])
-	}
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            backgrounderView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: NumericValues.medium),
+            backgrounderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: NumericValues.large),
+            backgrounderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -NumericValues.large),
+            backgrounderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -NumericValues.medium),
+            
+            imageViewCanvas.topAnchor.constraint(equalTo: backgrounderView.topAnchor),
+            imageViewCanvas.leadingAnchor.constraint(equalTo: backgrounderView.leadingAnchor),
+            imageViewCanvas.trailingAnchor.constraint(equalTo: backgrounderView.trailingAnchor),
+            imageViewCanvas.heightAnchor.constraint(equalToConstant: Constants.imageHeight + NumericValues.large),
+            
+            backgroundIcon.topAnchor.constraint(equalTo: imageViewCanvas.topAnchor, constant: Constants.defaultOffset),
+            backgroundIcon.leadingAnchor.constraint(equalTo: imageViewCanvas.leadingAnchor, constant: Constants.defaultOffset),
+            backgroundIcon.trailingAnchor.constraint(equalTo: imageViewCanvas.trailingAnchor, constant: -Constants.defaultOffset),
+            backgroundIcon.bottomAnchor.constraint(equalTo: imageViewCanvas.bottomAnchor, constant: -Constants.defaultOffset),
+            
+            titleLabel.topAnchor.constraint(equalTo: imageViewCanvas.bottomAnchor, constant: Constants.largeOffset),
+            titleLabel.leadingAnchor.constraint(equalTo: backgrounderView.leadingAnchor, constant: Constants.largeOffset),
+            titleLabel.trailingAnchor.constraint(equalTo: backgrounderView.trailingAnchor, constant: -Constants.largeOffset),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.largeOffset),
+            descriptionLabel.leadingAnchor.constraint(equalTo: backgrounderView.leadingAnchor, constant: Constants.largeOffset),
+            descriptionLabel.trailingAnchor.constraint(equalTo: backgrounderView.trailingAnchor, constant: -Constants.largeOffset)
+        ])
+    }
 }

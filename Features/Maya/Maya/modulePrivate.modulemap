@@ -1,0 +1,12 @@
+framework module Maya {
+    umbrella header "Maya.h"
+    
+    explicit module Objective {
+        header "MAYADemoViewController.h"
+        header "MAYACalendarDataSource.h"
+        header "UICollectionView+Constants.h"
+        header "TransformCollectionLayout.h"
+    }
+    
+    export *
+}

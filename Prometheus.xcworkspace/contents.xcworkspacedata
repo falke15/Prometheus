@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:Grid/Grid.xcodeproj">
+   </FileRef>
    <Group
       location = "container:"
       name = "Feature">
@@ -11,6 +14,9 @@
             location = "group:SharedConfig.xcconfig">
          </FileRef>
       </Group>
+      <FileRef
+         location = "group:Features/Maya/Maya.xcodeproj">
+      </FileRef>
       <FileRef
          location = "group:Features/ProMotion/ProMotion.xcodeproj">
       </FileRef>
