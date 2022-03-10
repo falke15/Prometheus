@@ -19,7 +19,7 @@ final class GraphicsCanvasViewController: UIViewController {
 	}()
 	
 	// MARK: - Lifecycle
-	
+    
 	init() {
 		super.init(nibName: nil, bundle: nil)
 	}

@@ -15,6 +15,9 @@
 		010A2FDA2723142C00E028ED /* NumericValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6A26F8D5CF00A53BF5 /* NumericValues.swift */; };
 		010A2FDC272316A100E028ED /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010A2FDB272316A100E028ED /* CALayer+Shadow.swift */; };
 		010B6216271317C700815777 /* AggregationServicesLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010B6215271317C700815777 /* AggregationServicesLocator.swift */; };
+		011CE1C227DA5A1D0087B047 /* TransformCollectionLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 011CE1C027DA5A1D0087B047 /* TransformCollectionLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		011CE1C327DA5A1D0087B047 /* TransformCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 011CE1C127DA5A1D0087B047 /* TransformCollectionLayout.m */; };
+		011CE1C527DA61EE0087B047 /* PlainFeatureCellHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CE1C427DA61EE0087B047 /* PlainFeatureCellHorizontal.swift */; };
 		01227F86272ED7C800DA59F7 /* AggregationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01227F85272ED7C800DA59F7 /* AggregationViewController.swift */; };
 		01227F89272EDB3B00DA59F7 /* AggregationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01227F88272EDB3B00DA59F7 /* AggregationViewModel.swift */; };
 		01227F8C272EED6000DA59F7 /* AggregationItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01227F8B272EED6000DA59F7 /* AggregationItemModel.swift */; };
@@ -48,6 +51,8 @@
 		0163D06F2723187D008DF12B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB6E26F8D5CF00A53BF5 /* Coordinator.swift */; };
 		0163D0702723187F008DF12B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196AE50270353170049DF0B /* ViewModel.swift */; };
 		0163D07127231882008DF12B /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010B621B2713312700815777 /* Section.swift */; };
+		016440D7278DEA1C0096F788 /* Maya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016440D6278DEA1C0096F788 /* Maya.framework */; };
+		016440D8278DEA1C0096F788 /* Maya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 016440D6278DEA1C0096F788 /* Maya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01757BE42753BED2009549E7 /* VideoPlayerView+PlaybackAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01757BE32753BED2009549E7 /* VideoPlayerView+PlaybackAssistant.swift */; };
 		0184CB7226F8D5CF00A53BF5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB5026F8D5CE00A53BF5 /* AuthViewModel.swift */; };
 		0184CB7326F8D5CF00A53BF5 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0184CB5226F8D5CE00A53BF5 /* AuthCoordinator.swift */; };
@@ -63,6 +68,7 @@
 		019D41BB2711E81B004BFD35 /* FeatureIntermediate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01A0A444273823410011E4CA /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0A443273823410011E4CA /* VideoPlayerView.swift */; };
 		01B14FB6275E6F40001E0837 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B14FB5275E6F40001E0837 /* PlainButton.swift */; };
+		01DDC4F827C2AE5500F8FD4E /* Grid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DDC4F727C2AE5500F8FD4E /* Grid.framework */; };
 		01E9ECA827441D4E0090879E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9ECA727441D4E0090879E /* UIImage+Extensions.swift */; };
 		01E9ECAA27441E9B0090879E /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9ECA927441E9B0090879E /* SpacerView.swift */; };
 		01F24FF827117E3B00D5B074 /* FeatureIntermediate.h in Headers */ = {isa = PBXBuildFile; fileRef = 01F24FF727117E3B00D5B074 /* FeatureIntermediate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -98,6 +104,7 @@
 			files = (
 				019D41BB2711E81B004BFD35 /* FeatureIntermediate.framework in Embed Frameworks */,
 				019D41B92711D56E004BFD35 /* RetainCycle.framework in Embed Frameworks */,
+				016440D8278DEA1C0096F788 /* Maya.framework in Embed Frameworks */,
 				013E644427343E7200D38AF7 /* ProMotion.framework in Embed Frameworks */,
 				013512CD27172AE6006CC796 /* Sensor.framework in Embed Frameworks */,
 			);
@@ -112,6 +119,9 @@
 		010A2FDB272316A100E028ED /* CALayer+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		010B6215271317C700815777 /* AggregationServicesLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationServicesLocator.swift; sourceTree = "<group>"; };
 		010B621B2713312700815777 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		011CE1C027DA5A1D0087B047 /* TransformCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformCollectionLayout.h; sourceTree = "<group>"; };
+		011CE1C127DA5A1D0087B047 /* TransformCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformCollectionLayout.m; sourceTree = "<group>"; };
+		011CE1C427DA61EE0087B047 /* PlainFeatureCellHorizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainFeatureCellHorizontal.swift; sourceTree = "<group>"; };
 		011EA79C270F576E003D92C6 /* FeatureLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLoader.swift; sourceTree = "<group>"; };
 		01227F85272ED7C800DA59F7 /* AggregationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationViewController.swift; sourceTree = "<group>"; };
 		01227F88272EDB3B00DA59F7 /* AggregationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregationViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +144,7 @@
 		014DA99A2711FB1E00D9B452 /* Features.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Features.plist; sourceTree = "<group>"; };
 		0160C070270DF36B00D15AEE /* LocalAuthorizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthorizationHelper.swift; sourceTree = "<group>"; };
 		0163D07627232E86008DF12B /* AnimatedHighlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedHighlightCell.swift; sourceTree = "<group>"; };
+		016440D6278DEA1C0096F788 /* Maya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Maya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01757BE32753BED2009549E7 /* VideoPlayerView+PlaybackAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoPlayerView+PlaybackAssistant.swift"; sourceTree = "<group>"; };
 		0184CB3626F8D59700A53BF5 /* Prometheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prometheus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0184CB4726F8D59900A53BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,6 +174,7 @@
 		01A0A443273823410011E4CA /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		01B14FB5275E6F40001E0837 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		01BD423327130A65009FCBE7 /* Sensor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Sensor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01DDC4F727C2AE5500F8FD4E /* Grid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Grid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E9ECA727441D4E0090879E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		01E9ECA927441E9B0090879E /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		01F24FF527117E3B00D5B074 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,8 +192,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01DDC4F827C2AE5500F8FD4E /* Grid.framework in Frameworks */,
 				019D41B82711D56E004BFD35 /* RetainCycle.framework in Frameworks */,
 				019D41BA2711E81B004BFD35 /* FeatureIntermediate.framework in Frameworks */,
+				016440D7278DEA1C0096F788 /* Maya.framework in Frameworks */,
 				013512CC27172AE6006CC796 /* Sensor.framework in Frameworks */,
 				013E644327343E7200D38AF7 /* ProMotion.framework in Frameworks */,
 				A17FAF7DB0D7F4E469EFE336 /* Pods_Prometheus.framework in Frameworks */,
@@ -239,6 +253,15 @@
 				010B6215271317C700815777 /* AggregationServicesLocator.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		011CE1BF27DA5A130087B047 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				011CE1C027DA5A1D0087B047 /* TransformCollectionLayout.h */,
+				011CE1C127DA5A1D0087B047 /* TransformCollectionLayout.m */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		01227F87272EDB2D00DA59F7 /* ViewModels */ = {
@@ -402,6 +425,7 @@
 		0184CB5A26F8D5CE00A53BF5 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				011CE1BF27DA5A130087B047 /* Layout */,
 				0184CB5B26F8D5CE00A53BF5 /* PinBoard */,
 				0163D07627232E86008DF12B /* AnimatedHighlightCell.swift */,
 				0184CB5E26F8D5CE00A53BF5 /* UICollectionView+Model.swift */,
@@ -477,6 +501,7 @@
 			children = (
 				01292D6627259E6300D6FAF2 /* PlainFeatureCell.swift */,
 				013E64142733E3F900D38AF7 /* SectionHeaderView.swift */,
+				011CE1C427DA61EE0087B047 /* PlainFeatureCellHorizontal.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -525,6 +550,8 @@
 		84528AE75AF39217585580C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01DDC4F727C2AE5500F8FD4E /* Grid.framework */,
+				016440D6278DEA1C0096F788 /* Maya.framework */,
 				013E644227343E7200D38AF7 /* ProMotion.framework */,
 				01BD423327130A65009FCBE7 /* Sensor.framework */,
 				0132EC3627119085008E786D /* RetainCycle.framework */,
@@ -542,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F24FF827117E3B00D5B074 /* FeatureIntermediate.h in Headers */,
+				011CE1C227DA5A1D0087B047 /* TransformCollectionLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +790,7 @@
 				0184CB7526F8D5CF00A53BF5 /* AuthViewController.swift in Sources */,
 				013B9B122700773900F7340C /* AuthorizationService.swift in Sources */,
 				0124E9CA2706269800C4F98D /* UINavigationControllerSpy.swift in Sources */,
+				011CE1C527DA61EE0087B047 /* PlainFeatureCellHorizontal.swift in Sources */,
 				01227F86272ED7C800DA59F7 /* AggregationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,6 +821,7 @@
 				0163D07127231882008DF12B /* Section.swift in Sources */,
 				010A2FD62723142400E028ED /* Palette.swift in Sources */,
 				0105DE4F27415B6600010440 /* UIViewController+Upper.swift in Sources */,
+				011CE1C327DA5A1D0087B047 /* TransformCollectionLayout.m in Sources */,
 				0143E46B274BE6CF007373D6 /* UIDevice+Orientations.swift in Sources */,
 				01227F8D272EF4D600DA59F7 /* AnimatedHighlightCell.swift in Sources */,
 				010A2FD92723142900E028ED /* ImageSource.swift in Sources */,
@@ -948,6 +978,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6KS79CKQD;
@@ -972,6 +1003,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P6KS79CKQD;
@@ -1033,6 +1065,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 046ACC4E4F9355CD00047D87 /* Pods-Prometheus-FeatureIntermediate.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1068,6 +1101,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F6C28508FC38C76BE61EA0C4 /* Pods-Prometheus-FeatureIntermediate.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

@@ -1,0 +1,11 @@
+//
+//  SharedConfig.xcconfig
+//  Maya
+//
+//  Created by pyretttt pyretttt on 11.01.2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "../../Config/SharedConfig.xcconfig"

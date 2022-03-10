@@ -12,6 +12,8 @@ class AggregationViewController: UIViewController {
 	
 	private enum Constants {
 		static let primaryColor: UIColor = Pallete.Gray.gray1
+        
+        static let defaultOffset: CGFloat = NumericValues.default
 	}
 	
 	private let viewModel: AggregationViewModelProtocol
@@ -25,10 +27,12 @@ class AggregationViewController: UIViewController {
 	// MARK: - Visual elements
 	
 	private lazy var featuresCollectionView: UICollectionView = {
-		let view = UICollectionView(frame: .zero, collectionViewLayout: makeCollectionLayout())
+        let layout = TransformCollectionLayout()
+		let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
+        view.backgroundColor = Constants.primaryColor
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.backgroundColor = Constants.primaryColor
-		view.contentInsetAdjustmentBehavior = .always
 		
 		return view
 	}()
@@ -67,9 +71,6 @@ class AggregationViewController: UIViewController {
 		featuresCollectionView.dataSource = dataSource
 		featuresCollectionView.delegate = self
 		featuresCollectionView.register(PlainFeatureCell.self, forCellWithReuseIdentifier: PlainFeatureCell.reuseID)
-		featuresCollectionView.register(SectionHeaderView.self,
-										forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-										withReuseIdentifier: SectionHeaderView.reuseID)
 	}
 	
 	private func setupUI() {
@@ -83,9 +84,9 @@ class AggregationViewController: UIViewController {
 	private func setupConstraints() {
 		NSLayoutConstraint.activate([
 			featuresCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			featuresCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			featuresCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			featuresCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            featuresCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.defaultOffset),
+			featuresCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.defaultOffset),
+            featuresCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 		])
 	}
 	
@@ -115,49 +116,6 @@ class AggregationViewController: UIViewController {
 				self.dataSource.add(items)
 			})
 			.disposed(by: disposeBag)
-	}
-}
-
-// MARK: - Layout
-
-private extension AggregationViewController {
-	func makeCollectionLayout() -> UICollectionViewCompositionalLayout {
-		let layout = UICollectionViewCompositionalLayout { [weak self] index, environment in
-			guard let self = self else { return nil }
-			return self.createListLayout()
-		}
-		
-		layout.configuration.scrollDirection = .vertical
-		return layout
-	}
-	
-	func createListLayout() -> NSCollectionLayoutSection {
-		let estimatedHeightSize = NSCollectionLayoutDimension.estimated(71)
-		
-		// supplementaries
-		let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
-		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
-																	 elementKind: UICollectionView.elementKindSectionHeader,
-																	 alignment: .top)
-		headerItem.contentInsets = NSDirectionalEdgeInsets(top: .zero,
-														   leading: NumericValues.default,
-														   bottom: .zero,
-														   trailing: NumericValues.default)
-		
-		// items
-		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: estimatedHeightSize)
-		let item = NSCollectionLayoutItem(layoutSize: itemSize)
-		
-		// group
-		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: estimatedHeightSize)
-		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-		
-		// section
-		let section = NSCollectionLayoutSection(group: group)
-		section.interGroupSpacing = NumericValues.default
-		section.boundarySupplementaryItems = [headerItem]
-		
-		return section
 	}
 }
 
