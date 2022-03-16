@@ -13,7 +13,7 @@ final class PlainFeatureCellHorizontal: AnimatedHighlightCell, CollectionCellTyp
         static let imageWidth: CGFloat = 72
     }
     
-    static var reuseID: String = "PlainFeatureCellReuseID"
+    static var reuseID: String = "PlainFeatureCellHorizontalReuseID"
     
     // MARK: - Visual elements
     
@@ -91,7 +91,7 @@ final class PlainFeatureCellHorizontal: AnimatedHighlightCell, CollectionCellTyp
     // MARK: - Setup Data
     
     func setup(model: CollectionCellModelAnyType) {
-        guard let model = model as? FeatureCellModel else { return }
+        guard let model = model as? ProductFeatureModel else { return }
         
         backgroundIcon.image = model.image.withRenderingMode(.alwaysOriginal)
         titleLabel.text = model.name

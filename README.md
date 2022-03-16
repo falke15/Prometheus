@@ -41,6 +41,6 @@ To add module:
 1. Create proj in the workspace
 2. Create SharedConfig, include one from /Features/Config
 3. Set that xcconfig as actual in project settings, for both configurations
-4. Modify the main target info.plist
+4. Modify the framework target info.plist
 5. Add project name in the plist, that located at FeatureIntermidiate/features.plist
 6. Link the target to the main application. Make sure it's embeded - it must be dylib by the way

@@ -4,6 +4,7 @@
 <dict>
 	<key>Features</key>
 	<array>
+		<string>Record28</string>
 		<string>ProMotion</string>
 		<string>Maya</string>
 		<string>RetainCycle</string>

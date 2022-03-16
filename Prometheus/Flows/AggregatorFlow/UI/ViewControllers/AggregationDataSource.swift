@@ -34,29 +34,36 @@ final class AggregationDataSource: UICollectionViewDiffableDataSource<Section<Ag
 		}
 		apply(snapshot, animatingDifferences: animated)
 	}
+    
+    func removeAll(animated: Bool = true) {
+        var snapshot = snapshot()
+        snapshot.deleteAllItems()
+        
+        apply(snapshot, animatingDifferences: animated)
+    }
 	
-//	override func collectionView(_ collectionView: UICollectionView,
-//								 viewForSupplementaryElementOfKind kind: String,
-//								 at indexPath: IndexPath) -> UICollectionReusableView {
-//		switch kind {
-//		case UICollectionView.elementKindSectionHeader:
-//			guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-//																			 withReuseIdentifier: SectionHeaderView.reuseID,
-//																			 for: indexPath) as? SectionHeaderView else {
-//				return UICollectionReusableView()
-//			}
-//			
-//			let snap = snapshot()
-//			let section = snap.sectionIdentifiers[indexPath.section]
-//			view.configure(title: section.name) { [weak self] in
-//				guard let self = self else { return }
-//				self.items[indexPath.section].isClosed.toggle()
-//				self.internalUpdate(animated: true)
-//			}
-//			
-//			return view
-//		default:
-//			return UICollectionReusableView()
-//		}
-//	}
+	override func collectionView(_ collectionView: UICollectionView,
+								 viewForSupplementaryElementOfKind kind: String,
+								 at indexPath: IndexPath) -> UICollectionReusableView {
+		switch kind {
+		case UICollectionView.elementKindSectionHeader:
+			guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+																			 withReuseIdentifier: SectionHeaderView.reuseID,
+																			 for: indexPath) as? SectionHeaderView else {
+				return UICollectionReusableView()
+			}
+			
+			let snap = snapshot()
+			let section = snap.sectionIdentifiers[indexPath.section]
+			view.configure(title: section.name) { [weak self] in
+				guard let self = self else { return }
+				self.items[indexPath.section].isClosed.toggle()
+				self.internalUpdate(animated: true)
+			}
+			
+			return view
+		default:
+			return UICollectionReusableView()
+		}
+	}
 }
