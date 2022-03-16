@@ -7,107 +7,164 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01DDC4F127C2AE0300F8FD4E /* Grid.h in Headers */ = {isa = PBXBuildFile; fileRef = 01DDC4F027C2AE0300F8FD4E /* Grid.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01DDC4FC27C2AEEB00F8FD4E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 01DDC4FB27C2AEEB00F8FD4E /* README.md */; };
+		019CFB7527DFA45500449402 /* Record28.h in Headers */ = {isa = PBXBuildFile; fileRef = 019CFB7427DFA45500449402 /* Record28.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		019CFB8527DFA6FF00449402 /* SharedConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 019CFB8427DFA6FF00449402 /* SharedConfig.xcconfig */; };
+		019CFB8727DFA77100449402 /* Record28EntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CFB8627DFA77100449402 /* Record28EntryPoint.swift */; };
+		019CFB8A27DFA79D00449402 /* RecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CFB8927DFA79D00449402 /* RecognizerViewController.swift */; };
+		019CFB9027DFA8AC00449402 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019CFB8F27DFA8AC00449402 /* FeatureIntermediate.framework */; };
+		019CFB9127DFA8AC00449402 /* FeatureIntermediate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 019CFB8F27DFA8AC00449402 /* FeatureIntermediate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		01EC62E327E0F15D0015BB96 /* RecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC62E227E0F15D0015BB96 /* RecognizerViewModel.swift */; };
+		01EC62E527E0F2DD0015BB96 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC62E427E0F2DD0015BB96 /* DrawingView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		019CFB9227DFA8AC00449402 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				019CFB9127DFA8AC00449402 /* FeatureIntermediate.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		01DDC4ED27C2AE0300F8FD4E /* Grid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Grid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01DDC4F027C2AE0300F8FD4E /* Grid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
-		01DDC4FB27C2AEEB00F8FD4E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		019CFB7127DFA45500449402 /* Record28.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Record28.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		019CFB7427DFA45500449402 /* Record28.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Record28.h; sourceTree = "<group>"; };
+		019CFB8427DFA6FF00449402 /* SharedConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SharedConfig.xcconfig; sourceTree = "<group>"; };
+		019CFB8627DFA77100449402 /* Record28EntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record28EntryPoint.swift; sourceTree = "<group>"; };
+		019CFB8927DFA79D00449402 /* RecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizerViewController.swift; sourceTree = "<group>"; };
+		019CFB8F27DFA8AC00449402 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01EC62E227E0F15D0015BB96 /* RecognizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizerViewModel.swift; sourceTree = "<group>"; };
+		01EC62E427E0F2DD0015BB96 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		01DDC4EA27C2AE0300F8FD4E /* Frameworks */ = {
+		019CFB6E27DFA45500449402 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				019CFB9027DFA8AC00449402 /* FeatureIntermediate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01DDC4E327C2AE0300F8FD4E = {
+		019CFB6727DFA45500449402 = {
 			isa = PBXGroup;
 			children = (
-				01DDC4EF27C2AE0300F8FD4E /* Grid */,
-				01DDC4EE27C2AE0300F8FD4E /* Products */,
+				019CFB7327DFA45500449402 /* Record28 */,
+				019CFB7227DFA45500449402 /* Products */,
+				019CFB8E27DFA8AC00449402 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		01DDC4EE27C2AE0300F8FD4E /* Products */ = {
+		019CFB7227DFA45500449402 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01DDC4ED27C2AE0300F8FD4E /* Grid.framework */,
+				019CFB7127DFA45500449402 /* Record28.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		01DDC4EF27C2AE0300F8FD4E /* Grid */ = {
+		019CFB7327DFA45500449402 /* Record28 */ = {
 			isa = PBXGroup;
 			children = (
-				01DDC4FB27C2AEEB00F8FD4E /* README.md */,
-				01DDC4FA27C2AEC500F8FD4E /* Core */,
-				01DDC4F027C2AE0300F8FD4E /* Grid.h */,
+				019CFB7F27DFA68600449402 /* Config */,
+				019CFB8127DFA69500449402 /* Feature */,
+				019CFB8827DFA78A00449402 /* UI */,
+				019CFB7427DFA45500449402 /* Record28.h */,
 			);
-			path = Grid;
+			path = Record28;
 			sourceTree = "<group>";
 		};
-		01DDC4FA27C2AEC500F8FD4E /* Core */ = {
+		019CFB7F27DFA68600449402 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				019CFB8427DFA6FF00449402 /* SharedConfig.xcconfig */,
 			);
-			name = Core;
+			name = Config;
+			sourceTree = "<group>";
+		};
+		019CFB8127DFA69500449402 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				019CFB8627DFA77100449402 /* Record28EntryPoint.swift */,
+			);
+			name = Feature;
+			sourceTree = "<group>";
+		};
+		019CFB8827DFA78A00449402 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01EC62E227E0F15D0015BB96 /* RecognizerViewModel.swift */,
+				019CFB8927DFA79D00449402 /* RecognizerViewController.swift */,
+				01EC62E427E0F2DD0015BB96 /* DrawingView.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		019CFB8E27DFA8AC00449402 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				019CFB8F27DFA8AC00449402 /* FeatureIntermediate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		01DDC4E827C2AE0300F8FD4E /* Headers */ = {
+		019CFB6C27DFA45500449402 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01DDC4F127C2AE0300F8FD4E /* Grid.h in Headers */,
+				019CFB7527DFA45500449402 /* Record28.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		01DDC4EC27C2AE0300F8FD4E /* Grid */ = {
+		019CFB7027DFA45500449402 /* Record28 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01DDC4F427C2AE0300F8FD4E /* Build configuration list for PBXNativeTarget "Grid" */;
+			buildConfigurationList = 019CFB7827DFA45500449402 /* Build configuration list for PBXNativeTarget "Record28" */;
 			buildPhases = (
-				01DDC4E827C2AE0300F8FD4E /* Headers */,
-				01DDC4E927C2AE0300F8FD4E /* Sources */,
-				01DDC4EA27C2AE0300F8FD4E /* Frameworks */,
-				01DDC4EB27C2AE0300F8FD4E /* Resources */,
+				019CFB6C27DFA45500449402 /* Headers */,
+				019CFB6D27DFA45500449402 /* Sources */,
+				019CFB6E27DFA45500449402 /* Frameworks */,
+				019CFB6F27DFA45500449402 /* Resources */,
+				019CFB9227DFA8AC00449402 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Grid;
-			productName = Grid;
-			productReference = 01DDC4ED27C2AE0300F8FD4E /* Grid.framework */;
+			name = Record28;
+			productName = Record28;
+			productReference = 019CFB7127DFA45500449402 /* Record28.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		01DDC4E427C2AE0300F8FD4E /* Project object */ = {
+		019CFB6827DFA45500449402 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					01DDC4EC27C2AE0300F8FD4E = {
+					019CFB7027DFA45500449402 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
-			buildConfigurationList = 01DDC4E727C2AE0300F8FD4E /* Build configuration list for PBXProject "Grid" */;
+			buildConfigurationList = 019CFB6B27DFA45500449402 /* Build configuration list for PBXProject "Record28" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,39 +172,43 @@
 				en,
 				Base,
 			);
-			mainGroup = 01DDC4E327C2AE0300F8FD4E;
-			productRefGroup = 01DDC4EE27C2AE0300F8FD4E /* Products */;
+			mainGroup = 019CFB6727DFA45500449402;
+			productRefGroup = 019CFB7227DFA45500449402 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				01DDC4EC27C2AE0300F8FD4E /* Grid */,
+				019CFB7027DFA45500449402 /* Record28 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		01DDC4EB27C2AE0300F8FD4E /* Resources */ = {
+		019CFB6F27DFA45500449402 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01DDC4FC27C2AEEB00F8FD4E /* README.md in Resources */,
+				019CFB8527DFA6FF00449402 /* SharedConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		01DDC4E927C2AE0300F8FD4E /* Sources */ = {
+		019CFB6D27DFA45500449402 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				019CFB8A27DFA79D00449402 /* RecognizerViewController.swift in Sources */,
+				01EC62E327E0F15D0015BB96 /* RecognizerViewModel.swift in Sources */,
+				019CFB8727DFA77100449402 /* Record28EntryPoint.swift in Sources */,
+				01EC62E527E0F2DD0015BB96 /* DrawingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		01DDC4F227C2AE0300F8FD4E /* Debug */ = {
+		019CFB7627DFA45500449402 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -211,7 +272,7 @@
 			};
 			name = Debug;
 		};
-		01DDC4F327C2AE0300F8FD4E /* Release */ = {
+		019CFB7727DFA45500449402 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -269,9 +330,11 @@
 			};
 			name = Release;
 		};
-		01DDC4F527C2AE0300F8FD4E /* Debug */ = {
+		019CFB7927DFA45500449402 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 019CFB8427DFA6FF00449402 /* SharedConfig.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -280,26 +343,31 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "$(PRINCIPAL_CLASS)";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pyretttt.Grid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pyretttt.Record28;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		01DDC4F627C2AE0300F8FD4E /* Release */ = {
+		019CFB7A27DFA45500449402 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 019CFB8427DFA6FF00449402 /* SharedConfig.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -308,14 +376,16 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "$(PRINCIPAL_CLASS)";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pyretttt.Grid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pyretttt.Record28;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -328,25 +398,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		01DDC4E727C2AE0300F8FD4E /* Build configuration list for PBXProject "Grid" */ = {
+		019CFB6B27DFA45500449402 /* Build configuration list for PBXProject "Record28" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				01DDC4F227C2AE0300F8FD4E /* Debug */,
-				01DDC4F327C2AE0300F8FD4E /* Release */,
+				019CFB7627DFA45500449402 /* Debug */,
+				019CFB7727DFA45500449402 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01DDC4F427C2AE0300F8FD4E /* Build configuration list for PBXNativeTarget "Grid" */ = {
+		019CFB7827DFA45500449402 /* Build configuration list for PBXNativeTarget "Record28" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				01DDC4F527C2AE0300F8FD4E /* Debug */,
-				01DDC4F627C2AE0300F8FD4E /* Release */,
+				019CFB7927DFA45500449402 /* Debug */,
+				019CFB7A27DFA45500449402 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 01DDC4E427C2AE0300F8FD4E /* Project object */;
+	rootObject = 019CFB6827DFA45500449402 /* Project object */;
 }

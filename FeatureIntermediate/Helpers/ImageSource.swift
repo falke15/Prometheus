@@ -19,6 +19,7 @@ public enum ImageSource: String {
 	case ic24_fullScreen
 	case ic24_dotsHorizontal
 	case ic24_redCircle
+    case ic64_up_and_down_arrows
 }
 
 public extension ImageSource {

@@ -88,7 +88,10 @@ static const NSNumber *itemSpace = @(24);
     CGSize parentSize = self.collectionView.frame.size;
     CGFloat width = parentSize.width;
     CGFloat xOffset = (width + [itemSpace doubleValue]) * indexPath.item;
-    CGRect itemRect = CGRectMake(xOffset, [itemSpace doubleValue], width, parentSize.height - [itemSpace doubleValue] * 2);
+    CGRect itemRect = CGRectMake(xOffset,
+                                 [itemSpace doubleValue],
+                                 width,
+                                 parentSize.height - [itemSpace doubleValue] * 2);
     
     return itemRect;
 }
@@ -96,6 +99,10 @@ static const NSNumber *itemSpace = @(24);
 -(NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     NSMutableArray<UICollectionViewLayoutAttributes *> * result = [NSMutableArray new];
+    if (!([self.attributesCache count]))
+    {
+        [self prepareLayout];
+    }
     for (UICollectionViewLayoutAttributes *item in self.attributesCache.allValues)
     {
         if (CGRectIntersectsRect(item.frame, rect))
@@ -107,16 +114,25 @@ static const NSNumber *itemSpace = @(24);
     return [result copy];
 }
 
+-(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!([self.attributesCache count]))
+    {
+        [self prepareLayout];
+    }
+    return self.attributesCache[indexPath];
+}
+
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset
                                  withScrollingVelocity:(CGPoint)velocity
 {
     CGFloat derivedOffsetX = CGFLOAT_MAX;
     CGFloat proposedCenterX = proposedContentOffset.x + (CGRectGetWidth(self.collectionView.bounds) / 2);
     CGRect proposedRect = CGRectMake(proposedContentOffset.x,
-                                     16.f,
+                                     [itemSpace doubleValue],
                                      CGRectGetWidth(self.collectionView.bounds),
                                      CGRectGetHeight(self.collectionView.bounds));
-    
+
     NSArray<UICollectionViewLayoutAttributes *> *attributes = [self layoutAttributesForElementsInRect:proposedRect];
     for (UICollectionViewLayoutAttributes *attribute in attributes)
     {
@@ -127,7 +143,7 @@ static const NSNumber *itemSpace = @(24);
             derivedOffsetX = itemCenterX - proposedCenterX;
         }
     }
-    
+
     return CGPointMake(proposedContentOffset.x + derivedOffsetX, proposedContentOffset.y);
 }
 

@@ -14,10 +14,6 @@
 		016440BD278DE6BC0096F788 /* Maya.h in Headers */ = {isa = PBXBuildFile; fileRef = 016440BC278DE6BC0096F788 /* Maya.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		016440C7278DE77E0096F788 /* MayaEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016440C6278DE77E0096F788 /* MayaEntryPoint.swift */; };
 		016440D5278DE9530096F788 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016440D4278DE9530096F788 /* FeatureIntermediate.framework */; };
-		01A9657827D49CED000BA47A /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A9657727D49CED000BA47A /* CardsViewController.swift */; };
-		01C8033327D512B600FEBBDC /* TransformCollectionLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C8033127D512B600FEBBDC /* TransformCollectionLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01C8033427D512B600FEBBDC /* TransformCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C8033227D512B600FEBBDC /* TransformCollectionLayout.m */; };
-		01C8033627D51B8500FEBBDC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8033527D51B8500FEBBDC /* CardCollectionViewCell.swift */; };
 		01D0A28D27946B8F00BF3972 /* MAYACalendarDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D0A28B27946B8F00BF3972 /* MAYACalendarDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01D0A28E27946B8F00BF3972 /* MAYACalendarDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D0A28C27946B8F00BF3972 /* MAYACalendarDataSource.m */; };
 		01D0A29227946BD200BF3972 /* MAYACalendarEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D0A29027946BD200BF3972 /* MAYACalendarEntry.h */; };
@@ -40,10 +36,6 @@
 		016440C6278DE77E0096F788 /* MayaEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MayaEntryPoint.swift; sourceTree = "<group>"; };
 		016440D1278DE90C0096F788 /* SharedConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SharedConfig.xcconfig; sourceTree = "<group>"; };
 		016440D4278DE9530096F788 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01A9657727D49CED000BA47A /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
-		01C8033127D512B600FEBBDC /* TransformCollectionLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformCollectionLayout.h; sourceTree = "<group>"; };
-		01C8033227D512B600FEBBDC /* TransformCollectionLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformCollectionLayout.m; sourceTree = "<group>"; };
-		01C8033527D51B8500FEBBDC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		01D0A28B27946B8F00BF3972 /* MAYACalendarDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAYACalendarDataSource.h; sourceTree = "<group>"; };
 		01D0A28C27946B8F00BF3972 /* MAYACalendarDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAYACalendarDataSource.m; sourceTree = "<group>"; };
 		01D0A29027946BD200BF3972 /* MAYACalendarEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAYACalendarEntry.h; sourceTree = "<group>"; };
@@ -116,7 +108,6 @@
 				016440C9278DE8010096F788 /* Config */,
 				016440C5278DE76C0096F788 /* Feature */,
 				014EAB44278F2BE9009E8E09 /* UI */,
-				01A9657627D49CD3000BA47A /* UICards */,
 				01D0A28F27946BBB00BF3972 /* Model */,
 				016440BC278DE6BC0096F788 /* Maya.h */,
 				01566BB82791E26D00898EFF /* modulePrivate.modulemap */,
@@ -148,17 +139,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		01A9657627D49CD3000BA47A /* UICards */ = {
-			isa = PBXGroup;
-			children = (
-				01A9657727D49CED000BA47A /* CardsViewController.swift */,
-				01C8033127D512B600FEBBDC /* TransformCollectionLayout.h */,
-				01C8033227D512B600FEBBDC /* TransformCollectionLayout.m */,
-				01C8033527D51B8500FEBBDC /* CardCollectionViewCell.swift */,
-			);
-			name = UICards;
-			sourceTree = "<group>";
-		};
 		01D0A28F27946BBB00BF3972 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +159,6 @@
 				011445E12791CB3D00311C3F /* MAYADemoViewController.h in Headers */,
 				01DE525427A30109001D3CA7 /* UICollectionView+Constants.h in Headers */,
 				01D0A28D27946B8F00BF3972 /* MAYACalendarDataSource.h in Headers */,
-				01C8033327D512B600FEBBDC /* TransformCollectionLayout.h in Headers */,
 				01D0A29227946BD200BF3972 /* MAYACalendarEntry.h in Headers */,
 				016440BD278DE6BC0096F788 /* Maya.h in Headers */,
 				01DE525027A2FA25001D3CA7 /* MAYABadgeSupplementaryView.h in Headers */,
@@ -257,9 +236,6 @@
 			files = (
 				016222EF279725C200921222 /* MAYACalendarCollectionViewCell.m in Sources */,
 				01D0A28E27946B8F00BF3972 /* MAYACalendarDataSource.m in Sources */,
-				01C8033427D512B600FEBBDC /* TransformCollectionLayout.m in Sources */,
-				01C8033627D51B8500FEBBDC /* CardCollectionViewCell.swift in Sources */,
-				01A9657827D49CED000BA47A /* CardsViewController.swift in Sources */,
 				01DE525127A2FA25001D3CA7 /* MAYABadgeSupplementaryView.m in Sources */,
 				011445E22791CB3D00311C3F /* MAYADemoViewController.m in Sources */,
 				01DE525527A30109001D3CA7 /* UICollectionView+Constants.m in Sources */,

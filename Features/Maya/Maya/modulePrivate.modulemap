@@ -5,7 +5,6 @@ framework module Maya {
         header "MAYADemoViewController.h"
         header "MAYACalendarDataSource.h"
         header "UICollectionView+Constants.h"
-        header "TransformCollectionLayout.h"
     }
     
     export *

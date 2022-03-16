@@ -15,6 +15,9 @@
          </FileRef>
       </Group>
       <FileRef
+         location = "group:Features/Record28/Record28.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Features/Maya/Maya.xcodeproj">
       </FileRef>
       <FileRef

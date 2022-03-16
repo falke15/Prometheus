@@ -9,12 +9,15 @@ import FeatureIntermediate
 
 enum AggregationItemModel: Hashable {
 	case plainFeature(model: FeatureCellModel)
+    case productFeature(model: ProductFeatureModel)
 	
 	var model: CollectionCellModelAnyType {
 		
 		switch self {
-		case let .plainFeature(featureModel):
+        case let .plainFeature(featureModel):
 			return featureModel
+        case let .productFeature(featureModel):
+            return featureModel
 		}
 	}
 }

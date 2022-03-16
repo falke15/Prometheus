@@ -20,6 +20,6 @@ final class MayaEntryPoint: FeatureEntryPointProtocol {
     
     func enter() {
         let navigationController = UINavigationController.upper()
-        navigationController?.pushViewController(CardsViewController(), animated: true)
+        navigationController?.pushViewController(MAYADemoViewController(), animated: true)
     }
 }
