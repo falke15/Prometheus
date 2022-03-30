@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0154918627E764E800A5AB62 /* UIImage+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154918527E764E800A5AB62 /* UIImage+Modifiers.swift */; };
 		019CFB7527DFA45500449402 /* Record28.h in Headers */ = {isa = PBXBuildFile; fileRef = 019CFB7427DFA45500449402 /* Record28.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		019CFB8527DFA6FF00449402 /* SharedConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 019CFB8427DFA6FF00449402 /* SharedConfig.xcconfig */; };
 		019CFB8727DFA77100449402 /* Record28EntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CFB8627DFA77100449402 /* Record28EntryPoint.swift */; };
 		019CFB8A27DFA79D00449402 /* RecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CFB8927DFA79D00449402 /* RecognizerViewController.swift */; };
 		019CFB9027DFA8AC00449402 /* FeatureIntermediate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019CFB8F27DFA8AC00449402 /* FeatureIntermediate.framework */; };
 		019CFB9127DFA8AC00449402 /* FeatureIntermediate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 019CFB8F27DFA8AC00449402 /* FeatureIntermediate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		01EC62E327E0F15D0015BB96 /* RecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC62E227E0F15D0015BB96 /* RecognizerViewModel.swift */; };
+		01A2F00227EB8E7700F6C3B4 /* DigitsMnist.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 01A2F00127EB8E7700F6C3B4 /* DigitsMnist.mlmodel */; };
+		01B0662C27EE213E00DB9A38 /* DigitsAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B0662B27EE213E00DB9A38 /* DigitsAnalyzer.swift */; };
 		01EC62E527E0F2DD0015BB96 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC62E427E0F2DD0015BB96 /* DrawingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,13 +34,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0154918527E764E800A5AB62 /* UIImage+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Modifiers.swift"; sourceTree = "<group>"; };
 		019CFB7127DFA45500449402 /* Record28.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Record28.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		019CFB7427DFA45500449402 /* Record28.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Record28.h; sourceTree = "<group>"; };
 		019CFB8427DFA6FF00449402 /* SharedConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SharedConfig.xcconfig; sourceTree = "<group>"; };
 		019CFB8627DFA77100449402 /* Record28EntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record28EntryPoint.swift; sourceTree = "<group>"; };
 		019CFB8927DFA79D00449402 /* RecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizerViewController.swift; sourceTree = "<group>"; };
 		019CFB8F27DFA8AC00449402 /* FeatureIntermediate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeatureIntermediate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01EC62E227E0F15D0015BB96 /* RecognizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizerViewModel.swift; sourceTree = "<group>"; };
+		01A2F00127EB8E7700F6C3B4 /* DigitsMnist.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DigitsMnist.mlmodel; sourceTree = "<group>"; };
+		01B0662B27EE213E00DB9A38 /* DigitsAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitsAnalyzer.swift; sourceTree = "<group>"; };
 		01EC62E427E0F2DD0015BB96 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +58,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0154918127E75B2A00A5AB62 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				01B0662B27EE213E00DB9A38 /* DigitsAnalyzer.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		0154918427E764D800A5AB62 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				01A2F00127EB8E7700F6C3B4 /* DigitsMnist.mlmodel */,
+				0154918527E764E800A5AB62 /* UIImage+Modifiers.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		019CFB6727DFA45500449402 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +95,8 @@
 		019CFB7327DFA45500449402 /* Record28 */ = {
 			isa = PBXGroup;
 			children = (
+				0154918427E764D800A5AB62 /* Extensions */,
+				0154918127E75B2A00A5AB62 /* Data */,
 				019CFB7F27DFA68600449402 /* Config */,
 				019CFB8127DFA69500449402 /* Feature */,
 				019CFB8827DFA78A00449402 /* UI */,
@@ -101,7 +124,6 @@
 		019CFB8827DFA78A00449402 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				01EC62E227E0F15D0015BB96 /* RecognizerViewModel.swift */,
 				019CFB8927DFA79D00449402 /* RecognizerViewController.swift */,
 				01EC62E427E0F2DD0015BB96 /* DrawingView.swift */,
 			);
@@ -198,8 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0154918627E764E800A5AB62 /* UIImage+Modifiers.swift in Sources */,
+				01B0662C27EE213E00DB9A38 /* DigitsAnalyzer.swift in Sources */,
+				01A2F00227EB8E7700F6C3B4 /* DigitsMnist.mlmodel in Sources */,
 				019CFB8A27DFA79D00449402 /* RecognizerViewController.swift in Sources */,
-				01EC62E327E0F15D0015BB96 /* RecognizerViewModel.swift in Sources */,
 				019CFB8727DFA77100449402 /* Record28EntryPoint.swift in Sources */,
 				01EC62E527E0F2DD0015BB96 /* DrawingView.swift in Sources */,
 			);
