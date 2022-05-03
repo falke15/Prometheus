@@ -7,7 +7,7 @@
 
 import FeatureIntermediate
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator, RouteChainLink {
 	
 	typealias EventHandler = (Event, Coordinator) -> Void
 	
@@ -19,6 +19,11 @@ final class AppCoordinator: Coordinator {
 	
 	weak var navigationController: UINavigationController?
 	var childCoordinators: [Coordinator] = []
+    
+    // MARK: - RouteChainLink
+    
+    weak var prevLink: RouteChainLink?
+    var nextLink: RouteChainLink? = nil
 	
 	// MARK: - Private properties
 	
@@ -80,4 +85,10 @@ final class AppCoordinator: Coordinator {
 			break
 		}
 	}
+}
+
+extension AppCoordinator {
+    func route(navigationController: UINavigationController?) {
+        start()
+    }
 }

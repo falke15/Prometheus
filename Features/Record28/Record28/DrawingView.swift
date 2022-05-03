@@ -21,7 +21,7 @@ final class DrawingView: UIView {
     weak var delegate: DrawingViewDelegate?
     
     private let lineWidth: CGFloat = 12
-    private let lineColor: CGColor = Pallete.Black.black3.cgColor
+    private let lineColor: CGColor = Pallete.Light.white1.cgColor
     
     private var lastLocus: CGPoint = .zero
     private var shouldReset: Bool = true
@@ -105,8 +105,7 @@ final class DrawingView: UIView {
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             
-            var processedImage = self.addBackgroundColor(to: image)
-            processedImage = self.getCroppedImage(of: processedImage)
+            let processedImage = self.getCroppedImage(of: image)
             self.delegate?.drawingView(self, didEndDraw: processedImage)
         })
     }
@@ -116,26 +115,6 @@ final class DrawingView: UIView {
     }
     
     // MARK: - Image processing
-    
-    private func addBackgroundColor(to image: UIImage?) -> UIImage? {
-        guard let image = image ,
-              let cgImage = image.cgImage,
-              let color = backgroundColor?.cgColor else { return nil }
-        
-        UIGraphicsBeginImageContext(image.size)
-        let rect = CGRect(origin: .zero, size: image.size)
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        context.translateBy(x: 0, y: image.size.height);
-        context.scaleBy(x: 1.0, y: -1.0);
-        context.setFillColor(color)
-        context.fill(rect)
-        context.draw(cgImage, in: rect)
-        
-        let appliedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return appliedImage
-    }
     
     private func getCroppedImage(of image: UIImage?) -> UIImage? {
         guard let image = image, let cgImage = image.cgImage else { return nil }

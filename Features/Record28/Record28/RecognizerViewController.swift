@@ -15,12 +15,15 @@ final class RecognizerViewController: UIViewController {
         static let largeSpacing: CGFloat = NumericValues.xLarge
         
         static let drawnImageSize: CGFloat = 96
+        
+        static let primaryColor: UIColor = Pallete.Light.white1
+        static let secondary: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     // MARK: - Visual elements
     
     private lazy var canvasView: DrawingView = {
-        let view = DrawingView(color: Pallete.Light.white2)
+        let view = DrawingView(color: Constants.secondary)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.delegate = self
         
@@ -50,24 +53,26 @@ final class RecognizerViewController: UIViewController {
         return view
     }()
     
+    private let resultsLabel: UILabel = {
+        let view = UILabel()
+        view.font = TextFont.base.withSize(24)
+        view.textColor = Constants.secondary
+        view.numberOfLines = 1
+        view.textAlignment = .center
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    // TODO: - move to ViewModel
+    
+    private let digitAnalyzer: DigitsAnalyzer = DigitsAnalyzer()
+    
     // MARK: - Lifecycle
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    deinit {
-        print("Deelted")
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Pallete.Black.black3
+        view.backgroundColor = Constants.primaryColor
         setupUI()
     }
     
@@ -77,17 +82,17 @@ final class RecognizerViewController: UIViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.backgroundColor = Pallete.Utility.transparent
-        appearance.titleTextAttributes = [.foregroundColor: Pallete.Light.white1]
+        appearance.titleTextAttributes = [.foregroundColor: Constants.secondary]
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.tintColor = Pallete.Light.white1
+        navigationController?.navigationBar.tintColor = Constants.secondary
         navigationItem.title = "Recognize"
     }
     
     // MARK: - Setup UI
     
     private func setupUI() {
-        let views = [canvasView, drawnImageView]
+        let views = [canvasView, drawnImageView, resultsLabel]
         views.forEach { view.addSubview($0) }
         
         setupConstraints()
@@ -105,14 +110,37 @@ final class RecognizerViewController: UIViewController {
             drawnImageView.widthAnchor.constraint(equalToConstant: Constants.drawnImageSize),
             drawnImageView.heightAnchor.constraint(equalTo: drawnImageView.widthAnchor),
             drawnImageView.topAnchor.constraint(equalTo: canvasView.bottomAnchor,
-                                                 constant: Constants.largeSpacing)
+                                                 constant: Constants.largeSpacing),
+            
+            resultsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            resultsLabel.topAnchor.constraint(equalTo: drawnImageView.bottomAnchor,
+                                              constant: Constants.largeSpacing)
         ])
     }
 }
 
 extension RecognizerViewController: DrawingViewDelegate {
     func drawingView(_ view: DrawingView, didEndDraw image: UIImage?) {
-        snapshotAppearingAnimation(with: image, completion: nil)
+        var imageToProcess = image?.resizedImage(size: CGSize(width: 28, height: 28))
+        imageToProcess = UIImage.convertToGrayScale(image: imageToProcess)
+        let filledImage = UIImage.addBackgroundColor(to: imageToProcess, backgroundColor: view.backgroundColor)
+        
+        snapshotAppearingAnimation(with: filledImage) {
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self,
+                      let imageToProcess = imageToProcess else { return }
+                self.digitAnalyzer.predict(imageToProcess) { results in
+                    switch results {
+                    case .success(let value):
+                        DispatchQueue.main.async { [weak self] in
+                            self?.resultsLabel.text = "Number is \(value.0), confidence is \(round(value.1 * 100))%"
+                        }
+                    case .failure(let error):
+                        fatalError("Error occured while analyzing image: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
     }
     
     private func snapshotAppearingAnimation(with image: UIImage?,
