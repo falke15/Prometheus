@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011D910E2766476B00BD7045 /* LinearChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011D910D2766476B00BD7045 /* LinearChartView.swift */; };
 		013E6459273449E000D38AF7 /* RetainCycleEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E6458273449DF00D38AF7 /* RetainCycleEntryPoint.swift */; };
-		013E645D27344A2800D38AF7 /* SharedConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 013E645C27344A2800D38AF7 /* SharedConfig.xcconfig */; };
+		014CB27C278C867800FD5C21 /* LinearChartView+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014CB27B278C867800FD5C21 /* LinearChartView+Mock.swift */; };
+		01513474277644E100182D48 /* ClosedRange+Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01513473277644E100182D48 /* ClosedRange+Shift.swift */; };
+		015EFB932761217C00943ACE /* GraphicsCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EFB922761217C00943ACE /* GraphicsCanvasViewController.swift */; };
 		019281E52701FF4100422007 /* RetainCycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019281DB2701FF4100422007 /* RetainCycle.framework */; };
 		019281EA2701FF4100422007 /* RetainCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019281E92701FF4100422007 /* RetainCycleTests.swift */; };
 		019281EC2701FF4100422007 /* RetainCycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 019281DE2701FF4100422007 /* RetainCycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,8 +30,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		011D910D2766476B00BD7045 /* LinearChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearChartView.swift; sourceTree = "<group>"; };
 		013E6458273449DF00D38AF7 /* RetainCycleEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetainCycleEntryPoint.swift; sourceTree = "<group>"; };
 		013E645C27344A2800D38AF7 /* SharedConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = SharedConfig.xcconfig; path = RetainCycle/SharedConfig.xcconfig; sourceTree = SOURCE_ROOT; };
+		014CB27B278C867800FD5C21 /* LinearChartView+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinearChartView+Mock.swift"; sourceTree = "<group>"; };
+		01513473277644E100182D48 /* ClosedRange+Shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+Shift.swift"; sourceTree = "<group>"; };
+		015EFB922761217C00943ACE /* GraphicsCanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsCanvasViewController.swift; sourceTree = "<group>"; };
 		019281DB2701FF4100422007 /* RetainCycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RetainCycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		019281DE2701FF4100422007 /* RetainCycle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RetainCycle.h; sourceTree = "<group>"; };
 		019281DF2701FF4100422007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +70,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		011D910C2766473300BD7045 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				011D910D2766476B00BD7045 /* LinearChartView.swift */,
+				014CB27B278C867800FD5C21 /* LinearChartView+Mock.swift */,
+			);
+			name = Charts;
+			sourceTree = "<group>";
+		};
 		013E6457273449D800D38AF7 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +93,22 @@
 				013E645C27344A2800D38AF7 /* SharedConfig.xcconfig */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		01513472277644CF00182D48 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				01513473277644E100182D48 /* ClosedRange+Shift.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		015EFB9127611FF700943ACE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				015EFB922761217C00943ACE /* GraphicsCanvasViewController.swift */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 		019281D12701FF4100422007 = {
@@ -102,8 +134,11 @@
 		019281DD2701FF4100422007 /* RetainCycle */ = {
 			isa = PBXGroup;
 			children = (
+				01513472277644CF00182D48 /* Extension */,
+				011D910C2766473300BD7045 /* Charts */,
 				013E645E27344A3700D38AF7 /* Config */,
 				013E6457273449D800D38AF7 /* Feature */,
+				015EFB9127611FF700943ACE /* Scenes */,
 				019281DE2701FF4100422007 /* RetainCycle.h */,
 				019281DF2701FF4100422007 /* Info.plist */,
 			);
@@ -197,7 +232,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					019281DA2701FF4100422007 = {
 						CreatedOnToolsVersion = 12.5;
@@ -232,7 +267,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				013E645D27344A2800D38AF7 /* SharedConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +309,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				014CB27C278C867800FD5C21 /* LinearChartView+Mock.swift in Sources */,
+				01513474277644E100182D48 /* ClosedRange+Shift.swift in Sources */,
+				011D910E2766476B00BD7045 /* LinearChartView.swift in Sources */,
 				013E6459273449E000D38AF7 /* RetainCycleEntryPoint.swift in Sources */,
+				015EFB932761217C00943ACE /* GraphicsCanvasViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

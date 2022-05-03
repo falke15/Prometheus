@@ -34,6 +34,13 @@ final class AggregationDataSource: UICollectionViewDiffableDataSource<Section<Ag
 		}
 		apply(snapshot, animatingDifferences: animated)
 	}
+    
+    func removeAll(animated: Bool = true) {
+        var snapshot = snapshot()
+        snapshot.deleteAllItems()
+        
+        apply(snapshot, animatingDifferences: animated)
+    }
 	
 	override func collectionView(_ collectionView: UICollectionView,
 								 viewForSupplementaryElementOfKind kind: String,
