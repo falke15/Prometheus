@@ -17,9 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.backgroundColor = Pallete.Light.white1
-		appCoordinator.start()
+        let navigationController = UINavigationControllerSpy()
+        window?.rootViewController = navigationController
 		window?.makeKeyAndVisible()
 		
+        SpashScreenViewController(nextLink: appCoordinator)
+            .route(navigationController: navigationController)
+        
 		return true
     }
 	
